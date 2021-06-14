@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>关于反序列化漏洞的一点思考 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="0x00 序最近在做CTF题中连续遇到了几次反序列化漏洞的利用，本文算是对这种漏洞的一点思考，不涉及具体的题目，本文内容都来自个人的理解，有误请指正。 0x01 啥是反序列化要想理解什么是反序列化，首先得知道啥是序列化。将一个对象转储为一个特定格式的字符串的过程就是序列化，相应的，解析该特定格式的字符串并初始化对应对象的过程称为反序列化。 0x02 为什么要序列化&#x2F;反序列化在我看来，序列化和反序列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于反序列化漏洞的一点思考">
+<meta property="og:url" content="http://example.com/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="0x00 序最近在做CTF题中连续遇到了几次反序列化漏洞的利用，本文算是对这种漏洞的一点思考，不涉及具体的题目，本文内容都来自个人的理解，有误请指正。 0x01 啥是反序列化要想理解什么是反序列化，首先得知道啥是序列化。将一个对象转储为一个特定格式的字符串的过程就是序列化，相应的，解析该特定格式的字符串并初始化对应对象的过程称为反序列化。 0x02 为什么要序列化&#x2F;反序列化在我看来，序列化和反序列">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-02T14:02:33.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:36:51.520Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-关于反序列化漏洞的一点思考" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" class="article-date">
+  <time class="dt-published" datetime="2020-11-02T14:02:33.000Z" itemprop="datePublished">2020-11-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      关于反序列化漏洞的一点思考
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>最近在做CTF题中连续遇到了几次反序列化漏洞的利用，本文算是对这种漏洞的一点思考，不涉及具体的题目，本文内容都来自个人的理解，有误请指正。</p>
+<h2 id="0x01-啥是反序列化"><a href="#0x01-啥是反序列化" class="headerlink" title="0x01 啥是反序列化"></a>0x01 啥是反序列化</h2><p>要想理解什么是反序列化，首先得知道啥是序列化。将一个<strong>对象</strong>转储为一个特定格式的字符串的过程就是序列化，相应的，<strong>解析</strong>该特定格式的字符串并初始化对应对象的过程称为反序列化。</p>
+<h2 id="0x02-为什么要序列化-反序列化"><a href="#0x02-为什么要序列化-反序列化" class="headerlink" title="0x02 为什么要序列化/反序列化"></a>0x02 为什么要序列化/反序列化</h2><p>在我看来，序列化和反序列化最直接的目的就是在通信过程中以一种易理解的格式传递，这里的通信过程既包括基于网络的远程通信，也包括在基于操作系统的本地通信。这就意味着序列化字符串能够出现在Web报文段中，也能出现在作为数据库的文件中(如session)。当接收方接收到字符串时，就能够将该字符串解析生成所需要的对象，这就是反序列化的价值所在。</p>
+<h2 id="0x03-人畜无害的反序列化"><a href="#0x03-人畜无害的反序列化" class="headerlink" title="0x03 人畜无害的反序列化"></a>0x03 人畜无害的反序列化</h2><p>与XSS，SQL注入，命令注入等名字中就带着危险气息的攻击方式不同，反序列化漏洞给我的感觉就是人畜无害(与此类似的还有格式化字符串漏洞)。在一般的网络通信中，攻击者能控制的最多是序列化字符串，按照常理来说，即使攻击者控制了该字符串，即控制了反序列化后所生成的对象，也没法执行任何的函数。但是，由于自动调用的<strong>魔术方法</strong>的存在，很多情况下开发人员无法顾及到生成的对象是恶意的情况下魔术方法的行为，这就可能导致非预期的方法被调用，属性被覆盖等等。故反序列化事实上可以看作一种<strong>被限制的代码注入</strong>，只能初始化指定的对象，利用是所使用的函数也只能是代码中已有的函数，在黑盒测试的情况下利用难度很大，相对于代码注入而言限制很大，但即使如此，基于反序列化的漏洞依然层出不穷。下面基于攻击方和防守方分别阐述下我对该漏洞的思考。</p>
+<h2 id="0x04-攻击方眼中的反序列化"><a href="#0x04-攻击方眼中的反序列化" class="headerlink" title="0x04 攻击方眼中的反序列化"></a>0x04 攻击方眼中的反序列化</h2><p>正如上文所述，反序列化漏洞是一种受限的代码注入，但相较于完全的代码注入，反序列化在审计和测试中更难以发现，很多CVE都是来源于反序列化漏洞。归根结底，要想利用反序列化，必须解决三个问题：</p>
+<ol>
+<li> 在哪里序列化？</li>
+<li> 在哪里反序列化？</li>
+<li> 需要反序列化成什么？</li>
+</ol>
+<p>关于在何处序列化的问题，其实也即何处的序列化字符串是可控的。一般序列化字符串可能出现在session，cookie中，若有文件上传功能也可能存在于文件之中，通过某种协议进行隐式反序列化，这些都是可控的。还可通过其它一些漏洞控制程序流程中实际上对用户透明的一些变量，对于这些中间变量的校验往往会比较弱，更可能会触发反序列化漏洞。但在黑盒测试的情况下挖掘到中间变量的序列化和反序列化过程是很困难的。</p>
+<p>有序列化必有反序列化，问题是找到序列化字符串被解析的地方。事实上在获取到序列化位置之后，获取反序列化的地点相对容易。通过修改序列化字符串使网页回显出现变化或异常可以大致定位字符串被解析的位置。</p>
+<p>最后就是反序列化后产生的对象该如何利用的问题，如果仅仅生成对象而没有调用任何的方法，那这个洞也无法造成什么实质性的危害。显然，相对于原生框架，二次开发的代码更有可能具有有价值的反序列化利用点。在PHP的反序列化当中，尤其需要注意的是魔术方法的利用。有的程序员会在__wakeup()中对传入的字符串进行检查或过滤，但通过CVE-2016-7124可以直接绕过该方法。其它的一些魔术方法如__toString()，__invoke()等往往也是利用的重点，尤其需要关注其中的文件读写，命令执行和另外的反序列化等操作。但是，在黑盒测试的前提下，很难对代码中的利用点进行挖掘， 有时仅能使用PHP原生类进行利用，如利用SoapClient类进行SSRF等。</p>
+<h2 id="0x05-防御方眼中的反序列化"><a href="#0x05-防御方眼中的反序列化" class="headerlink" title="0x05 防御方眼中的反序列化"></a>0x05 防御方眼中的反序列化</h2><p>站在防御方角度看反序列化，同样需要集中解决攻击方所重视的三个问题。</p>
+<p>首先是序列化问题。最好的防御方法自然是不适用序列化，但不能因噎废食，很多情况下使用序列化技术是业务需求，无法回避。所以问题就归于如何保护好序列化字符串，尽量避免被用户控制。最好的方法自然是序列化字符串全程都在服务端上，不被用户的输入所干扰，但这很大程度上影响了业务的灵活性。如果序列化字符串需要与用户进行交互，就必须做好防护。反序列化漏洞是服务端出现的问题，应该于服务端解决，在前端进行处理于事无补。接收到前端的序列化字符串后，在存储前和反序列化前最好都要进行检查和过滤，防止攻击者通过SQL注入等其它方式对存储的序列化字符串进行修改。</p>
+<p>其次是反序列化函数的调用，从业务上来说这是不可避免的，因此要想所解析出来的对象符合预期，在这里还需要对解析的序列化字符串进行检查。增强应用的健壮性，不应畸形输入而崩溃也是防御的一种方法。</p>
+<p>最后则是控制利用点。一个应用往往会有着数量众多的类，这些类的每一个都有可能被利用。对于这些类的检查，需要注意魔术方法中是否有敏感函数，避免被直接利用。除此之外，避免在__wakeup()中进行过滤和检查，始终将版本保持在最新也是有效的方法。此外，保护好源代码，避免泄露能加大使用反序列化攻击的难度。</p>
+<h2 id="0x06-小结"><a href="#0x06-小结" class="headerlink" title="0x06 小结"></a>0x06 小结</h2><p>反序列化漏洞的危害可能不如SQL注入，命令执行等那么明显，但其隐蔽性更强，审计时更难发现。反序列化漏洞是代码强相关漏洞，对其的利用程度和后端代码有很大关系。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" data-id="ckpw1c6ut0019fww02owgauel" data-title="关于反序列化漏洞的一点思考" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Ha1cyon ctf小记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

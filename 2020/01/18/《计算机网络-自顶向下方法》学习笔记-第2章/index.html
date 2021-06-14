@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>《计算机网络-自顶向下方法》学习笔记--第2章 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第2章 《应用层》2.1 应用层协议原理现代网络应用程序有两种主流体系结构，即客户-服务器（CS）体系结构或对等（P2P）结构。在CS体系结构中，有一个总是打开的主机，称为服务器，它服务来自于其它许多称为客户的主机的请求。客户之间不直接通信，服务器具有固定的，周知的地址，称为IP地址。在P2P体系结构中，对位于数据中心的专用服务器依赖很小，主机之间直接通信，被称为对等方。其最显著的特征为自扩展性，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络-自顶向下方法》学习笔记--第2章">
+<meta property="og:url" content="http://example.com/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第2章 《应用层》2.1 应用层协议原理现代网络应用程序有两种主流体系结构，即客户-服务器（CS）体系结构或对等（P2P）结构。在CS体系结构中，有一个总是打开的主机，称为服务器，它服务来自于其它许多称为客户的主机的请求。客户之间不直接通信，服务器具有固定的，周知的地址，称为IP地址。在P2P体系结构中，对位于数据中心的专用服务器依赖很小，主机之间直接通信，被称为对等方。其最显著的特征为自扩展性，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-18T15:06:13.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:36:51.490Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-《计算机网络-自顶向下方法》学习笔记-第2章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/" class="article-date">
+  <time class="dt-published" datetime="2020-01-18T15:06:13.000Z" itemprop="datePublished">2020-01-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      《计算机网络-自顶向下方法》学习笔记--第2章
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="第2章-《应用层》"><a href="#第2章-《应用层》" class="headerlink" title="第2章 《应用层》"></a>第2章 《应用层》</h2><h3 id="2-1-应用层协议原理"><a href="#2-1-应用层协议原理" class="headerlink" title="2.1 应用层协议原理"></a>2.1 应用层协议原理</h3><p>现代网络应用程序有两种主流体系结构，即<strong>客户-服务器（CS）体系结构</strong>或<strong>对等（P2P）结构</strong>。在CS体系结构中，有一个总是打开的主机，称为服务器，它服务来自于其它许多称为客户的主机的请求。<strong>客户之间不直接通信</strong>，<strong>服务器具有固定的，周知的地址</strong>，称为IP地址。在P2P体系结构中，对位于数据中心的专用服务器依赖很小，主机之间直接通信，被称为对等方。其最显著的特征为<strong>自扩展性</strong>，即每个对等方在产生工作负载的同时，也为系统增加服务能力。</p>
+<p>进行通信的实际上是进程而不是程序。对每对通信进程，我们通常将其中一个标记为客户，另一个标记为服务器，<strong>通常把发起通信的进程称为客户，在会话开始时等待联系的进程称为服务器</strong>。进程通过一个称为<strong>套接字</strong>的软件接口向网络发送报文和从网络中接收报文，套接字也被称为应用程序和网络之间的应用程序编程接口（API）。</p>
+<p>传输层协议为应用程序提供的服务大致可以分为四种：<strong>可靠数据传输，吞吐量，定时和安全性</strong>。如果一个协议提供了确保数据交付服务，就认为提供了<strong>可靠数据传输</strong>。<strong>可用吞吐量</strong>是指发送进程能够向接收进程交付比特的速率。具有吞吐量要求的应用称为带宽敏感的应用。<strong>定时</strong>指为了有效性二要求数据交付有严格的时间限制。<strong>安全性</strong>指在发送和接收进程之间提供机密性，以防数据以某种方式在两个进程之间被观察到。</p>
+<p>因特网主要提供两种传输层服务，即<strong>TCP与UDP</strong>。TCP提供<strong>面向连接的服务</strong>和<strong>可靠的数据传输服务</strong>。面向连接指在应用层数据报文开始流动之前，TCP让客户与服务器互相交换传输层控制信息。握手后，一个TCP连接就在两个进程的套接字之间建立了，该连接是<strong>全双工</strong>的。可靠数据传输指能够依靠TCP无差错，按适当顺序交付所发送的数据。此外，TCP还具有<strong>拥塞控制机制</strong>。UDP是一种<strong>不提供不必要服务</strong>的轻量级传输协议，仅提供最小服务。UDP是<strong>无连接</strong>的，<strong>提供不可靠数据传送服务</strong>，不保证报文到达接收进程，到达报文也可能是乱序的，也<strong>没有拥塞控制机制</strong>。</p>
+<p>应用层协议定义了运行在不同端系统上的应用程序进程<strong>如何相互传递报文</strong>。如交换报文的类型，各种报文类型的语法，字段的语义，确定一个进程何时以及如何发送报文，对报文进行响应的规则。</p>
+<h3 id="2-2-Web和HTTP"><a href="#2-2-Web和HTTP" class="headerlink" title="2.2 Web和HTTP"></a>2.2 Web和HTTP</h3><p>Web的应用层协议是<strong>超文本传输协议（HTTP）</strong>，是Web的核心。HTTP定义了Web客户向Web服务器请求Web页面的方式，以及服务器向客户传送Web页面的方式。HTTP使用<strong>TCP作为其支撑运输协议</strong>。HTTP是一个<strong>无状态协议</strong>，服务器向客户发送被请求的文件，而不存储如何关于该客户的状态信息。</p>
+<p>每个请求/响应对经由一个单独的TCP连接发送地应用程序称为使用<strong>非持续连接</strong>，所有请求/响应对使用相同的TCP连接发送称为使用<strong>持续连接</strong>。<strong>往返时间</strong>（RTT）指一个短分组从客户到服务器然后在返回客户所花费的时间。采用非持续连接，发送/接收一个短分组总的响应时间为<strong>两个RTT加上服务器传输HTML文件的时间</strong>。这种情况下，必须为每一个请求的对象建立和维护一个全新的连接，每个对象还需经受两倍的RTT的交付时延。HTTP的默认模式为使用<strong>带流水线的持续连接</strong>。</p>
+<p>HTTP请求报文的第一行称为<strong>请求行</strong>，后继的行称为<strong>首部行</strong>。请求行有三个字段：<strong>方法字段</strong>，<strong>URL字段</strong>和<strong>HTTP版本字段</strong>。首部行中，Host字段指明了对象所在的主机，Connection字段指示是否采用持续连接，User-agent用来指定用户代理，即向服务器发送请求的浏览器类型，Accept-language知名用户希望得到的语言版本。在首部行之后为实体体，使用GET方法时为空，使用POST方法时实体体为上传的数据。</p>
+<p>HTTP响应报文分为三个部分，<strong>状态行</strong>，<strong>首部行</strong>和<strong>实体体</strong>。状态行有三个字段，<strong>协议版本字段，状态码和相应状态本身</strong>。首部行中，Connection字段指示服务器发送完该报文后，是否会关闭TCP连接，Date指示服务器产生并发送响应报文的日期和时间，Server指示产生该报文的服务器类型，类似请求报文中的User-agent，Last-Modified指示对象创建或最后修改的时间，Content-Length指示被发送对象的字节数，Content-type指示实体体中对象的类型。</p>
+<p>一些常见的状态码有：<strong>200 OK</strong>，表示请求成功；<strong>301 Moved Permanently</strong>，表示请求得对象已经被永久转移，新的URL在响应报文中的Location字段中；<strong>400 Bad Request</strong>，表示服务器无法理解请求；<strong>404 Not Found</strong>，表示被请求的文档不再服务器上。</p>
+<p>cookie技术有四个组件：1.HTTP<strong>响应报文中的cookie首部行</strong>2.HTTP<strong>请求报文中的cookie首部行</strong>3.<strong>用户端系统中有一个cookie文件</strong>，并由浏览器管理4.位于web站点的一个<strong>后端数据库</strong>。cookie可以用于标识一个客户。</p>
+<p><strong>Web缓存器</strong>又叫<strong>代理服务器</strong>。当浏览器请求一个对象时，浏览器<strong>首先创建一个到Web缓存器的TCP连接</strong>，并向其发送一个HTTP请求，随后Web缓存器<strong>进行检查</strong>，查看本地是否存储了该对象副本。若Web缓存器中没有该对象，它就打开一个与该对象的初始服务器的TCP连接，<strong>向初始服务器请求该对象</strong>，<strong>初始服务器返回对象</strong>。Web缓存器<strong>接收该对象时，它在本地存储空间存储一个副本</strong>，并向客户的浏览器<strong>返回该副本</strong>。Web缓存器可以大大<strong>减少对客户请求的响应时间</strong>，大大<strong>减少通信量</strong>，在整体上大大<strong>减小因特网上的流量</strong>。HTTP协议有一种机制能使混存期证实其副本是最新的，即使用<strong>条件GET方法</strong>。条件GET方法指包含<strong>If-Modified-Since首部行</strong>的GET方法，条件GET方法告诉服务器，仅当指定日期之后对象被修改过，才发送该对象。</p>
+<h3 id="2-3-因特网中的电子邮件"><a href="#2-3-因特网中的电子邮件" class="headerlink" title="2.3 因特网中的电子邮件"></a>2.3 因特网中的电子邮件</h3><p>因特网电子邮件系统由三个主要部分组成：<strong>用户代理，邮件服务器和简单邮件传输协议</strong>。<strong>SMTP是因特网电子邮件的核心</strong>，其基本操作如下：1.发送者调用邮件代理程序并提供接收者的邮件地址，完成报文后指示用户代理将邮件发送报文。2.发送者的用户代理把报文发给邮件服务器，报文被放在报文队列中。3.邮件服务器上的SMTP客户端发现该报文后，创建一个到接收者的邮件服务器上的SMTP服务器端的TCP连接。4.SMTP客户发送报文。5.SMTP服务器端接收报文，放入接收者的邮箱中。6.接收者在任意时间都能调用用户代理阅读报文。SMTP一般不使用中间邮件服务器发送邮件。</p>
+<p>SMTP中，有HELO，MAIL FROM，RCPT TO，DATA和QUIT等命令，客户通过发送一个只包含一个句点的行指示该报文结束。服务器对每条命令作出回答，每个回答含有一个回答，啊和一些英文解释。SMTP使用<strong>持续连接</strong>。HTTP是一种<strong>拉协议</strong>，即用户使用HTTP协议从服务器拉取信息，TCP连接也是由想接受信息的机器发起。SMTP则是一个<strong>推协议</strong>，即发送邮件服务器将文件推向接收邮件服务器，TCP连接由发送文件的机器发起。SMTP要求每个报文必须采用7bitASCII码形式。HTTP把每个对象封装到他自己的HTTP响应报文中，SMTP把所有报文对象放在一个报文中。</p>
+<p>SMTP无法完成取报文这种拉操作，一般采用<strong>第三版邮局协议（POP3）</strong>或<strong>因特网邮件访问协议（IMAP）</strong>和<strong>HTTP</strong>。在因特网电子邮件应用中，一般使用SMTP将邮件从发送方的邮件服务器传输到接收方的邮件服务器，也将邮件从发送方的用户代理传送到发送方的邮件服务器，使用邮件访问协议将邮件从接收方的邮件服务器传送到接收方的用户代理。</p>
+<p>POP3是一个非常<strong>简单，功能有限</strong>的协议，其按照三个阶段进行工作：<strong>特许，事务处理以及更新</strong>。在<strong>特许阶段</strong>中，用户代理以明文形式发送用户名和口令以鉴别用户。<strong>事务处理阶段</strong>中，用户代理取回报文，同时也可对报文做或取消删除标记和获取邮件统计信息等。<strong>更新阶段</strong>出现在用户发出quit命令后，目的是结束本次POP3会话这时邮件服务器删除被标记为删除的报文。事务处理阶段中，服务器对每个用户代理发出的命令作出回答，可能为+OK与-ERR，分别表示命令正常和可能出现差错。特许阶段的两个主要命令为user <user name>和pass <password>。POP3的用户代理通常被配置为“下载并删除”或者“下载并保留”方式。特许阶段后用户代理只使用list，retr，dele，quit四个命令。POP3服务器<strong>不在会话中携带状态信息</strong>。POP3协议没有给用户提供创建远程文件夹并为报文指派文件夹的方法。IMAP比POP3复杂，IMAP服务器将每一个报文与一个文件夹关联起来，当报文第一次到达服务器时，它与收件人的INBOX文件夹关联起来，为用户提供了创建文件夹，将报文在文件夹之间移动，在远程文件夹中查询邮件，按指定条件查询匹配的邮件的命令。<strong>IMAP服务器维护了会话用户的状态信息</strong>，还具有<strong>让用户代理获取报文的某些部分的命令</strong>。在基于Web的电子邮件中，<strong>用户代理就是普通的浏览器</strong>，用户和他的远程邮箱之间的通信通过HTTP进行。</p>
+<h3 id="2-4-DNS：因特网的目录服务"><a href="#2-4-DNS：因特网的目录服务" class="headerlink" title="2.4 DNS：因特网的目录服务"></a>2.4 DNS：因特网的目录服务</h3><p>主机可以通过<strong>主机名或IP地址</strong>进行标记，所以需要一种能进行<strong>主机名到IP地址转换</strong>的目录服务，即<strong>域名系统（DNS）</strong>。DNS是1.一个由分层的的DNS服务器实现的<strong>分布式数据库</strong>2.一个使得主机能够查询分布式数据库的<strong>应用层协议</strong>。DNS运行在<strong>UDP</strong>上，使用<strong>53端口</strong>。用户主机向某主机发送HTTP报文，需要：1.用户主机上运行着DNS的客户端2.浏览器将主机名传送到DNS的客户端3.DNS客户向DNS服务器发送一个包含主机名的请求4.DNS客户收到回答报文，其中包含对应主机名的IP地址5.浏览器向目的IP地址发起连接。DNS也可以<strong>获取规范主机名</strong>，<strong>解析邮件服务器别名</strong>以<strong>获取规范主机名和IP地址</strong>，也可用于在冗余服务器之间进行<strong>负载分配</strong>。由于有冗余Web服务器，一个IP地址集合同一个规范主机名相联系。</p>
+<p>DNS的一种简单设计方案是在因特网上只包括一个DNS服务器，该服务器包含有所有的映射。这种设计会带来单点故障，通信容量，远距离的集中数据库和维护等问题。分布式的设计方案中，大致有3中DNS服务器，即<strong>根DNS服务器</strong>，<strong>顶级域（TLD）DNS服务器</strong>和<strong>权威DNS服务器</strong>。<strong>根DNS服务器</strong>有400多个，遍及全世界，由13个不同的组织管理，根DNS提供TLD服务器的IP地址。每个顶级域（如com，edu，org，gov等）和国家顶级域（uk，fr，cn等）都有对应的TLD服务器。<strong>TLD服务器</strong>提供了权威DNS服务器的IP地址。<strong>权威DNS服务器</strong>收藏着DNS记录。此外，还有<strong>本地DNS服务器</strong>，每个ISP都有一台本地DNS服务器，主机具有一台或多台其本地DNS服务器的IP地址（通常通过DHCP，动态地址分配协议）。当主机发出DNS请求时，该请求被发往本地DNS服务器，它起着代理的作用，并将请求转发到DNS服务器层次结构中。<strong>递归查询</strong>指查询都以自己的名义发出，<strong>迭代查询</strong>指发出的查询由源查询服务器发出，一般为本地DNS服务器。通常从请求主机到本地DNS服务器的查询是递归的，其余的查询是迭代的。</p>
+<p>为了改善时延性能并减少在因特网上到处传输的DNS报文数量，DNS广泛使用了<strong>缓存技术</strong>。在某一个请求链中，当某DNS接收到一个DNS回答，它能将映射缓存在本地服务器中。如果DNS服务器中缓存了一个映射，在对该映射进行查询的DNS报文到达时，该服务器就能提供所要求的IP地址，即使它不是权威DNS服务器。DNS服务器在一段时间后（通常为两天）丢弃缓存的信息。事实上，因为缓存，大部分DNS查询都绕过了根服务器。</p>
+<p>所有DNS服务器都存储了<strong>资源记录（RR）</strong>，RR提供了主机名到IP地址的映射。每个DNS回答报文包含了一条或多条资源记录。资源记录是<strong>包含（Name，Value，Type，TTL）的四元组</strong>。<strong>TTL为该记录的生存时间</strong>，它决定了RR应当从缓存中删除的时间。Name和Value取决于Type。若<strong>Type=A</strong>，则<strong>Name是主机名</strong>，<strong>Value是对应的IP地址</strong>。如果<strong>Type=NS</strong>，则<strong>Name是个域</strong>，<strong>Value是个知道如何获取该域中主机IP地址的权威DNS服务器的主机名</strong>。若<strong>Type=CNAME</strong>，则<strong>Value是别名为Name的主机名对应的规范主机名</strong>。若<strong>Type=MX</strong>，则<strong>Value是个别名为Name的邮件服务器的规范主机名</strong>。通过MX记录，一个公司的邮件服务器和其他服务器可以使用相同的别名。如果一台DNS服务器是某特定主机名的权威DNS服务器，那么该DNS服务器有一条包含用于该主机名的A型RR。否则，该服务器包含一条NS型RR，该记录对应包含主机名的域，还有一条A记录提供该域的IP地址。</p>
+<p>DNS只有<strong>查询和回答两种报文</strong>，查询和回答报文具有<strong>相同的格式</strong>。报文中前12个字节为<strong>首部区域</strong>。第一个字段为标识符，长16bit，用于标识该查询。标识符会被复制到对应的回答报文中，以便用户进行匹配。标志字段中有1bit的<strong>“查询/回答”</strong>标志位指示是查询报文还是回答报文，1bit的“权威的”标志位用于指示其是否是所请求的权威DNS服务器，1bit的<strong>“希望递归”</strong>标志位指示用户希望在无记录时只需递归查询，1bit的<strong>“递归可用”</strong>标志位指示该DNS服务器支持递归查询，此外还有<strong>4个数量相关</strong>的字段。<strong>问题区域</strong>包含正在进行的查询信息。包括名字字段，即被查询的主机名字；类型字段，即该主机名正在被询问的问题类型。<strong>回答区域</strong>包含了对最初请求名字的RR，该区域中可以包含多条RR，因此一个主机能有多个IP地址。<strong>权威区域</strong>则包含了其它权威服务器的记录，<strong>附加区域</strong>包含了其它有帮助的记录。<strong>nslookup</strong>可以直接向某些DNS服务器发送一个DNS查询报文。<strong>DDoS，中间人攻击，DNS缓存投毒</strong>都是针对DNS的攻击。</p>
+<h3 id="2-5-P2P文件分发"><a href="#2-5-P2P文件分发" class="headerlink" title="2.5 P2P文件分发"></a>2.5 P2P文件分发</h3><p>在P2P体系结构中，分发时间是所有N个对等方得到该文件的副本所需要的时间。设[latex]u_{s}[/latex]为服务器接入链路的上载速率，[latex]u_{i}[/latex]表示第i个对等方接入链路的上载速率，[latex]d_i[/latex]表示第i对等方接入链路的下载速率，F表示被分发的文件长度。对于CS架构，服务器必须向N个对等方传送副本，即知道需要传输NFbit，分发时间至少为[latex]NF/u_{s}[/latex]，[latex]d_{min}[/latex]为具有最小下载速率的对等方的下载速率，则最小分发时间为[latex]F/d_{min}[/latex]，即得</p>
+<p>[latex display=’true’]D_{cs} \geq max（ {\frac{NF}{u_{s}},\frac{F}{d_{min}}} ）[/latex]</p>
+<p>对于P2P体系结构，服务器至少需要将整个文件发送一次，故最小发放时间为 [latex]F/u_{s}[/latex] ，分发时间同样不能小于 [latex]F/d_{min}[/latex] ，由于系统的整体上传能力对于服务器的上传速率加上每个对等方的上传速率，因此最小分发时间至少为 [latex]NF/u_{s}+u_{1}+u_{2}+…+u_{N}[/latex] ，故此时有</p>
+<p>[latex display=’true’]D_{P2P} \geq max（ {\frac{F}{u_{s}},\frac{F}{d_{min}}},\frac{NF}{u_{s}+\sum_{i=1}^{N}u_{i}} ）[/latex]</p>
+<p>对比两者的最小分发时间，可以看到P2P体系结构的最小分发时间总是小于客户-服务器体系结构。由于P2P结构是<strong>自扩展</strong>的，即对等方除了是比特的消费者外也是他们的重新分发者。</p>
+<p><strong>BitTorrent</strong>是一个用于<strong>文件分发</strong>的流行的<strong>P2P协议</strong>。参加一个特定文件分发的所有对等方的集合被称为一个<strong>洪流（torrent）</strong>，在一个洪流中的对等方彼此下载等长的文件<strong>块</strong>，典型块长度为256KB。当一个对等方首次加入某个洪流时，它没有块，而随着时间流逝它将会记类越来越多的块。当他下载文件时，也为其它对等方上传了块。一旦某对等方获取了整个文件，它可以离开洪流或留在其中继续上传块。对等方也可在只获得某些块时离开洪流，而在后来重新加入。每个洪流有一个基础设施节点，称为<strong>追踪器（tracker）</strong>。当一个对等方加入洪流时，它向追踪器注册自己，并周期性通知追踪器自己仍在洪流中。创建了TCP连接的对等方称为<strong>邻近对等方</strong>。对等方周期性询问邻近对等方所有的块列表，并请求没有的块。决定请求那些块采取<strong>最稀缺优先</strong>的技术，即请求那些在其邻居中副本数量最少的块，其目的为大致均衡每个块的副本数量。对于响应哪个请求，BitTorrent使用称为<strong>“一报还一报”（tit-for-tat）</strong>的交换激励机制，即确定当前以最高速率向其提供数据的四个邻居和随机选择的一个邻居，对这五个对等方进行响应。</p>
+<h3 id="2-6-视频流和内容分发网"><a href="#2-6-视频流和内容分发网" class="headerlink" title="2.6 视频流和内容分发网"></a>2.6 视频流和内容分发网</h3><p>流式视频应用接收到视频就进行播放，同时缓存该视频后面部分的帧。在<strong>DASH</strong>（经HTTP的动态适应性流）中，视频编码为几个不同的版本，其中每个版本具有不同的比特率，对应不同的质量水平。使用DASH时，HTTP服务器有一个<strong>告示文件</strong>，为每个版本提供了一个URL及其比特率。客户首先请求告示文件并且得知各种版本，如何客户通过在HTTP GET报文中对每块指定一个URL和一个字节范围，一次选择一块。在下载块的同时，客户测量接受带宽并运行一个速率决定算法以选择下次请求的块。</p>
+<p>几乎所有视频流公司都使用<strong>内容分发网络（CDN）</strong>。CDN管理分布在多个地理位置上的服务器，在它的服务器中<strong>存储视频的副本</strong>，且将每个用户请求定向到一个将提供最好用户体验的CDN位置。CDN可以为专用CDN或第三方CDN。CDN可采用<strong>深入</strong>和<strong>邀请做客</strong>两种不同的服务器安置原则。深入的原则为将服务器集群深入到ISP的接入网中，其目标时靠近端用户，通过减少端用户和CDN集群之间链路和路由器的数量以改善时延和吞吐量。这种高度分布式设计导致维护与管理集群较为困难。邀请做客则通过在少量的关键位置建造大集群来邀请到ISP做客，这些CDN通常将集群放置在IXP处。该原则通常产生较低的维护和管理开销，但产生了较高的时延和较低吞吐量。</p>
+<p>当用户通过URL检索一个特定的视频时，CDN必须截获该请求，以便能够确定此时适合用于该客户的CDN集群和将请求重定向到该集群的某个服务器。在请求过程中，某个权威DNS服务器返回相关CDN域的主机名，查询该主机名对应的CDN服务器创建TCP连接进行传输。任何CDN部署的<strong>核心都是集群选择策略</strong>，即动态的将客户定向到CDN的某个服务器集群的机制。一种简单的策略是指派到地理上最为邻近的集群。</p>
+<p><strong>Netflix</strong>的视频分发主要使用亚马逊云和它自己的专用CDN基础设施。亚马逊云主要负责内容摄取，内容处理和向CDN上传版本等功能。Netflix不适用拉高速缓存以在IXP和ISP中扩充CDN服务器，而在非高峰时段通过推将这些视频分发给其CDN服务器，而不是在缓存未命中时动态推入。Netflix使用自己专用的CDN分发视频，其不使用DNS重定向，而告知客户直接使用一台特定的CDN服务器。<strong>Youtube</strong>使用拉高速缓存和DNS重定向，集群选择策略将客户定向到某个集群，使得客户和集群之间的RTT最低。<strong>Youtube</strong>使用HTTP流而没有DASH。看看类似于BitTorrent文件下载，但是其请求被优先给予那些即将播放的块，以确保连续播放。</p>
+<h3 id="2-7-套接字编程：生成网络应用"><a href="#2-7-套接字编程：生成网络应用" class="headerlink" title="2.7 套接字编程：生成网络应用"></a>2.7 套接字编程：生成网络应用</h3><p>网络应用程序有两类。一类是由协议标准（如RFC和其它标准文档等）定义的操作实现，这样的应用称为“开放”的，因为定义其操作的这些规则为人们所共知。另一类则是专门的网络应用程序。当客户或服务器程序实现一个由某RFC定义的协议是，它应当使用与该协议关联的公认端口号，反之，专用应用程序就需要避免使用公认端口号。</p>
+<p>import socket<br>server_name = ‘hostname’<br>server_port = 12000<br>clientSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # AF_INET means using IPv4, SOCK_DGRAM means using UDP<br>message = input(‘Input sentence’)<br>clientSocket.sendto(message.encode(), (server_name, server_port)) # send massage to target socket<br>modified_message, server_address = clientSocket.recvfrom(2048) # 2048 is length of cache. Receiving message from web<br>print(modified_message.decode())<br>clientSocket.close()  # clsoe the connection</p>
+<p>上述为使用UDP的客户端代码。</p>
+<p>import socket<br>server_port = 12000<br>server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Same as client program<br>server_socket.bind((‘’, server_port)) # assign port to socket<br>print(“The server is ready to receive”)<br>while True:<br>    message, client_address = server_socket.recvfrom(2048)<br>    modified_message = message.decode().upper() # convert sentence to upper<br>    server_socket.sendto(modified_message.encode(), client_address) # send message to client</p>
+<p>上述为使用UDP的服务器端代码。其作用为接收客户端的数据并将其转化为大写。</p>
+<p>import socket<br>server_name = ‘127.0.0.1’<br>server_port = 12000<br>client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # SOCK_STREAM means TCP<br>client_socket.connect((server_name, server_port)) # connect to welcome socket<br>sentence = input(“Input sentence”)<br>client_socket.send(sentence.encode())<br>modified_sentence = client_socket.recv(1024)<br>print(modified_sentence.decode())<br>client_socket.close()</p>
+<p>上述为使用TCP的客户端代码。</p>
+<p>import socket<br>server_port = 12000<br>server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>server_socket.bind((‘’, server_port))<br>server_socket.listen(1) # maximum connection is 1<br>print(‘Server is ready’)<br>while True:<br>    connection_socket, address = server_socket.accept()<br>    sentence = connection_socket.recv(1024).decode()<br>    modified_sentence = sentence.upper() # convert to upper<br>    connection_socket.send(modified_sentence.encode())<br>    connection_socket.close()</p>
+<p>上述为使用TCP的服务器端代码。源文件如下：</p>
+<p><a href="blob:http://106.54.80.67/644da6af-abb4-4406-9822-21f62a8bc895">TCPClient.py</a><a href="blob:http://106.54.80.67/644da6af-abb4-4406-9822-21f62a8bc895">下载</a></p>
+<p><a href="blob:http://106.54.80.67/066a7080-b712-4611-91d3-2fa8e51e1808">TCPServer.py</a><a href="blob:http://106.54.80.67/066a7080-b712-4611-91d3-2fa8e51e1808">下载</a></p>
+<p><a href="blob:http://106.54.80.67/326f1b9e-7c12-4733-b429-0851ba9f05ce">UDPClient.py</a><a href="blob:http://106.54.80.67/326f1b9e-7c12-4733-b429-0851ba9f05ce">下载</a></p>
+<p><a href="blob:http://106.54.80.67/30cc48f7-dc0c-4331-90ed-eadbb357bab4">UDPServer.py</a><a href="blob:http://106.54.80.67/30cc48f7-dc0c-4331-90ed-eadbb357bab4">下载</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/" data-id="ckpw1c6v4001zfww03e7ddxkz" data-title="《计算机网络-自顶向下方法》学习笔记--第2章" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          《计算机网络-自顶向下方法》学习笔记-第3章
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/14/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC1%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《计算机网络-自顶向下方法》学习笔记--第1章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="记一次安全演练中的渗透测试0x00 序​        本次渗透测试属于某大型安全演练中的一部分，所有测试手段均经过演习指挥部授权后进行。基于保密要求，本文不会出现任何具体单位名，域名，IP和截图，仅有渗透过程的大致记录。 0x01 确认目标​        该次攻防演练中，某高校为目标单位之一，在利用学校首页对其下属学院和单位机构进行资产摸排时发现目标系统。简单尝试后发现后台地址，且由某开源CM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记一次安全演练中的渗透测试0x00 序​        本次渗透测试属于某大型安全演练中的一部分，所有测试手段均经过演习指挥部授权后进行。基于保密要求，本文不会出现任何具体单位名，域名，IP和截图，仅有渗透过程的大致记录。 0x01 确认目标​        该次攻防演练中，某高校为目标单位之一，在利用学校首页对其下属学院和单位机构进行资产摸排时发现目标系统。简单尝试后发现后台地址，且由某开源CM">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-29T10:17:37.317Z">
+<meta property="article:modified_time" content="2021-05-29T10:17:24.156Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-记一次安全演练中的渗透测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time class="dt-published" datetime="2021-05-29T10:17:37.317Z" itemprop="datePublished">2021-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="记一次安全演练中的渗透测试"><a href="#记一次安全演练中的渗透测试" class="headerlink" title="记一次安全演练中的渗透测试"></a>记一次安全演练中的渗透测试</h1><h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>​        本次渗透测试属于某大型安全演练中的一部分，所有测试手段均经过演习指挥部授权后进行。基于保密要求，本文不会出现任何具体单位名，域名，IP和截图，仅有渗透过程的大致记录。</p>
+<h2 id="0x01-确认目标"><a href="#0x01-确认目标" class="headerlink" title="0x01 确认目标"></a>0x01 确认目标</h2><p>​        该次攻防演练中，某高校为目标单位之一，在利用学校首页对其下属学院和单位机构进行资产摸排时发现目标系统。简单尝试后发现后台地址，且由某开源CMS搭建。在Github上发现了该CMS的源码，发现该CMS是在ThinkPHP 3.2.3框架上进行二次开发的，故可猜测目标系统同样具有ThinkPHP 3.2.3组件，简单报错后证实猜想。使用项目Readme文档给出的admin用户默认口令无法进入目标后台。</p>
+<h2 id="0x02-项目源码审计"><a href="#0x02-项目源码审计" class="headerlink" title="0x02 项目源码审计"></a>0x02 项目源码审计</h2><p>​        对所获取的项目源码进行审计，发现其中有富文本编辑器KindEditor，尝试访问目标站点的upload_json.php和file_manager_json.php文件，发现均可正常访问，无权限控制。众所周知，利用upload_json.php文件可任意上传html，rar等文件，但其为白名单机制，无法上传shell，且会将上传的文件重命名，解析漏洞也难以利用，尽管该漏洞在实际中可能导致挂黑页和社工等隐患，但在安全演练中危害不足，仍需进一步渗透。file_manager_json.php文件本身是没有安全问题的，配置正确情况下仅能列出attached目录下的文件，而该目录下的文件都为静态文件。但在该服务器上，没有配置基准目录，导致可利用该文件进行目录遍历，甚至可以跨盘符列出目录。</p>
+<p>​        在目标服务器的Web目录下发现备份文件的压缩包，下载后进行进一步审计。</p>
+<h2 id="0x03-站点源码审计"><a href="#0x03-站点源码审计" class="headerlink" title="0x03 站点源码审计"></a>0x03 站点源码审计</h2><p>​        该备份文件的最后修改时间是攻击时间半年之前，而其他文件的修改时间大多都在数年之前，故可认为备份文件为最新数据。翻阅站点源码，尝试本地环境搭建，发现目标站点对项目代码几乎没有修改，只在数据库的表名上有一些修改。</p>
+<p>​        查看站点日志，发现进行登录时的SQL语句执行记录，password字段为md5值，从源代码中可以分析得到其加盐方式，即对明文密码直接拼接上salt值然后进行md5。admin用户的md5值无法猜解，但可猜解出其余若干用户的明文密码，均为同一弱口令。</p>
+<p>​        登录后台，发现这些用户同样为超管权限。后台无上传点，信息泄露一百余条，自动化代码审计所挖掘的RCE都无法利用。</p>
+<h2 id="0x04-权限获取"><a href="#0x04-权限获取" class="headerlink" title="0x04 权限获取"></a>0x04 权限获取</h2><p>​        翻看备份文件发现目标开启了缓存功能，因此容易想到ThinkPHP 3.2.3广为人知的利用缓存文件getshell。该站点没有权限控制机制，Web目录下的任何文件都能直接访问，结合目录遍历功能可顺利访问缓存文件。而在本地环境中经过测试发现，修改网站描述信息可生成相应的缓存文件，且缓存文件名可预测。在描述信息中插入<code>&lt;?php phpinfo() ?&gt;</code> 后访问该文件，成功打出php配置信息。以此方法在服务器上复现成功，将phpinfo修改为一句话后获得Webshell。</p>
+<h2 id="0x05-后渗透"><a href="#0x05-后渗透" class="headerlink" title="0x05 后渗透"></a>0x05 后渗透</h2><p>​        利用Webshell执行系统命令，发现目标服务器是一台Windows系统的ECS服务器，已经为Administrator权限，通过查看进程列表发现阿里云盾正在运行。云盾拦截攻击流量导致蚁剑，哥斯拉等均无法连接上shell，也无法将shell反弹出网。通过源码中的数据库配置文件成功获取数据库的账号密码，但3306端口仅向本地开放，因此无法连接。</p>
+<h2 id="0x06-尾声"><a href="#0x06-尾声" class="headerlink" title="0x06 尾声"></a>0x06 尾声</h2><p>​        由于此时演习已经接近尾声，因此在和演习指挥部商讨后，不采取如卸载云盾等可能影响业务的手段，因此本次攻击至此结束。虽然该服务器上部署大量其它站点，但都非本次目标，同时此服务器并非核心业务服务器，且属于云服务器，无法横向移动攻击内网扩大攻击面，因此危害评级并不高。</p>
+<h2 id="0x07-小结"><a href="#0x07-小结" class="headerlink" title="0x07 小结"></a>0x07 小结</h2><p>​        总体来说，本次攻击路径并不曲折，没有很大的难点，但作为为数不多实战中拿到最高权限的目标，还是带来了很多启发：</p>
+<ol>
+<li>弱口令：很多科班出身偏重于技术的人往往会轻视弱口令的作用，比如我，反思起来，可能很大程度上是由于CTF比赛极少出现关于弱口令的攻击，即使有，侧重点也在于别的技术上，如伪造JWT等，可能会出现弱密钥能够被猜测的情况，但常常也会有相应的提示，不需要选手实际跑弱口令字典爆破。换句话说，CTF比赛往往是过程导向的，目的是教会你一些东西，因此往往禁止扫描和爆破，路径往往是单一的。而实战中却大不相同，实战中连路径的存在性都无法保证，单一性自然无从谈起。因此，钓鱼，弱口令等非技术手段往往是最短的攻击路径。近年来开发人员的安全意识大幅度提升，弱口令不再如几年前那般司空见惯，但常常一些不知道上线的无人维护系统，用admin/admin或者admin/123456这样口令做着唯一的访问控制，而恰恰是这样的系统，最容易成为攻击方切入点。</li>
+<li>安全设备：这里把杀软等软件也归为安全设备。只有开源和烂大街的攻击工具的红队在面对部署了企业级WAF，蜜罐等的蓝队时往往难以有所建树。但同时，安全设备本身也会引入新的隐患，带来新的攻击面。但对安全设备进行渗透往往需要大量时间，在短期的安全演练中往往难以成功，因此也更体现出钓鱼等短平快手段的优势所在。</li>
+<li>目标的资产特异性：这里指不同单位的资产往往有自己的特点。政府，事业单位，高校往往有大量的资产，但常常需要内网IP或SSO才能访问，暴露在外的资产以静态页面的官网居多，价值较低，但一旦突破网络边界，内部打大概率缺乏防御纵深，容易获得较大战果。企业通常具有几个比较大的业务系统，这些系统从本身上看可能不存在太大的漏洞，但企业会有大量的人员关系，联系方式等信息，便于社工等方式利用。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" data-id="ckp9lt1g00000fgw0d9r076wq" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/05/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

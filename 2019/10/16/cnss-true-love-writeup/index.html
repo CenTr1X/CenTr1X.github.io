@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>CNSS True_Love WriteUp | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="序这道题主要的点在于Python的轻量级模板Flask的服务器模板注入和客户端session两个问题。本文的重点不在于具体的题目，而在于ssti和客户端session机制两个问题。 分析题目 给出进入&#x2F;admin的提示,进入得到:  抓包：  得出登录的思路：利用这里的session伪造admin用户登录 Flask中session机制我们知道，一般来说，session值存储在服务器端，客户端通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNSS True_Love WriteUp">
+<meta property="og:url" content="http://example.com/2019/10/16/cnss-true-love-writeup/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="序这道题主要的点在于Python的轻量级模板Flask的服务器模板注入和客户端session两个问题。本文的重点不在于具体的题目，而在于ssti和客户端session机制两个问题。 分析题目 给出进入&#x2F;admin的提示,进入得到:  抓包：  得出登录的思路：利用这里的session伪造admin用户登录 Flask中session机制我们知道，一般来说，session值存储在服务器端，客户端通过">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093238.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093704.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093758.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016105821.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016200029-1024x182.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016202436-1024x66.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016202521-1024x55.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016202621.png">
+<meta property="article:published_time" content="2019-10-16T12:57:56.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:36:51.464Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Flask">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="客户端session">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093238.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-cnss-true-love-writeup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/10/16/cnss-true-love-writeup/" class="article-date">
+  <time class="dt-published" datetime="2019-10-16T12:57:56.000Z" itemprop="datePublished">2019-10-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      CNSS True_Love WriteUp
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>这道题主要的点在于Python的轻量级模板Flask的服务器模板注入和客户端session两个问题。本文的重点不在于具体的题目，而在于ssti和客户端session机制两个问题。</p>
+<h2 id="分析题目"><a href="#分析题目" class="headerlink" title="分析题目"></a>分析题目</h2><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093238.png"></p>
+<p>给出进入/admin的提示,进入得到:</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093704.png"></p>
+<p>抓包：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016093758.png"></p>
+<p>得出登录的思路：利用这里的session伪造admin用户登录</p>
+<h3 id="Flask中session机制"><a href="#Flask中session机制" class="headerlink" title="Flask中session机制"></a>Flask中session机制</h3><p>我们知道，一般来说，session值存储在服务器端，客户端通过cookie中的sessionid字段来进行身份确认，sessionid本身仅仅只是一段随机字符串。但是在Flask中并不是如此，Flask直接将session存储在cookie中，通过base64加密维护其机密性，通过hmac签名保证其完整性。但是我们知道，base64可以被轻松解密，所以伪造Flask中session的问题就转化为对签名值的伪造。</p>
+<p>我们知道hmac是基于密钥的hash函数，即我们只要取得相应的secret_key，即可计算出签名值。而获取secret_key的方式为ssti，在下一部分中叙述，这里假设我们已获取到secret_key的值，现在对session值进行解码。</p>
+<p>首先我们需要了解一下session在Flask中的编码与解码机制，具体可参考 <a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/163975#h3-1">https://www.anquanke.com/post/id/163975#h3-1</a> 。简单来说，进行编码时，先将对象序列化为json，然后判断采用zlib压缩是否使长度减小，若减小则采用压缩算法，并以.作为压缩标志，进行base64加密后与base64加密的时间戳拼接，再使用hmac生成签名值拼接即可。流程图表示大致为:</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016105821.png"></p>
+<p>解码过程与之类似，只不过过程相反，并且在解出时间戳之后，会对时间戳是否超时进行检查。在实际进行解码时，在github上找到了如下程序，链接为 <a target="_blank" rel="noopener" href="https://github.com/noraj/flask-session-cookie-manager">https://github.com/noraj/flask-session-cookie-manager</a></p>
+<p><a href="blob:http://106.54.80.67/de884b7b-0968-4026-b42e-a9153e507643">flask_session_cookie_manager3.py</a><a href="blob:http://106.54.80.67/de884b7b-0968-4026-b42e-a9153e507643">下载</a></p>
+<p>此为这里主要使用的程序，我们查看其中的代码：</p>
+<p>if __name__ == “__main__“:<br>    # Args are only relevant for __main__ usage</p>
+<pre><code>## Description for help
+parser = argparse.ArgumentParser(
+            description=&#39;Flask Session Cookie Decoder/Encoder&#39;,
+            epilog=&quot;Author : Wilson Sumanang, Alexandre ZANNI&quot;)
+
+## prepare sub commands
+subparsers = parser.add\_subparsers(help=&#39;sub-command help&#39;, dest=&#39;subcommand&#39;)
+
+## create the parser for the encode command
+parser\_encode = subparsers.add\_parser(&#39;encode&#39;, help=&#39;encode&#39;)
+parser\_encode.add\_argument(&#39;-s&#39;, &#39;--secret-key&#39;, metavar=&#39;&lt;string&gt;&#39;,
+                            help=&#39;Secret key&#39;, required=True)
+parser\_encode.add\_argument(&#39;-t&#39;, &#39;--cookie-structure&#39;, metavar=&#39;&lt;string&gt;&#39;,
+                            help=&#39;Session cookie structure&#39;, required=True)
+
+## create the parser for the decode command
+parser\_decode = subparsers.add\_parser(&#39;decode&#39;, help=&#39;decode&#39;)
+parser\_decode.add\_argument(&#39;-s&#39;, &#39;--secret-key&#39;, metavar=&#39;&lt;string&gt;&#39;,
+                            help=&#39;Secret key&#39;, required=False)
+parser\_decode.add\_argument(&#39;-c&#39;, &#39;--cookie-value&#39;, metavar=&#39;&lt;string&gt;&#39;,
+                            help=&#39;Session cookie value&#39;, required=True)
+
+## get args
+args = parser.parse\_args()
+
+## find the option chosen
+if(args.subcommand == &#39;encode&#39;):
+    if(args.secret\_key is not None and args.cookie\_structure is not None):
+        print(FSCM.encode(args.secret\_key, args.cookie\_structure))
+elif(args.subcommand == &#39;decode&#39;):
+    if(args.secret\_key is not None and args.cookie\_value is not None):
+        print(FSCM.decode(args.cookie\_value,args.secret\_key))
+    elif(args.cookie\_value is not None):
+        print(FSCM.decode(args.cookie\_value))
+</code></pre>
+<p>可以看到，当子命令为encode时，需要secret_key和session值两个参数，之后调用了FSCM(即flask session cookie manager)类中的encode函数。decode时则不一定需要secret_key，调用了FSCM中的decode函数。于是我们查看FSCM类:</p>
+<p>else: # &gt; 3.4<br>    class FSCM(ABC):<br>        def encode(secret_key, session_cookie_structure):<br>            “”” Encode a Flask session cookie “””<br>            try:<br>                app = MockApp(secret_key)<br>                session_cookie_structure = dict(ast.literal_eval(session_cookie_structure))<br>                si = SecureCookieSessionInterface()<br>                s = si.get_signing_serializer(app)</p>
+<pre><code>            return s.dumps(session\_cookie\_structure)
+        except Exception as e:
+            return &quot;\[Encoding error\] &#123;&#125;&quot;.format(e)
+            raise e
+
+
+    def decode(session\_cookie\_value, secret\_key=None):
+        &quot;&quot;&quot; Decode a Flask cookie  &quot;&quot;&quot;
+        try:
+            if(secret\_key==None):
+                compressed = False
+                payload = session\_cookie\_value
+
+                if payload.startswith(&#39;.&#39;):
+                    compressed = True
+                    payload = payload\[1:\]
+
+                data = payload.split(&quot;.&quot;)\[0\]
+
+                data = base64\_decode(data)
+                if compressed:
+                    data = zlib.decompress(data)
+
+                return data
+            else:
+                app = MockApp(secret\_key)
+
+                si = SecureCookieSessionInterface()
+                s = si.get\_signing\_serializer(app)
+
+                return s.loads(session\_cookie\_value)
+        except Exception as e:
+            return &quot;\[Decoding error\] &#123;&#125;&quot;.format(e)
+            raise e
+</code></pre>
+<p>这里省略了进行Python版本号判断的代码，直接截取version&gt;3.4的部分。可以看到其中直接调用了Flask库的相关函数。观察decode部分，在有secret_key时，直接调用Flask库中的解码函数，而secret_key不存在时，首先判断是否压缩过，若是则解压，截取分隔符前数据即得到所求。所以，现在只需获取到secret_key就能对session进行伪造。</p>
+<h3 id="ssti"><a href="#ssti" class="headerlink" title="ssti"></a>ssti</h3><p>ssti即服务器模板注入(server-side template injection)，简单的说，即在使用模板时，将可被执行的部分作为用户可控的参数，从而导致RCE。在这里我们尝试payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;47.97.201.20:5000&#x2F;%7B%7Bconfig%7D%7D</span><br></pre></td></tr></table></figure>
+
+<p>得到配置信息：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016200029-1024x182.png"></p>
+<p>可以得到secret_key</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>首先进行解码：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016202436-1024x66.png"></p>
+<p>然后使用secret_key进行加密：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016202521-1024x55.png"></p>
+<p>在burp中修改session值，get得到：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/QQ%E6%88%AA%E5%9B%BE20191016202621.png"></p>
+<p>得到flag。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将session存储在客户端且没有足够的加密措施是很危险的，一旦攻击者通过xss或ssti等方式获得了密钥，就能轻易地伪造。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/16/cnss-true-love-writeup/" data-id="ckpw1c6ub000cfww095i9e115" data-title="CNSS True_Love WriteUp" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/03/php%E4%B8%ADsession%E7%9A%84%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PHP中session的反序列化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/09/aegis-recruit-writeup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Aegis recruit WriteUp</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

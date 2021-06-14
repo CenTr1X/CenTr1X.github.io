@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>《计算机网络-自顶向下方法》学习笔记-第5章 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第5章 《网络层：控制平面》5.1 概述在路由选择协议中，OSPF是一种运行在单一ISP的网络中的路由选择算法，BGP则运行在因特网中互联所有网络。对于转发表和流表的计算，维护和安装，可以采用两种方法：1.每路由器控制。OSPF和BGP协议都是采用这种基于单个路由器的方法进行控制的。2.逻辑集中控制。即使用逻辑集中式控制器计算并分发转发表以供每台路由器使用。控制器经一个协议与每台路由器中的一个控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络-自顶向下方法》学习笔记-第5章">
+<meta property="og:url" content="http://example.com/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第5章 《网络层：控制平面》5.1 概述在路由选择协议中，OSPF是一种运行在单一ISP的网络中的路由选择算法，BGP则运行在因特网中互联所有网络。对于转发表和流表的计算，维护和安装，可以采用两种方法：1.每路由器控制。OSPF和BGP协议都是采用这种基于单个路由器的方法进行控制的。2.逻辑集中控制。即使用逻辑集中式控制器计算并分发转发表以供每台路由器使用。控制器经一个协议与每台路由器中的一个控制">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-09T07:07:09.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:36:51.505Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-《计算机网络-自顶向下方法》学习笔记-第5章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" class="article-date">
+  <time class="dt-published" datetime="2020-03-09T07:07:09.000Z" itemprop="datePublished">2020-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      《计算机网络-自顶向下方法》学习笔记-第5章
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="第5章-《网络层：控制平面》"><a href="#第5章-《网络层：控制平面》" class="headerlink" title="第5章 《网络层：控制平面》"></a>第5章 《网络层：控制平面》</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>在路由选择协议中，<strong>OSPF</strong>是一种运行在单一ISP的网络中的路由选择算法，<strong>BGP</strong>则运行在因特网中互联所有网络。对于转发表和流表的计算，维护和安装，可以采用两种方法：1.<strong>每路由器控制</strong>。OSPF和BGP协议都是采用这种基于单个路由器的方法进行控制的。2.<strong>逻辑集中控制</strong>。即使用逻辑集中式控制器计算并分发转发表以供每台路由器使用。控制器经一个协议与每台路由器中的一个<strong>控制代理（CA）</strong>进行交互，以配置和管理该路由器的转发表。CA一般具有最少的功能，其任务是与控制器通信和执行控制器命令。这些CA不能直接交互，也不能主动参与计算转发表。</p>
+<h3 id="5-2-路由选择算法"><a href="#5-2-路由选择算法" class="headerlink" title="5.2 路由选择算法"></a>5.2 路由选择算法</h3><p>路由选择算法的目的是从发送方到接收方中确定一条通过路由器网络的好的路径。根据算法是集中还是分散的可将路由选择算法分为两类：1.<strong>集中式路由选择算法</strong>。其使用完整的，全局的网络信息计算出源到目的地的最低开销路径。即该算法是以所有节点之间的连通性和链路的开销作为输入。具有全局状态信息的算法通常被称为<strong>链路状态（LS）算法</strong>。2.<strong>分散式路由选择算法</strong>。使用该类算法的路由器以迭代，分布式的方式计算出最低开销路径。<strong>距离向量（DV）算法</strong>是一种分散式路由选择协议。此外还分为<strong>动态路由选择协议</strong>与<strong>静态路由选择协议</strong>。在静态路由选择协议中，路由随时间变化非常缓慢，通常是人工进行调整。动态路由选择算法随着网络流量负载或拓扑发生变化而改变路由选择路径。在<strong>负载敏感的路由选择协议</strong>中，链路开销会动态的变化以反映出底层链路的当前拥塞水平。如今的因特网路由选择算法都是<strong>负载迟钝</strong>的，因为某条链路的开销不能明确反映其当前的拥塞水平。</p>
+<p>实践中常使用<strong>链路状态广播算法</strong>完成对网络拓扑和链路开销的通告。节点广播的结果是所有节点都具有该网络的统一，完整的视图。于是每个结点都能通过运行LS算法计算出相同的最低开销路径。<strong>Dijkstra算法</strong>能计算从某节点到网络所有其它节点的最低路径开销。防止链路出现振荡的一个合理的方法是<strong>确保不是所有的路由器都同时运行LS算法</strong>。</p>
+<p><strong>距离向量（DV）算法</strong>是一种<strong>迭代的</strong>，<strong>异步的</strong>和<strong>分布式</strong>的算法。其被称为分布式是因为每个节点都要从一个或多个直接相连节点接收某些信息，执行计算，然后将其计算结果发送给邻居。称其为迭代的是因为此过程要持续到邻居之间无更多信息要交换为止。称其为异步，是因为它不要求所有节点同步工作。</p>
+<p>设[latex]d_{x}(y)[/latex]为x到y的最低开销，则有<strong>Bellman-Ford方程</strong>：</p>
+<p>[latex display=true]d_{x}(y) = min_{v}{c(x,v)+d_{v}(y)}[/latex]</p>
+<p>其中[latex]min_{v}[/latex]是指对于x的所有邻居。在该算法中，每个节点不定时向邻居发送其距离向量副本，然后根据Bellman-Ford方程更新其距离向量副本。最终每条路径都会收敛到实际最低开销路径。</p>
+<p>当一个运行DV算法的节点检测到从它到邻居的链路开销发生变化时，它更新其距离向量，并且如果最低开销路径的开销发生了变化，向邻居通告新的距离向量。<strong>路由选择环路</strong>是指到达x，y后通过z，后又通过y。这种问题于是被称为<strong>无穷计数问题</strong>。该问题可通过被称为<strong>毒化逆转</strong>的技术加以避免。即若z通过y路由选择到目的地x，则z将通告y，z到x的距离是无穷大。但涉及到三个节点或更多节点的环路<strong>无法</strong>用毒性逆转技术解决。</p>
+<p>比较LS与DV两种算法，发现LS算法的<strong>报文复杂度</strong>较DV算法高，DV算法<strong>收敛</strong>更慢，且收敛时可能遇到路由选择环路，且LS算法的<strong>健壮性</strong>更强。</p>
+<h3 id="5-3-因特网中自治系统内部的路由选择：OSPF"><a href="#5-3-因特网中自治系统内部的路由选择：OSPF" class="headerlink" title="5.3 因特网中自治系统内部的路由选择：OSPF"></a>5.3 因特网中自治系统内部的路由选择：OSPF</h3><p>规模和管理自治问题可以通过将路由器组织进<strong>自治系统（AS）</strong>来解决，其中每个自治系统由一组通常处在相同管理控制下的路由器组成。<strong>规模问题</strong>会导致DV算法难以收敛，<strong>管理自治问题</strong>主要是ISP希望按自己的意愿运行路由器，或对外隐藏其网络的内部细节。一个自治系统有其全局唯一的<strong>AS号</strong>标识，AS号由ICANN区域注册机构所分配。在相同AS中的路由器运行相同的路由选择算法并且有彼此的信息。在一个自治系统内运行的路由选择算法叫作<strong>自治系统内部路由选择协议</strong>。</p>
+<p><strong>OSPF（开发最短路优先）</strong>是一种链路状态协议，它使用泛洪链路状态信息和Dijkstra最低开销路径算法。使用OSPF，一台路由器构建了一副关于整个自治系统的完整拓扑图。故每台路由器在本地运行Dijkstra的最短路径算法，以确定一个以自身为根节点到所有其它子网的最短路径树。使用OSPF时，路由器向自治系统内所有其它路由器广播路由选择信息。当一条链路的状态发生变化时，路由器会广播链路状态信息。链路状态无变化时，路由器周期性广播链路状态。OSPF 通告包含在OSPF报文中，该OSPF报文直接<strong>由IP承载</strong>，对OSPF其上层协议的值为89.</p>
+<p>OSPF有几点优点：1.<strong>安全</strong>。能够鉴别OSPF路由器之间的交换，且能够配置简单的和MD5两种方式的鉴别。使用简单鉴别时，每台路由器配置相同的口令。当一台路由器发送一个OSPF分组时，以明文方式包括了口令。MD5鉴别基于配置在所有路由器上的密钥。对于每个附加了密钥的OSPF分组内容计算MD5散列值，然后将该散列值包含在分组中。接收路由器通过密钥计算该分组的散列值，再与携带的散列值比较，从而验证了该分组的真实性。2.OSPF允许使用<strong>多条相同开销的路径</strong>。3.能提供对<strong>单播和多播路由选择</strong>的综合支持。4.支持在单个AS中的<strong>层次结构</strong>。</p>
+<h3 id="5-4-ISP之间的路由选择：BGP"><a href="#5-4-ISP之间的路由选择：BGP" class="headerlink" title="5.4 ISP之间的路由选择：BGP"></a>5.4 ISP之间的路由选择：BGP</h3><p>自治系统间路由选择协议设计多个AS之间的协调，所以AS通信必须运行相同的AS间路由选择协议。在因特网中，所有AS运行相同的AS间路由选择协议，称为<strong>边界网关协议（BGP）</strong>。BGP是一种<strong>分布式</strong>和<strong>异步</strong>的协议。</p>
+<p>在BGP中，分组并不是路由到一个特定的目的地址，而是<strong>路由到CIDR化的前缀</strong>。BGP能使主机从邻居AS获得前缀的可达性信息，并确定到该前缀的最佳路径。对于每个AS，路由器为<strong>网关路由器或内部路由器</strong>。<strong>网关路由器</strong>是一台位于AS边缘的路由器，直接连接到在其它AS中的一台或多台路由器。<strong>内部路由器</strong>仅连接在它自己AS中的主机和路由器。</p>
+<p>在BGP中，每对路由器通过使用179端口的半永久TCP连接交换路由选择信息。每个直接连接以及所有通过该链接发送的BGP报文，称为BGP连接。跨越两个AS的BGP连接称为<strong>外部BGP连接（eBGP）</strong>，而在相同的AS中的两台路由器之间的BGP会话称为<strong>内部BGP（iBGP）</strong>。</p>
+<p>BGP的前部中包括一些BGP属性，前缀和其属性称为<strong>路由</strong>。两个重要的属性是<strong>AS-PATH</strong>和<strong>NEXT-HOP</strong>。AS-PATH包含已经通过的AS的列表,为了生成AS-PATH的值，当一个前缀通过某AS时，该AS将其ASN加入AS-PATH的现有列表中。AS-PATH也能用于防止通告环路，即如果一台路由器在路径列表看到了包含自己的AS，它将拒绝该通告。NEXT-TOP是AS-PATH起始路由器接口的IP地址。</p>
+<p>最简单的路由选择方式是<strong>热土豆路由选择</strong>。使用热土豆路由选择，选择的路由到开始该路由的<strong>NEXT-HOP路由器具有最小开销</strong>。注意到当在转发表中增加AS向外前缀时，AS间路由选择协议（BGP）和AS间路由选择协议（OSPF）都要用到热土豆路由选择的思想是<strong>尽可能快地将分组送出其AS</strong>，而不担心其AS到目的地地余下部分地开销。</p>
+<p>在实践中采取的BGP路由选择算法的<strong>输入是到某前缀的所有路由的集合</strong>。若仅有这样一个路由，则BGP采用之，否则按以下规则删除路由直到余下一条：1.路由器被指派一个<strong>本地偏好</strong>作为其属性之一。一条路由的本地偏好可能由该路由器设置或可能由在相同AS中的另一台路由器学习到。具有最高的本地偏好值的路由将被选择。2.从余下的路由中将选择具有<strong>最短AS-PATH</strong>的路由，其中BGP将使用DV算法，且距离测度使用的是AS的跳数而不是路由器跳的跳数。3.使用<strong>热土豆路由选择</strong>，即选择具有最靠近NEXT-HOP路由器的路由。4.如果路由仍不唯一，则使用<strong>BGP标识符</strong>选择路由。</p>
+<p>BGP还常被用于实现<strong>IP任播</strong>服务，该服务<strong>常用于DNS</strong>中。在下列情形中可使用IP任播：1.在许多分散的不同地理位置，替换不同服务器上的相同内容。2.让每个用户从最靠近的服务器访问内容。CDN公司课为它的多台服务器指派相同的IP地址，并且使用标准的BGP从这些服务器的每台通告这些IP地址。当某台BGP服务器收到对于该IP的多个路由通告，它将这些通告处理为对相同的物理位置提供不同的路径。故当客户向该IP发送请求时，路由器向最近的路由器转发该分组，最近的服务器是由BGP路由选择算法所定义的。IP任播还被DNS广泛用于将DNS请求指向最近的根DNS服务器。商业ISP遵循的一个准则是任何穿越某ISP的主干网的流量必须是其源或目的位于该ISP的某个客户网络中。</p>
+<h3 id="5-5-SDN控制平面"><a href="#5-5-SDN控制平面" class="headerlink" title="5.5 SDN控制平面"></a>5.5 SDN控制平面</h3><p>SDN体系结构具有4个特征：1.<strong>基于流的转发</strong>。SDN控制的交换机的分组转发工作能够基于传输层，网络层或链路层首部中的任意数量的首部字段进行。2.<strong>数据平面与控制平面分离</strong>。3**.网络控制功能**：位于数据平面交换机外部。控制平面本身由两个组件构成：一个SDN控制器以及若干网络控制应用程序。4.<strong>可编程的网络</strong>。</p>
+<p>对于SDN控制器的层次结构，我们使用一种自底向上的方式考虑：1.<strong>通信层</strong>：SDN控制器和受控网络设备之间的通信。2.<strong>网络范围状态管理层</strong>。3.<strong>提供给网络控制应用程序层的接口</strong>。</p>
+<p>OpenFlow协议运行在SDN控制器和SDN控制的交换机或其他实现OpenFlow API 的设备之间。OpenFlow运行在TCP之上，使用6653的默认端口号。从控制器到交换机有如下几种重要报文：1.<strong>配置</strong>。该报文允许控制器查询并设置交换机的配置参数。2.<strong>修改状态</strong>。该报文由控制器使用，以增加或删除或修改交换机流表中的表项，并设置交换机端口特性。3.<strong>读状态</strong>。该报文用于从交换机的流表和端口收集统计数据和计数器值。4.<strong>发送分组</strong>。该报文用于控制交换机从特定端口发出特定报文。从交换机到控制器由如下几种重要报文：1.<strong>流删除</strong>。该报文通知控制器已删除一个流表项。2.<strong>端口状态</strong>。该报文向控制器通告端口状态变化。3.<strong>分组入</strong>。该报文用于将分组发送给控制器。</p>
+<p>在SDN中，Dijkstra算法是一个单独的程序，<strong>位于分组交换机之外</strong>，且分组交换机向SDN控制器发送链路更新而<strong>不向其它交换机发送</strong>。假设两交换机之间的链路断开，数据平面和控制平面的交互过程如下：1.交换机向SDN控制器<strong>通报该链路状态的更新</strong>。2.SDN控制器<strong>接收指示链路状态更新的OpenFlow报文</strong>，并且<strong>通告链路状态管理器</strong>，由管理器<strong>更新链路状态库</strong>。3.应用程序<strong>接收该路由状态更新的通告</strong>。4.链路状态路由选择应用程序与链路状态管理器交互，<strong>以得更新的链路状态</strong>，而后计算新的最低开销路径。5.链路状态路由选择应用与流表管理器交互，流表决定<strong>更新新的流表</strong>。6.流表管理器使用OpenFlow协议<strong>更新受影响的交换机的流表项</strong>。</p>
+<h3 id="5-6-ICMP：因特网控制报文协议"><a href="#5-6-ICMP：因特网控制报文协议" class="headerlink" title="5.6 ICMP：因特网控制报文协议"></a>5.6 ICMP：因特网控制报文协议</h3><p><strong>因特网控制报文协议（ICMP）</strong>被主机和路由器用于<strong>沟通路由器信息</strong>。ICMP最典型的用途是<strong>差错报告</strong>。ICMP是承载在<strong>IP报文</strong>中的。ICMP报文有一个<strong>类型字段</strong>和一个<strong>编码字段</strong>，并且包含引起该ICMP报文首次生成的IP数据报的<strong>首部和前8个字节</strong>。ping程序发送一个ICMP类型为8编码为0的报文到指定主机。<strong>Traceroute</strong>是使用ICMP报文实现的。Traceroute通过目的路由器返回的ICMP告警报文（类型11编码0）。最终的UDP数据报包含一个具有不可达的端口号，当目的主机收到后，将向源发送一个端口不可达的ICMP报文（类型3编号3），当源主机收到后，得知traceroute已经到达终点。</p>
+<h3 id="5-7-网络管理与SNMP"><a href="#5-7-网络管理与SNMP" class="headerlink" title="5.7 网络管理与SNMP"></a>5.7 网络管理与SNMP</h3><p>网络管理中有如下几个关键组件：1.<strong>管理服务器</strong>是一个应用程序，控制网络管理信息的手机，处理和分析。2.<strong>被管设备</strong>是网络设备的一部分。3.一个被管设备中的每个被管对象的关联信息收集在<strong>管理信息库</strong>（MIB）中，这些信息可供管理服务器所用。MIB对象由称为SMI的数据描述语言所定义。4.在每个被管设备中驻留有<strong>网络管理代理</strong>。5.最后的组件是<strong>网络管理协议</strong>，运行在管理服务器和被管设备之间。</p>
+<p><strong>简单网络管理协议（SNMP）版本2</strong>是一个应用层协议，用于在管理服务器和代表管理服务器执行的代理之间<strong>传递网络管理控制和信息报文</strong>。SNMP最常使用的是<strong>请求响应模式</strong>，其中SNMP向SNMP代理发送一个请求，代理接收到请求后，执行某些动作，然后对该请求发送一个回答。请求通常用于<strong>查询或修改与某被管设备关联的MIB对象值</strong>。此外，SNMP常被用于代理向管理服务器发送的一种非请求报文，该报文被称为<strong>陷阱报文</strong>。陷阱报文用于通知管理服务器一个异常情况已经导致MIB对象值的改变。SNMPv2中定义了7种报文，这些报文一般称为<strong>协议数据单元（PDU）</strong>。</p>
+<p>PDU有如下7种：1.<strong>GetRequest</strong>，<strong>GetNextRequest和GetBulkRequest</strong> PDU都是管理服务器向代理发送的，以请求位于该代理所在被管设备中的若干个MIB值。他们的区别在于数据请求粒度。2.<strong>SetRequest PDU</strong>被管理服务器用于设置被管设备中的若干个MIB的值。代理用带有“noError”差错状态的Response PDU进行响应。3.管理服务器使用<strong>InformRequest PDU</strong>来通知另一个MIB管理服务器。4.<strong>Response PDU</strong>通常被用于从被管设备发给管理服务器，以响应来自该服务器的请求报文，返回所响应的信息。5.<strong>陷阱报文</strong>。陷阱报文是异步产生的，是为了响应管理服务器要求通知的事件而产生的。SNMP PDU通常作为<strong>UDP数据报</strong>的载荷进行传输。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" data-id="ckpw1c6up000wfww0fik56ayg" data-title="《计算机网络-自顶向下方法》学习笔记-第5章" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/27/javascript%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript原型链污染
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《计算机网络-自顶向下方法》学习笔记-第4章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqli/" rel="tag">sqli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" rel="tag">sql约束攻击</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" rel="tag">客户端session</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/sqli/" style="font-size: 10px;">sqli</a> <a href="/tags/sql%E7%BA%A6%E6%9D%9F%E6%94%BB%E5%87%BB/" style="font-size: 10px;">sql约束攻击</a> <a href="/tags/wp/" style="font-size: 10px;">wp</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AFsession/" style="font-size: 10px;">客户端session</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/ha1cyon-ctf%E5%B0%8F%E8%AE%B0/">Ha1cyon ctf小记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/xxe%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">XXE任意文件读取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
