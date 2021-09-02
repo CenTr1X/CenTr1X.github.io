@@ -1,580 +1,479 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en" class="loading">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian,"> 
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
 
-  
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
 <meta name="generator" content="Hexo 5.4.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/page/" title="PAGE" external="false">PAGE</a>
+        </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2021 John Doe.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="Initialising search index..."
+            data-start="Please input search keywords." data-empty="No result found, please try other keywords.">
+            <span>Please input search keywords.</span>
+        </div>
     </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-记一次安全演练中的渗透测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/05/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2021-05-09T07:07:09.000Z" itemprop="datePublished">2021-05-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Cybersecurity/">Cybersecurity</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/05/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">记一次安全演练中的渗透测试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="记一次安全演练中的渗透测试"><a href="#记一次安全演练中的渗透测试" class="headerlink" title="记一次安全演练中的渗透测试"></a>记一次安全演练中的渗透测试</h1><h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>​        本次渗透测试属于某大型安全演练中的一部分，所有测试手段均经过演习指挥部授权后进行。基于保密要求，本文不会出现任何具体单位名，域名，IP和截图，仅有渗透过程的大致记录。</p>
-<h2 id="0x01-确认目标"><a href="#0x01-确认目标" class="headerlink" title="0x01 确认目标"></a>0x01 确认目标</h2><p>​        该次攻防演练中，某高校为目标单位之一，在利用学校首页对其下属学院和单位机构进行资产摸排时发现目标系统。简单尝试后发现后台地址，且由某开源CMS搭建。在Github上发现了该CMS的源码，发现该CMS是在ThinkPHP 3.2.3框架上进行二次开发的，故可猜测目标系统同样具有ThinkPHP 3.2.3组件，简单报错后证实猜想。使用项目Readme文档给出的admin用户默认口令无法进入目标后台。</p>
-<h2 id="0x02-项目源码审计"><a href="#0x02-项目源码审计" class="headerlink" title="0x02 项目源码审计"></a>0x02 项目源码审计</h2><p>​        对所获取的项目源码进行审计，发现其中有富文本编辑器KindEditor，尝试访问目标站点的upload_json.php和file_manager_json.php文件，发现均可正常访问，无权限控制。众所周知，利用upload_json.php文件可任意上传html，rar等文件，但其为白名单机制，无法上传shell，且会将上传的文件重命名，解析漏洞也难以利用，尽管该漏洞在实际中可能导致挂黑页和社工等隐患，但在安全演练中危害不足，仍需进一步渗透。file_manager_json.php文件本身是没有安全问题的，配置正确情况下仅能列出attached目录下的文件，而该目录下的文件都为静态文件。但在该服务器上，没有配置基准目录，导致可利用该文件进行目录遍历，甚至可以跨盘符列出目录。</p>
-<p>​        在目标服务器的Web目录下发现备份文件的压缩包，下载后进行进一步审计。</p>
-<h2 id="0x03-站点源码审计"><a href="#0x03-站点源码审计" class="headerlink" title="0x03 站点源码审计"></a>0x03 站点源码审计</h2><p>​        该备份文件的最后修改时间是攻击时间半年之前，而其他文件的修改时间大多都在数年之前，故可认为备份文件为最新数据。翻阅站点源码，尝试本地环境搭建，发现目标站点对项目代码几乎没有修改，只在数据库的表名上有一些修改。</p>
-<p>​        查看站点日志，发现进行登录时的SQL语句执行记录，password字段为md5值，从源代码中可以分析得到其加盐方式，即对明文密码直接拼接上salt值然后进行md5。admin用户的md5值无法猜解，但可猜解出其余若干用户的明文密码，均为同一弱口令。</p>
-<p>​        登录后台，发现这些用户同样为超管权限。后台无上传点，信息泄露一百余条，自动化代码审计所挖掘的RCE都无法利用。</p>
-<h2 id="0x04-权限获取"><a href="#0x04-权限获取" class="headerlink" title="0x04 权限获取"></a>0x04 权限获取</h2><p>​        翻看备份文件发现目标开启了缓存功能，因此容易想到ThinkPHP 3.2.3广为人知的利用缓存文件getshell。该站点没有权限控制机制，Web目录下的任何文件都能直接访问，结合目录遍历功能可顺利访问缓存文件。而在本地环境中经过测试发现，修改网站描述信息可生成相应的缓存文件，且缓存文件名可预测。在描述信息中插入<code>&lt;?php phpinfo() ?&gt;</code> 后访问该文件，成功打出php配置信息。以此方法在服务器上复现成功，将phpinfo修改为一句话后获得Webshell。</p>
-<h2 id="0x05-后渗透"><a href="#0x05-后渗透" class="headerlink" title="0x05 后渗透"></a>0x05 后渗透</h2><p>​        利用Webshell执行系统命令，发现目标服务器是一台Windows系统的ECS服务器，已经为Administrator权限，通过查看进程列表发现阿里云盾正在运行。云盾拦截攻击流量导致蚁剑，哥斯拉等均无法连接上shell，也无法将shell反弹出网。通过源码中的数据库配置文件成功获取数据库的账号密码，但3306端口仅向本地开放，因此无法连接。</p>
-<h2 id="0x06-尾声"><a href="#0x06-尾声" class="headerlink" title="0x06 尾声"></a>0x06 尾声</h2><p>​        由于此时演习已经接近尾声，因此在和演习指挥部商讨后，不采取如卸载云盾等可能影响业务的手段，因此本次攻击至此结束。虽然该服务器上部署大量其它站点，但都非本次目标，同时此服务器并非核心业务服务器，且属于云服务器，无法横向移动攻击内网扩大攻击面，因此危害评级并不高。</p>
-<h2 id="0x07-小结"><a href="#0x07-小结" class="headerlink" title="0x07 小结"></a>0x07 小结</h2><p>​        总体来说，本次攻击路径并不曲折，没有很大的难点，但作为为数不多实战中拿到最高权限的目标，还是带来了很多启发：</p>
-<ol>
-<li>弱口令：很多科班出身偏重于技术的人往往会轻视弱口令的作用，比如我，反思起来，可能很大程度上是由于CTF比赛极少出现关于弱口令的攻击，即使有，侧重点也在于别的技术上，如伪造JWT等，可能会出现弱密钥能够被猜测的情况，但常常也会有相应的提示，不需要选手实际跑弱口令字典爆破。换句话说，CTF比赛往往是过程导向的，目的是教会你一些东西，因此往往禁止扫描和爆破，路径往往是单一的。而实战中却大不相同，实战中连路径的存在性都无法保证，单一性自然无从谈起。因此，钓鱼，弱口令等非技术手段往往是最短的攻击路径。近年来开发人员的安全意识大幅度提升，弱口令不再如几年前那般司空见惯，但常常一些不知道上线的无人维护系统，用admin/admin或者admin/123456这样口令做着唯一的访问控制，而恰恰是这样的系统，最容易成为攻击方切入点。</li>
-<li>安全设备：这里把杀软等软件也归为安全设备。只有开源和烂大街的攻击工具的红队在面对部署了企业级WAF，蜜罐等的蓝队时往往难以有所建树。但同时，安全设备本身也会引入新的隐患，带来新的攻击面。但对安全设备进行渗透往往需要大量时间，在短期的安全演练中往往难以成功，因此也更体现出钓鱼等短平快手段的优势所在。</li>
-<li>目标的资产特异性：这里指不同单位的资产往往有自己的特点。政府，事业单位，高校往往有大量的资产，但常常需要内网IP或SSO才能访问，暴露在外的资产以静态页面的官网居多，价值较低，但一旦突破网络边界，内部打大概率缺乏防御纵深，容易获得较大战果。企业通常具有几个比较大的业务系统，这些系统从本身上看可能不存在太大的漏洞，但企业会有大量的人员关系，联系方式等信息，便于社工等方式利用。</li>
-</ol>
-
-      
+</div>
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/page/" title="PAGE" external="false" class="menu-link">PAGE</a>
+            </li>
+            
+            
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" data-id="cksrngqtr000iq4w0fnrh7yhw" data-title="记一次安全演练中的渗透测试" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-关于反序列化漏洞的一点思考" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" class="article-date">
-  <time class="dt-published" datetime="2020-11-02T14:02:33.000Z" itemprop="datePublished">2020-11-02</time>
-</a>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(/img/cover.jpg);">
+        </div>
+    </div>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
+            
+            <a href="/categories/Cybersecurity"><b>「
+                </b>CYBERSECURITY<b> 」</b></a>
+            
+            May 09, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2021/05/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" title="记一次安全演练中的渗透测试" class="posttitle">记一次安全演练中的渗透测试</a></h3>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
-    </h1>
-  
-
-      </header>
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>Words count</i>
+                3.2k
+            </span>
+            
+            
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                3 mins.
+            </span>
+            
+            
+        </p>
+        
+        
+        <div class="md-content animated fadeIn">
+            
+            <h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>​        本次渗透测试属于某大型安全演练中的一部分，所有测试手段均经过演习指挥部授权后进行。基于保密要求，本文不会出现任何具体单位名，域名，IP和截图，仅有渗透过程的大致记录。</p>
+<h2 id="0x01-确认目标"><a href="#0x01-确认目标" class="headerlink" title="0x01 确认目标"></a>0x01 确认目...</h2>
+            
+            <span class="read-more"><a href="/2021/05/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" title="Read article" class="posttitle">Read article</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>最近在做CTF题中连续遇到了几次反序列化漏洞的利用，本文算是对这种漏洞的一点思考，不涉及具体的题目，本文内容都来自个人的理解，有误请指正。</p>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="typed-text"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="primary">
+        
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/WriteUp in platform">
+                  <b>「 </b>WRITEUP IN PLATFORM<b> 」</b>
+                </a>
+            
+            November 02, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" title="关于反序列化漏洞的一点思考" class="posttitle">关于反序列化漏洞的一点思考</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        3 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>最近在做CTF题中连续遇到了几次反序列化漏洞的利用，本文算是对这种漏洞的一点思考，不涉及具体的题目，本文内容都来自个人的理解，有误请指正。</p>
 <h2 id="0x01-啥是反序列化"><a href="#0x01-啥是反序列化" class="headerlink" title="0x01 啥是反序列化"></a>0x01 啥是反序列化</h2><p>要想理解什么是反序列化，首先得知道啥是序列化。将一个<strong>对象</strong>转储为一个特定格式的字符串的过程就是序列化，相应的，<strong>解析</strong>该特定格式的字符串并初始化对应对象的过程称为反序列化。</p>
-<h2 id="0x02-为什么要序列化-反序列化"><a href="#0x02-为什么要序列化-反序列化" class="headerlink" title="0x02 为什么要序列化/反序列化"></a>0x02 为什么要序列化/反序列化</h2><p>在我看来，序列化和反序列化最直接的目的就是在通信过程中以一种易理解的格式传递，这里的通信过程既包括基于网络的远程通信，也包括在基于操作系统的本地通信。这就意味着序列化字符串能够出现在Web报文段中，也能出现在作为数据库的文件中(如session)。当接收方接收到字符串时，就能够将该字符串解析生成所需要的对象，这就是反序列化的价值所在。</p>
-<h2 id="0x03-人畜无害的反序列化"><a href="#0x03-人畜无害的反序列化" class="headerlink" title="0x03 人畜无害的反序列化"></a>0x03 人畜无害的反序列化</h2><p>与XSS，SQL注入，命令注入等名字中就带着危险气息的攻击方式不同，反序列化漏洞给我的感觉就是人畜无害(与此类似的还有格式化字符串漏洞)。在一般的网络通信中，攻击者能控制的最多是序列化字符串，按照常理来说，即使攻击者控制了该字符串，即控制了反序列化后所生成的对象，也没法执行任何的函数。但是，由于自动调用的<strong>魔术方法</strong>的存在，很多情况下开发人员无法顾及到生成的对象是恶意的情况下魔术方法的行为，这就可能导致非预期的方法被调用，属性被覆盖等等。故反序列化事实上可以看作一种<strong>被限制的代码注入</strong>，只能初始化指定的对象，利用是所使用的函数也只能是代码中已有的函数，在黑盒测试的情况下利用难度很大，相对于代码注入而言限制很大，但即使如此，基于反序列化的漏洞依然层出不穷。下面基于攻击方和防守方分别阐述下我对该漏洞的思考。</p>
-<h2 id="0x04-攻击方眼中的反序列化"><a href="#0x04-攻击方眼中的反序列化" class="headerlink" title="0x04 攻击方眼中的反序列化"></a>0x04 攻击方眼中的反序列化</h2><p>正如上文所述，反序列化漏洞是一种受限的代码注入，但相较于完全的代码注入，反序列化在审计和测试中更难以发现，很多CVE都是来源于反序列化漏洞。归根结底，要想利用反序列化，必须解决三个问题：</p>
-<ol>
-<li> 在哪里序列化？</li>
-<li> 在哪里反序列化？</li>
-<li> 需要反序列化成什么？</li>
-</ol>
-<p>关于在何处序列化的问题，其实也即何处的序列化字符串是可控的。一般序列化字符串可能出现在session，cookie中，若有文件上传功能也可能存在于文件之中，通过某种协议进行隐式反序列化，这些都是可控的。还可通过其它一些漏洞控制程序流程中实际上对用户透明的一些变量，对于这些中间变量的校验往往会比较弱，更可能会触发反序列化漏洞。但在黑盒测试的情况下挖掘到中间变量的序列化和反序列化过程是很困难的。</p>
-<p>有序列化必有反序列化，问题是找到序列化字符串被解析的地方。事实上在获取到序列化位置之后，获取反序列化的地点相对容易。通过修改序列化字符串使网页回显出现变化或异常可以大致定位字符串被解析的位置。</p>
-<p>最后就是反序列化后产生的对象该如何利用的问题，如果仅仅生成对象而没有调用任何的方法，那这个洞也无法造成什么实质性的危害。显然，相对于原生框架，二次开发的代码更有可能具有有价值的反序列化利用点。在PHP的反序列化当中，尤其需要注意的是魔术方法的利用。有的程序员会在__wakeup()中对传入的字符串进行检查或过滤，但通过CVE-2016-7124可以直接绕过该方法。其它的一些魔术方法如__toString()，__invoke()等往往也是利用的重点，尤其需要关注其中的文件读写，命令执行和另外的反序列化等操作。但是，在黑盒测试的前提下，很难对代码中的利用点进行挖掘， 有时仅能使用PHP原生类进行利用，如利用SoapClient类进行SSRF等。</p>
-<h2 id="0x05-防御方眼中的反序列化"><a href="#0x05-防御方眼中的反序列化" class="headerlink" title="0x05 防御方眼中的反序列化"></a>0x05 防御方眼中的反序列化</h2><p>站在防御方角度看反序列化，同样需要集中解决攻击方所重视的三个问题。</p>
-<p>首先是序列化问题。最好的防御方法自然是不适用序列化，但不能因噎废食，很多情况下使用序列化技术是业务需求，无法回避。所以问题就归于如何保护好序列化字符串，尽量避免被用户控制。最好的方法自然是序列化字符串全程都在服务端上，不被用户的输入所干扰，但这很大程度上影响了业务的灵活性。如果序列化字符串需要与用户进行交互，就必须做好防护。反序列化漏洞是服务端出现的问题，应该于服务端解决，在前端进行处理于事无补。接收到前端的序列化字符串后，在存储前和反序列化前最好都要进行检查和过滤，防止攻击者通过SQL注入等其它方式对存储的序列化字符串进行修改。</p>
-<p>其次是反序列化函数的调用，从业务上来说这是不可避免的，因此要想所解析出来的对象符合预期，在这里还需要对解析的序列化字符串进行检查。增强应用的健壮性，不应畸形输入而崩溃也是防御的一种方法。</p>
-<p>最后则是控制利用点。一个应用往往会有着数量众多的类，这些类的每一个都有可能被利用。对于这些类的检查，需要注意魔术方法中是否有敏感函数，避免被直接利用。除此之外，避免在__wakeup()中进行过滤和检查，始终将版本保持在最新也是有效的方法。此外，保护好源代码，避免泄露能加大使用反序列化攻击的难度。</p>
-<h2 id="0x06-小结"><a href="#0x06-小结" class="headerlink" title="0x06 小结"></a>0x06 小结</h2><p>反序列化漏洞的危害可能不如SQL注入，命令执行等那么明显，但其隐蔽性更强，审计时更难发现。反序列化漏洞是代码强相关漏洞，对其的利用程度和后端代码有很大关系。</p>
-
-      
+<h2 id="0x02-为什么要序列化-反序列化"><a href="#0x02-为什么要序列化-反序列化" class="headerlink" title="0x02 为什么要序列化/反序列化"></a>0x02 为什么要序列化/反序列化</h2><p>在我看来，序列化和反序列化最直接的目的就是在通信过程中以一种易理解的格式传递，这里的通信过程既包括基于网络的远程通信，也包括...</p>
+            
+            <span class="read-more"><a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" data-id="cksrngqtq000gq4w06aqrbigv" data-title="关于反序列化漏洞的一点思考" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-    <article id="post-《计算机网络-自顶向下方法》学习笔记-第5章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" class="article-date">
-  <time class="dt-published" datetime="2020-03-09T07:07:09.000Z" itemprop="datePublished">2020-03-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记-第5章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="第5章-《网络层：控制平面》"><a href="#第5章-《网络层：控制平面》" class="headerlink" title="第5章 《网络层：控制平面》"></a>第5章 《网络层：控制平面》</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>在路由选择协议中，<strong>OSPF</strong>是一种运行在单一ISP的网络中的路由选择算法，<strong>BGP</strong>则运行在因特网中互联所有网络。对于转发表和流表的计算，维护和安装，可以采用两种方法：1.<strong>每路由器控制</strong>。OSPF和BGP协议都是采用这种基于单个路由器的方法进行控制的。2.<strong>逻辑集中控制</strong>。即使用逻辑集中式控制器计算并分发转发表以供每台路由器使用。控制器经一个协议与每台路由器中的一个<strong>控制代理（CA）</strong>进行交互，以配置和管理该路由器的转发表。CA一般具有最少的功能，其任务是与控制器通信和执行控制器命令。这些CA不能直接交互，也不能主动参与计算转发表。</p>
-<h3 id="5-2-路由选择算法"><a href="#5-2-路由选择算法" class="headerlink" title="5.2 路由选择算法"></a>5.2 路由选择算法</h3><p>路由选择算法的目的是从发送方到接收方中确定一条通过路由器网络的好的路径。根据算法是集中还是分散的可将路由选择算法分为两类：1.<strong>集中式路由选择算法</strong>。其使用完整的，全局的网络信息计算出源到目的地的最低开销路径。即该算法是以所有节点之间的连通性和链路的开销作为输入。具有全局状态信息的算法通常被称为<strong>链路状态（LS）算法</strong>。2.<strong>分散式路由选择算法</strong>。使用该类算法的路由器以迭代，分布式的方式计算出最低开销路径。<strong>距离向量（DV）算法</strong>是一种分散式路由选择协议。此外还分为<strong>动态路由选择协议</strong>与<strong>静态路由选择协议</strong>。在静态路由选择协议中，路由随时间变化非常缓慢，通常是人工进行调整。动态路由选择算法随着网络流量负载或拓扑发生变化而改变路由选择路径。在<strong>负载敏感的路由选择协议</strong>中，链路开销会动态的变化以反映出底层链路的当前拥塞水平。如今的因特网路由选择算法都是<strong>负载迟钝</strong>的，因为某条链路的开销不能明确反映其当前的拥塞水平。</p>
-<p>实践中常使用<strong>链路状态广播算法</strong>完成对网络拓扑和链路开销的通告。节点广播的结果是所有节点都具有该网络的统一，完整的视图。于是每个结点都能通过运行LS算法计算出相同的最低开销路径。<strong>Dijkstra算法</strong>能计算从某节点到网络所有其它节点的最低路径开销。防止链路出现振荡的一个合理的方法是<strong>确保不是所有的路由器都同时运行LS算法</strong>。</p>
-<p><strong>距离向量（DV）算法</strong>是一种<strong>迭代的</strong>，<strong>异步的</strong>和<strong>分布式</strong>的算法。其被称为分布式是因为每个节点都要从一个或多个直接相连节点接收某些信息，执行计算，然后将其计算结果发送给邻居。称其为迭代的是因为此过程要持续到邻居之间无更多信息要交换为止。称其为异步，是因为它不要求所有节点同步工作。</p>
-<p>设[latex]d_{x}(y)[/latex]为x到y的最低开销，则有<strong>Bellman-Ford方程</strong>：</p>
-<p>[latex display=true]d_{x}(y) = min_{v}{c(x,v)+d_{v}(y)}[/latex]</p>
-<p>其中[latex]min_{v}[/latex]是指对于x的所有邻居。在该算法中，每个节点不定时向邻居发送其距离向量副本，然后根据Bellman-Ford方程更新其距离向量副本。最终每条路径都会收敛到实际最低开销路径。</p>
-<p>当一个运行DV算法的节点检测到从它到邻居的链路开销发生变化时，它更新其距离向量，并且如果最低开销路径的开销发生了变化，向邻居通告新的距离向量。<strong>路由选择环路</strong>是指到达x，y后通过z，后又通过y。这种问题于是被称为<strong>无穷计数问题</strong>。该问题可通过被称为<strong>毒化逆转</strong>的技术加以避免。即若z通过y路由选择到目的地x，则z将通告y，z到x的距离是无穷大。但涉及到三个节点或更多节点的环路<strong>无法</strong>用毒性逆转技术解决。</p>
-<p>比较LS与DV两种算法，发现LS算法的<strong>报文复杂度</strong>较DV算法高，DV算法<strong>收敛</strong>更慢，且收敛时可能遇到路由选择环路，且LS算法的<strong>健壮性</strong>更强。</p>
-<h3 id="5-3-因特网中自治系统内部的路由选择：OSPF"><a href="#5-3-因特网中自治系统内部的路由选择：OSPF" class="headerlink" title="5.3 因特网中自治系统内部的路由选择：OSPF"></a>5.3 因特网中自治系统内部的路由选择：OSPF</h3><p>规模和管理自治问题可以通过将路由器组织进<strong>自治系统（AS）</strong>来解决，其中每个自治系统由一组通常处在相同管理控制下的路由器组成。<strong>规模问题</strong>会导致DV算法难以收敛，<strong>管理自治问题</strong>主要是ISP希望按自己的意愿运行路由器，或对外隐藏其网络的内部细节。一个自治系统有其全局唯一的<strong>AS号</strong>标识，AS号由ICANN区域注册机构所分配。在相同AS中的路由器运行相同的路由选择算法并且有彼此的信息。在一个自治系统内运行的路由选择算法叫作<strong>自治系统内部路由选择协议</strong>。</p>
-<p><strong>OSPF（开发最短路优先）</strong>是一种链路状态协议，它使用泛洪链路状态信息和Dijkstra最低开销路径算法。使用OSPF，一台路由器构建了一副关于整个自治系统的完整拓扑图。故每台路由器在本地运行Dijkstra的最短路径算法，以确定一个以自身为根节点到所有其它子网的最短路径树。使用OSPF时，路由器向自治系统内所有其它路由器广播路由选择信息。当一条链路的状态发生变化时，路由器会广播链路状态信息。链路状态无变化时，路由器周期性广播链路状态。OSPF 通告包含在OSPF报文中，该OSPF报文直接<strong>由IP承载</strong>，对OSPF其上层协议的值为89.</p>
-<p>OSPF有几点优点：1.<strong>安全</strong>。能够鉴别OSPF路由器之间的交换，且能够配置简单的和MD5两种方式的鉴别。使用简单鉴别时，每台路由器配置相同的口令。当一台路由器发送一个OSPF分组时，以明文方式包括了口令。MD5鉴别基于配置在所有路由器上的密钥。对于每个附加了密钥的OSPF分组内容计算MD5散列值，然后将该散列值包含在分组中。接收路由器通过密钥计算该分组的散列值，再与携带的散列值比较，从而验证了该分组的真实性。2.OSPF允许使用<strong>多条相同开销的路径</strong>。3.能提供对<strong>单播和多播路由选择</strong>的综合支持。4.支持在单个AS中的<strong>层次结构</strong>。</p>
-<h3 id="5-4-ISP之间的路由选择：BGP"><a href="#5-4-ISP之间的路由选择：BGP" class="headerlink" title="5.4 ISP之间的路由选择：BGP"></a>5.4 ISP之间的路由选择：BGP</h3><p>自治系统间路由选择协议设计多个AS之间的协调，所以AS通信必须运行相同的AS间路由选择协议。在因特网中，所有AS运行相同的AS间路由选择协议，称为<strong>边界网关协议（BGP）</strong>。BGP是一种<strong>分布式</strong>和<strong>异步</strong>的协议。</p>
-<p>在BGP中，分组并不是路由到一个特定的目的地址，而是<strong>路由到CIDR化的前缀</strong>。BGP能使主机从邻居AS获得前缀的可达性信息，并确定到该前缀的最佳路径。对于每个AS，路由器为<strong>网关路由器或内部路由器</strong>。<strong>网关路由器</strong>是一台位于AS边缘的路由器，直接连接到在其它AS中的一台或多台路由器。<strong>内部路由器</strong>仅连接在它自己AS中的主机和路由器。</p>
-<p>在BGP中，每对路由器通过使用179端口的半永久TCP连接交换路由选择信息。每个直接连接以及所有通过该链接发送的BGP报文，称为BGP连接。跨越两个AS的BGP连接称为<strong>外部BGP连接（eBGP）</strong>，而在相同的AS中的两台路由器之间的BGP会话称为<strong>内部BGP（iBGP）</strong>。</p>
-<p>BGP的前部中包括一些BGP属性，前缀和其属性称为<strong>路由</strong>。两个重要的属性是<strong>AS-PATH</strong>和<strong>NEXT-HOP</strong>。AS-PATH包含已经通过的AS的列表,为了生成AS-PATH的值，当一个前缀通过某AS时，该AS将其ASN加入AS-PATH的现有列表中。AS-PATH也能用于防止通告环路，即如果一台路由器在路径列表看到了包含自己的AS，它将拒绝该通告。NEXT-TOP是AS-PATH起始路由器接口的IP地址。</p>
-<p>最简单的路由选择方式是<strong>热土豆路由选择</strong>。使用热土豆路由选择，选择的路由到开始该路由的<strong>NEXT-HOP路由器具有最小开销</strong>。注意到当在转发表中增加AS向外前缀时，AS间路由选择协议（BGP）和AS间路由选择协议（OSPF）都要用到热土豆路由选择的思想是<strong>尽可能快地将分组送出其AS</strong>，而不担心其AS到目的地地余下部分地开销。</p>
-<p>在实践中采取的BGP路由选择算法的<strong>输入是到某前缀的所有路由的集合</strong>。若仅有这样一个路由，则BGP采用之，否则按以下规则删除路由直到余下一条：1.路由器被指派一个<strong>本地偏好</strong>作为其属性之一。一条路由的本地偏好可能由该路由器设置或可能由在相同AS中的另一台路由器学习到。具有最高的本地偏好值的路由将被选择。2.从余下的路由中将选择具有<strong>最短AS-PATH</strong>的路由，其中BGP将使用DV算法，且距离测度使用的是AS的跳数而不是路由器跳的跳数。3.使用<strong>热土豆路由选择</strong>，即选择具有最靠近NEXT-HOP路由器的路由。4.如果路由仍不唯一，则使用<strong>BGP标识符</strong>选择路由。</p>
-<p>BGP还常被用于实现<strong>IP任播</strong>服务，该服务<strong>常用于DNS</strong>中。在下列情形中可使用IP任播：1.在许多分散的不同地理位置，替换不同服务器上的相同内容。2.让每个用户从最靠近的服务器访问内容。CDN公司课为它的多台服务器指派相同的IP地址，并且使用标准的BGP从这些服务器的每台通告这些IP地址。当某台BGP服务器收到对于该IP的多个路由通告，它将这些通告处理为对相同的物理位置提供不同的路径。故当客户向该IP发送请求时，路由器向最近的路由器转发该分组，最近的服务器是由BGP路由选择算法所定义的。IP任播还被DNS广泛用于将DNS请求指向最近的根DNS服务器。商业ISP遵循的一个准则是任何穿越某ISP的主干网的流量必须是其源或目的位于该ISP的某个客户网络中。</p>
-<h3 id="5-5-SDN控制平面"><a href="#5-5-SDN控制平面" class="headerlink" title="5.5 SDN控制平面"></a>5.5 SDN控制平面</h3><p>SDN体系结构具有4个特征：1.<strong>基于流的转发</strong>。SDN控制的交换机的分组转发工作能够基于传输层，网络层或链路层首部中的任意数量的首部字段进行。2.<strong>数据平面与控制平面分离</strong>。3**.网络控制功能**：位于数据平面交换机外部。控制平面本身由两个组件构成：一个SDN控制器以及若干网络控制应用程序。4.<strong>可编程的网络</strong>。</p>
-<p>对于SDN控制器的层次结构，我们使用一种自底向上的方式考虑：1.<strong>通信层</strong>：SDN控制器和受控网络设备之间的通信。2.<strong>网络范围状态管理层</strong>。3.<strong>提供给网络控制应用程序层的接口</strong>。</p>
-<p>OpenFlow协议运行在SDN控制器和SDN控制的交换机或其他实现OpenFlow API 的设备之间。OpenFlow运行在TCP之上，使用6653的默认端口号。从控制器到交换机有如下几种重要报文：1.<strong>配置</strong>。该报文允许控制器查询并设置交换机的配置参数。2.<strong>修改状态</strong>。该报文由控制器使用，以增加或删除或修改交换机流表中的表项，并设置交换机端口特性。3.<strong>读状态</strong>。该报文用于从交换机的流表和端口收集统计数据和计数器值。4.<strong>发送分组</strong>。该报文用于控制交换机从特定端口发出特定报文。从交换机到控制器由如下几种重要报文：1.<strong>流删除</strong>。该报文通知控制器已删除一个流表项。2.<strong>端口状态</strong>。该报文向控制器通告端口状态变化。3.<strong>分组入</strong>。该报文用于将分组发送给控制器。</p>
-<p>在SDN中，Dijkstra算法是一个单独的程序，<strong>位于分组交换机之外</strong>，且分组交换机向SDN控制器发送链路更新而<strong>不向其它交换机发送</strong>。假设两交换机之间的链路断开，数据平面和控制平面的交互过程如下：1.交换机向SDN控制器<strong>通报该链路状态的更新</strong>。2.SDN控制器<strong>接收指示链路状态更新的OpenFlow报文</strong>，并且<strong>通告链路状态管理器</strong>，由管理器<strong>更新链路状态库</strong>。3.应用程序<strong>接收该路由状态更新的通告</strong>。4.链路状态路由选择应用程序与链路状态管理器交互，<strong>以得更新的链路状态</strong>，而后计算新的最低开销路径。5.链路状态路由选择应用与流表管理器交互，流表决定<strong>更新新的流表</strong>。6.流表管理器使用OpenFlow协议<strong>更新受影响的交换机的流表项</strong>。</p>
-<h3 id="5-6-ICMP：因特网控制报文协议"><a href="#5-6-ICMP：因特网控制报文协议" class="headerlink" title="5.6 ICMP：因特网控制报文协议"></a>5.6 ICMP：因特网控制报文协议</h3><p><strong>因特网控制报文协议（ICMP）</strong>被主机和路由器用于<strong>沟通路由器信息</strong>。ICMP最典型的用途是<strong>差错报告</strong>。ICMP是承载在<strong>IP报文</strong>中的。ICMP报文有一个<strong>类型字段</strong>和一个<strong>编码字段</strong>，并且包含引起该ICMP报文首次生成的IP数据报的<strong>首部和前8个字节</strong>。ping程序发送一个ICMP类型为8编码为0的报文到指定主机。<strong>Traceroute</strong>是使用ICMP报文实现的。Traceroute通过目的路由器返回的ICMP告警报文（类型11编码0）。最终的UDP数据报包含一个具有不可达的端口号，当目的主机收到后，将向源发送一个端口不可达的ICMP报文（类型3编号3），当源主机收到后，得知traceroute已经到达终点。</p>
-<h3 id="5-7-网络管理与SNMP"><a href="#5-7-网络管理与SNMP" class="headerlink" title="5.7 网络管理与SNMP"></a>5.7 网络管理与SNMP</h3><p>网络管理中有如下几个关键组件：1.<strong>管理服务器</strong>是一个应用程序，控制网络管理信息的手机，处理和分析。2.<strong>被管设备</strong>是网络设备的一部分。3.一个被管设备中的每个被管对象的关联信息收集在<strong>管理信息库</strong>（MIB）中，这些信息可供管理服务器所用。MIB对象由称为SMI的数据描述语言所定义。4.在每个被管设备中驻留有<strong>网络管理代理</strong>。5.最后的组件是<strong>网络管理协议</strong>，运行在管理服务器和被管设备之间。</p>
-<p><strong>简单网络管理协议（SNMP）版本2</strong>是一个应用层协议，用于在管理服务器和代表管理服务器执行的代理之间<strong>传递网络管理控制和信息报文</strong>。SNMP最常使用的是<strong>请求响应模式</strong>，其中SNMP向SNMP代理发送一个请求，代理接收到请求后，执行某些动作，然后对该请求发送一个回答。请求通常用于<strong>查询或修改与某被管设备关联的MIB对象值</strong>。此外，SNMP常被用于代理向管理服务器发送的一种非请求报文，该报文被称为<strong>陷阱报文</strong>。陷阱报文用于通知管理服务器一个异常情况已经导致MIB对象值的改变。SNMPv2中定义了7种报文，这些报文一般称为<strong>协议数据单元（PDU）</strong>。</p>
-<p>PDU有如下7种：1.<strong>GetRequest</strong>，<strong>GetNextRequest和GetBulkRequest</strong> PDU都是管理服务器向代理发送的，以请求位于该代理所在被管设备中的若干个MIB值。他们的区别在于数据请求粒度。2.<strong>SetRequest PDU</strong>被管理服务器用于设置被管设备中的若干个MIB的值。代理用带有“noError”差错状态的Response PDU进行响应。3.管理服务器使用<strong>InformRequest PDU</strong>来通知另一个MIB管理服务器。4.<strong>Response PDU</strong>通常被用于从被管设备发给管理服务器，以响应来自该服务器的请求报文，返回所响应的信息。5.<strong>陷阱报文</strong>。陷阱报文是异步产生的，是为了响应管理服务器要求通知的事件而产生的。SNMP PDU通常作为<strong>UDP数据报</strong>的载荷进行传输。</p>
-
-      
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" data-id="cksrngqtp000eq4w05ux1cgia" data-title="《计算机网络-自顶向下方法》学习笔记-第5章" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-《计算机网络-自顶向下方法》学习笔记-第4章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" class="article-date">
-  <time class="dt-published" datetime="2020-03-02T03:15:10.000Z" itemprop="datePublished">2020-03-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/WriteUp in platform">
+                  <b>「 </b>WRITEUP IN PLATFORM<b> 」</b>
+                </a>
+            
+            March 09, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" title="《计算机网络-自顶向下方法》学习笔记-第5章" class="posttitle">《计算机网络-自顶向下方法》学习笔记-第5章</a></h3>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记-第4章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="第4章-《网络层：数据平面》"><a href="#第4章-《网络层：数据平面》" class="headerlink" title="第4章 《网络层：数据平面》"></a>第4章 《网络层：数据平面》</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><p>网络中的每一台主机和路由器都有一个网络层部分。<strong>数据平面</strong>功能指的是网络层中每台路由器的功能，<strong>控制平面</strong>功能指的是网络范围的逻辑。路由器的协议栈没有网络层以上的部分。</p>
-<p>网络层需要两种重要功能：1.当一个分组到达某路由器的一个输入链路时，该路由器必须将该分组移动到适当的输出链路，即<strong>转发</strong>的功能。这是<strong>数据平面</strong>中实现的唯一功能。2.网络层需要决定分组采用的路径，即<strong>路由选择</strong>的功能。计算这些路径的算法称为<strong>路由选择算法</strong>。路由选择在<strong>控制平面</strong>实现。转发一般指的是将一个分组从一个输入链路接口转移到适当的输出链路接口的路由器本地动作，其时间尺度很短，通常为<strong>纳秒</strong>级别，常用<strong>硬件</strong>实现。路由选择是指确定分组从源到目的地所采用的端到端路径的网络范围处理过程，时间尺度较大，通常为<strong>秒</strong>级别，常用<strong>软件</strong>实现。每台路由器都有的关键元素为<strong>转发表</strong>。路由器检查到达的分组首部的一个或读个字段值，进而使用这些首部在其转发表中索引，通过这种方式转发分组。</p>
-<p>控制平面的<strong>传统实现方式</strong>通过路由选择算法决定插入路由器转发表的内容。而在<strong>SDN（软件定义网络）</strong>方法中，远程控制器计算和分发转发表供每台路由器使用，控制平面路由选择功能与物理上的路由器相分离，即路由选择设备仅执行转发，而远程控制器计算和分发转发表。路由器与远程控制器的通信通过交换包含转发表和其他路由选择信息的报文实现。</p>
-<p>网络服务模型定义了分组在发送与接收端之间的端到端运输特性。网络层仅提供<strong>尽力而为服务</strong>，即不进行任何保证。如ATM网络体系结构提供了确保按序时延，有界时延和确保最小带宽服务。<strong>分组交换机</strong>指的是一台通用分组交换设备，根据分组首部的值，从输入链路接口到输出链路接口中转移分组。基于链路层字段做出转发决定的分组交换机称为<strong>链路层交换机</strong>。基于网络层数据报首部做出转发决定称为<strong>路由器</strong>。</p>
-<h3 id="4-2-路由器工作原理"><a href="#4-2-路由器工作原理" class="headerlink" title="4.2 路由器工作原理"></a>4.2 路由器工作原理</h3><p>路由器的四个组件：1.<strong>输入端口</strong>。它在路由器中作为入物理链路的结束，与位于入链路远端的数据链路层交互来执行数据链路层功能。其还执行查找功能，通过查找转发表决定路由器的输出端口。控制分组（如携带路由选择协议信息的分组）从输入端口转发到路由选择处理器。2.<strong>交换结构</strong>。交换结构将路由器的输入端口连接到它的输出端口。3.<strong>输出端口</strong>。输出端口存储从交换结构接受的分组，并通过执行必要的链路层和物理层功能在输出链路上传输这些分组。一条链路是双向的时，输出端口通常与输入端口成对出现在同一个线路卡。4.<strong>路由选择处理器</strong>。在传统路由器中，它执行路由选择协议，维护路由选择表和关联链路信息，并为该路由器计算转发表。在SDN路由器中，路由选择处理器负责和远程控制器通信，目的是接收由远程控制器计算的转发表项，并在输入端口安装表项。路由器的输入端口，输出端口和交换结构几乎都是由硬件实现。</p>
-<p>路由器用分组目的地址的前缀与转发表中的表项进行对比，如果存在一个匹配项，则路由器向与该匹配项相关联的链路转发分组。当有多个匹配时，该路由器使用<strong>最长前缀匹配规则</strong>，即在该表中寻找最长的匹配项，并向与最长匹配前缀的链路接口转发分组。实践中常采用**三态内容可寻址存储器(TCAM)**查找。使用TCAM，一个32比特的IP地址呗放入内存，TCAM能在基本常数时间内返回对该地址的转发表项的内容。除查找之外，输入端口还需要1.进行物理层和链路层处理2.检查分组版本号，检验和以及存活时间字段，并重写后两个3.更新用于网络管理的计数器。</p>
-<p>交换可以以以下三种方式完成：1.<strong>经内存交换</strong>。即一个分组到达一个输入端口时，该端口会先通过中断方式向路由选择处理器发出信号，该分组被复制到内存中，路由选择处理器则从其首部提取目的地址，在转发表中找到适当的输出端口，并将该分组复制到输出端口的缓存中。即使两个分组有不同的目的端口，也不能同时转发。许多现代路由器都是通过内存交换，但其目的地址的查找和将分组交换进适当的内存存储位置是由输入线路卡完成的。2.<strong>经总线交换</strong>。即输入端口经一根共享总线将分组直接传送到输出端口，不需要路由选择处理器的关于。可以以下方式实现：首先让输入端口为分组预先计划一个交换机内部标签（首部），指示本地输出端口，使分组在总线上传送和传输到输出端口。该分组能被所有输出端口接收，但只有与标签匹配的输出端口才能保存该分组。随后该标签在输出端口被去除。在这种情况下，一次只有一个分组能跨越总线。3.<strong>经互联网络交换</strong>。纵横式交换机是一种由2N条总线组成的互联网络，连接N个输入端口和N个输出端口。纵横式网络能并行转发多个分组，这种交换机是非阻塞的，即只要没有其它分组当前被转发到该输出端口，转发到输出端口的分组就不会被阻塞。如果来自两个不同输入端口的分组目的地为同一个输出端口，则一个分组必须在输出端等待。</p>
-<p>在一个输入队列中排队的分组由于线路前部的一个分组阻塞而被阻塞（即使输出端口空闲）的现象称为<strong>线路前部阻塞（HOL）</strong>。在输出端口如果没有足够的内存缓存一个分组，端口可以<strong>丢弃到达的分组</strong>，即<strong>弃尾</strong>，或选择<strong>删除一个或多个已排队的分组为新到来的分组</strong>腾出空间。在某些情况下，在缓存填满之前丢弃一个分组的做法可以向发送方发送一个拥塞信号，关于分组丢弃与标记的策略称为<strong>主动队列管理（AQM）算法</strong>。<strong>随机早期检测（RED）</strong>是得到广泛应用和实现的AQM算法之一。</p>
-<p><strong>FIFO(先来先服务，FCFS)调度规则</strong>按照分组到达输出链路队列的相同次序来选择分组在链路上传输，即采用队列的数据结构。在<strong>优先权排队</strong>的规则下，到达输出链路的分组被分类放入输出队列中的优先权类。当选择一个分组传输时，优先权排队规则将从队列为非空的最高优先权类中陈述一个分组，在同一个优先权类的分组之间选择通常以FIFO方式完成。在<strong>非抢占式优先权排队规则</strong>下，一旦分组开始传输，就不能打断。在<strong>循环排队规则</strong>下，分组像使用优先权排队那样被分类，但类与类之间不存在严格的服务优先权，循环调度器在这些类之间轮流提供服务。保持工作排队规则在有分组等待传输时，不允许链路保持空闲。<strong>加权公平排队规则</strong>（WFQ）被广泛应用于路由器中，每个类在任何可能的时间间隔内可能收到不同数量的服务，每个类被分配一个一个权重值，使用该方法时，在某个类有分组要发送的任何时间间隔中，该类确保收到的服务部分为其权值占总权重之比。</p>
-<h3 id="4-3-网际协议：IPv4、寻址、IPv6及其它"><a href="#4-3-网际协议：IPv4、寻址、IPv6及其它" class="headerlink" title="4.3 网际协议：IPv4、寻址、IPv6及其它"></a>4.3 网际协议：IPv4、寻址、IPv6及其它</h3><p>网络层分组被称为<strong>数据报</strong>。IPv4数据报中有如下关键字段：1.<strong>版本</strong>。版本字段有4个比特，规定了数据报的IP协议版本。不同的IP版本使用不同的数据报格式。2.<strong>首部长度字段</strong>。在IPv4数据报中包含一些可变数量的选项，所以需要这4比特以确定IP数据报中的有效载荷开始处。3.<strong>服务类型</strong>。服务类型字段(TOS)将不同类型的IP数据报区分开来，如将实时数据报和非实时流量区别开来。4.<strong>数据报长度</strong>。指示IP数据报的总长度，以字节计。5.<strong>标识、标志、片偏移</strong>。这三个字段与IP分片有关，IPv6不会对分组进行分片。6.<strong>寿命</strong>。寿命(Time-To-Live，TTL)字段用于保证数据报不会再网络中无限循环。每当一台路由器处理数据报是，该字段的值减1。若TTL减为0，则该数据报会被丢弃。7.<strong>协议</strong>。该字段值指示IP数据报的数据部分应该交给哪个特定的传输层协议。协议号是将网络层和传输层绑定到一起的粘合剂，端口号是将传输层和应用层绑定的粘合剂。8.<strong>首部检验和</strong>。首部检验和用于帮助路由器检测收到的IP数据报中的比特错误。首部检验和将首部中的每两个字节作为一个数，取其反码和作为检验和。9.<strong>源和目的IP地址</strong>。10.<strong>选项</strong>。选项字段允许IP首部被扩展，较少使用，在IPv6中被去除。11.<strong>数据</strong>。即有效载荷字段，包括传输层报文和ICMP报文等。</p>
-<p>一个链路层帧能承载的最大数据量叫作<strong>最大传输单元（MTU）</strong>。但在发送方与目的地路径上的每段链路可能使用不同的链路层协议，且每种协议可能具有不同的MTU。将过大的IP分组放入链路层帧的有效载荷可以通过将IP数据报中的数据分片成更小的IP数据报，用单独的链路层帧封装这些较小的数据报再进行发送。这些数据报称为<strong>片</strong>。当某路由器对一个数据报进行分片时，每个片具有初始数据报的源地址、目的地址和标识号。由于IP是不可靠的服务，为使目的主机确信其已经收到最后一片，<strong>最后一片的标志比特被设置为0</strong>，<strong>偏移字段用于确认该片在原始数据报中的位置</strong>。</p>
-<p>主机和物理链路之间的边界称为<strong>接口</strong>。路由器和它的任意一条链路之间的边界也称为接口。因为每台主机和路由器都能发送和接收IP数据报，IP要求每台主机和路由器接口都有自己的IP地址。<strong>每个IPv4地址长度为32比特</strong>，使用<strong>点分十进制</strong>书写。分开主机和路由器的接口，产生若干隔离的网络岛，使用接口端接这些隔离的网络端点。这些隔离网络岛中的每一个都称作<strong>子网</strong>。IP地址中/xx为子网掩码，如/24意为左侧24比特位子网地址。在给定子网上所有设备都具有相同的子网地址。因特网的地址分配策略被称为<strong>无类别域间路由选择（CIDR）</strong>。地址a.b.c.d/x的前x比特构成了IP地址的网络部分，被称为该地址的前缀。一个组织常被分配一块连续的地址。使用单个网络前缀通告多个网络的能力称为<strong>地址聚合</strong>，也称为<strong>路由聚合</strong>或<strong>路由摘要</strong>。一个地址剩余的32-x个地址可认为使用于区分该组织内部设备的，其中所有的网络设备具有相同的网络前缀。在CIDR被采用之前，IP地址的网络部分被限制为8，16或24比特，被称为<strong>分类编址</strong>的编制方案，具有8，16，24比特子网地址分别被称为<strong>A,B和C类网络</strong>。<strong>IP广播地址</strong>为255.255.255.255。当一个主机发出目的地址为255.255.255.255的IP数据报时，该报文会被交付给同一子网中的所有主机。IP地址由<strong>因特网名字和编号分配机构（ICANN）</strong>管理。</p>
-<p>系统管理员通常通过手工配置路由器中的IP地址更多采用<strong>动态主机配置协议（DHCP）</strong>完成。DHCP允许主机自动获取一个IP地址，网络管理员能配置DHCP使得主机与网络连接时得到一个相同的地址或一个临时的IP地址。DHCP还使主机得知其<strong>子网掩码，第一条路由器（即默认网关）地址和本地DNS服务器</strong>。由于DHCP具有将主机连接加入一个网络相关方面的自动能力，故常称他为即插即用协议或零配置协议。DHCP是一个客户-服务器协议。客户通常是新到达的主机，它要获得包括自身IP地址在内的配置信息。在最简单场合下，每个子网具有一个DHCP服务器，如果某子网没有服务器，则需要一个<strong>DHCP中继服务器</strong>（通常为路由器），该代理用于获取网络的DHCP服务器地址。</p>
-<p>DHCP是一个四步骤协议：1.<strong>DHCP服务器发现</strong>。主机通过使用DHCP发现报文发现一个与其交互的DHCP服务器，主机在UDP报文中像端口67发送发现报文。DHCP客户生成包含DHCP发现报文的IP数据报，使用广播地址255.255.255.255，源主机地址使用0.0.0.0。2.<strong>DHCP服务器提供</strong>。DHCP服务器收到一个DHCP发现报文时，用DHCP提供报文向客户做出响应，该报文向该子网的所有节点广播，也是用广播地址。每台服务器提供的报文包括收到的发现报文的事务ID，推荐的IP地址，掩码和IP地址租用期等。3.<strong>DHCP请求</strong>。新到达的客户从服务器中选择一个，向选中的服务器提供用DHCP请求报文就行响应，回显配置的参数。4.<strong>DHCP ACK</strong>。服务器用DHCP ACK对请求报文进行响应，证实参数。</p>
-<p>地址10.0.0.0/8是<strong>保留的IP地址空间</strong>之一，用于家庭网络等专用网络或具有专用地址的地域，即其<strong>仅在给定的网络中才具有意义</strong>。<strong>NAT（网络地址转换）路由器对外界的行为如同一个具有单一IP地址的单一设备</strong>。从本质上说，NAT路由器<strong>对外界隐藏了家庭网络的细节</strong>。其原理为使用了NAT路由器上的一张<strong>NAT转换表</strong>，并在表项中包含了端口号和IP地址。NAT使用<strong>端口号用于主机寻址</strong>。NAT已经成为因特网的一个重要组件，成为<strong>中间盒</strong>，中间盒并不执行传统的数据报转发，而是执行如NAT，流量的负载均衡，流量防火墙等功能。</p>
-<p>IPv6的数据报格式中有如下特点：1.<strong>扩大的地址容量</strong>。IPv6地址增长到128比特。IPv6还引入任播地址，这种地址可以使数据报交付给一组主机的任意一个。2.<strong>简化高效的40字节首部</strong>。3.<strong>流标签</strong>。该字段可以用于给属于特殊流的分组加上标签，这些特殊流可能需要进行特殊处理，如需要实时服务等。IPv6中的所有字段有：1.<strong>版本</strong>。用于标识IP版本号。2.<strong>流量类型</strong>。类似于TOS字段。3.<strong>流标签</strong>。4.<strong>有效载荷长度</strong>。给出了IPv6数据报中跟在首部后字节数量。5**.下一个首部<strong>。该字段标识数据报中的内容交付给的上层协议，如TCP或UDP。6.<strong>跳限制</strong>。转发数据的每台路由器将对该字段内容减1，达到0时该包被丢弃。7.<strong>源地址和目的地址</strong>。8.<strong>数据</strong>。即有效载荷字段。IPv4中的下述字段已经不存在：1.<strong>分片/重新组装</strong>。IPv6不允许再中间路由器上进行分片和重新组装。如果IPv6数据报过大无法转发，路由器直接丢弃该数据报。2.<strong>首部检验和</strong>。3.<strong>选项</strong>。删除选项后，IP首部成为定长的40字节。现在广泛采用的从IPv4到IPv6迁移的方法为</strong>建立隧道**。</p>
-<h3 id="4-4-通用转发和SDN"><a href="#4-4-通用转发和SDN" class="headerlink" title="4.4 通用转发和SDN"></a>4.4 通用转发和SDN</h3><p><strong>通用转发</strong>是指每台分组交换机包含一张由远程控制器计算和转发的<strong>匹配加动作表</strong>。<strong>OpenFlow</strong>是一种得到高度认可的通用转发标准，匹配加动作表在OpenFlow中称为<strong>流表</strong>。其表项包括：1.<strong>首部字段值的集合</strong>，入分组将于其匹配。匹配不上流表项的分组将被丢弃或被转发到远程控制器做更多处理。2.<strong>计数器集合</strong>。当流表项与分组匹配时更新计数器。这些计数器包括已经与该表项匹配的分组数量和上一次匹配的时间。3.<strong>当分组匹配流表项时采取的动作集合</strong>。流表的本质是一个API，这种抽象使每台分组交换机的行为能被编程。</p>
-<p><strong>入端口ID和11个分组首部字段</strong>能被OpenFlow中的匹配规则所匹配。流表同样有 通配符。每个流表项都有零个或多个<strong>动作列表</strong>。若有多个动作，则以在表中规定的次序执行。最重要的动作有：1.<strong>转发</strong>。一个入分组可以转发到一个特定的物理输出端口，广播到除入端口外所有的端口，或通过所选的端口集合进行多播。2.<strong>丢弃</strong>。没有动作的流表项应当被丢弃。3.<strong>修改字段</strong>。在分组被转发到所选的输入端口之前，分组首部的10个字段（11个字段中除IP协议字段外其他的字段）可以被重写。OpenFlow可以做简单转发，负载均衡和充当防火墙。</p>
-
-      
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        8.5k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        8 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="第5章-《网络层：控制平面》"><a href="#第5章-《网络层：控制平面》" class="headerlink" title="第5章 《网络层：控制平面》"></a>第5章 《网络层：控制平面》</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>在路由选择协议中，<strong>OSPF</strong>是一种运行在单一ISP的网络中的路由选择算法，<strong>BGP</strong>则运行在因特网中互联所有网络。对于转发表和流表的计算，维护和安装，可以采用两种方法：1.<strong>每路由器控制</strong>。OSPF和BGP协议都是采用这种基于单个路由器的方法进行控制的。2.<strong>逻辑集中控制</strong>。即使用逻辑集中式控制器计算并分发转发表以供每台路由器使用。控制器经一个协议与每台路由器中的一个<strong>控制代理（CA）</strong>进行交互，以配置和管理该路由器的转发表。CA一般具有最少的功能，其任务是与控制器通信和执...</p>
+            
+            <span class="read-more"><a href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" data-id="cksrngqu0000pq4w07cuf7l1f" data-title="《计算机网络-自顶向下方法》学习笔记-第4章" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-    <article id="post-《计算机网络-自顶向下方法》学习笔记-第3章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/" class="article-date">
-  <time class="dt-published" datetime="2020-02-03T05:14:29.000Z" itemprop="datePublished">2020-02-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记-第3章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="第3章-《传输层》"><a href="#第3章-《传输层》" class="headerlink" title="第3章 《传输层》"></a>第3章 《传输层》</h2><h3 id="3-1-概述和传输层服务"><a href="#3-1-概述和传输层服务" class="headerlink" title="3.1 概述和传输层服务"></a>3.1 概述和传输层服务</h3><p>传输层协议为运行在不同主机上的应用提供了<strong>逻辑通信</strong>。通过逻辑通信，运行不同进程的主机好像直接相连一样。传输层中的分组称为<strong>传输层报文段（segment）</strong>。传输层讲这些报文段传递给网络层，网络层将其封装称为网络层分组，即数据报并向目的地发送。网络路由器仅作用于该数据报的网络层字段，即它们不检查封装在该数据报的传输层报文段的字段。传输层<strong>只工作在端系统</strong>中，传输协议能提供的服务常常受制于网络层协议的服务模型。UDP（用户数据报协议）为应用程序提供了一种<strong>不可靠，无连接</strong>的服务，TCP（传输控制协议）为应用程序提供了<strong>可靠的，面向连接的服务</strong>。IP的服务模型为尽力而为交付服务，即IP尽最大努力在主机之间交付报文段但不做任何保证，因此<strong>IP被称作不可靠服务</strong>。每台主机都有一个IP地址。将主机间交付扩展到进程间交付被称为<strong>传输层的多路复用和多路分解</strong>。进程到进程的<strong>数据交付和差错检查</strong>是两种最低限度的传输层服务，也是UDP能提供的仅有的服务。TCP提供了几种附加服务，如通过使用流量控制，序号，确认和定时器以提供可靠数据传输，拥塞控制等。</p>
-<h3 id="3-2-多路复用与多路分解"><a href="#3-2-多路复用与多路分解" class="headerlink" title="3.2 多路复用与多路分解"></a>3.2 多路复用与多路分解</h3><p>一个进程有一个或多个套接字，它相对于从网络中向进程传递数据和从进程向网络传递数据的门户。将传输层报文段中的数据交付到正确的套接字的工作称为<strong>多路分解</strong>，在源主机的不同套接字中收集数据块，并为每个数据块封装上首部信息而生成报文段，然后将报文段传输到网络层中称为<strong>多路复用</strong>。</p>
-<p>传输层多路复用的要求有：1.<strong>套接字有唯一标识符</strong>2.每个报文段有<strong>特殊字段</strong>指示该报文段需要交付到的套接字。这些特殊字段是<strong>源端口号字段</strong>和<strong>目的端口号字段</strong>。<strong>端口号</strong>是一个<strong>16比特</strong>的数，大小在<strong>0-65535</strong>之间，0-1023之间的端口号称为<strong>周知端口号（公认端口号）</strong>，是受限制的，被保留给诸如HTTP（80端口）和FTP（21端口）之类周知协议所使用。</p>
-<p>一个UDP套接字是由一个<strong>二元组</strong>标识的，包括一个<strong>目的IP地址</strong>和一个<strong>目的端口号</strong>。故如果两个UDP报文段有不同的源IP地址和源端口号，但目的IP地址和目的端口号相同，则这两个报文段将通过相同的目的套接字被定向到相同的进程。一个TCP套接字是由一个<strong>四元组</strong>（<strong>源IP地址，源端口号，目的IP地址，目的端口号</strong>）来标识的。两个具有不同源IP地址或源端口号的TCP报文段将被定向到不同的套接字。当一个TCP报文段到达主机时，所有4个字段将被用来将报文段分解到相应的套接字。连接套接字与进程<strong>并非总是有着一一对应</strong>的关系。</p>
-<h3 id="3-3-无连接传输：UDP"><a href="#3-3-无连接传输：UDP" class="headerlink" title="3.3 无连接传输：UDP"></a>3.3 无连接传输：UDP</h3><p>使用UDP时，在发送报文段前，发送方和接收方的传输层实体之间并没有握手，故UDP是<strong>无连接</strong>的。采用UDP时，只要应用程序将数据传递给UDP，UDP就会将此数据打包加入UDP报文段并<strong>立即将其传递给网络层</strong>。UDP<strong>不会引入建立连接的时延</strong>。UDP<strong>不维护连接状态</strong>，也不跟踪这些参数。UDP的<strong>分组首部开销较小</strong>。</p>
-<p>在UDP报文中，<strong>应用层数据占用UDP报文段的数据字段</strong>。UDP<strong>首部只有4个字段</strong>，每个字段由<strong>两个字节</strong>组成，分别为<strong>源端口号，目的端口号，长度，检验和</strong>四个字段。通过端口号可以使目的主机将数据交给相应的进程，即只需分解功能，长度字段指示了UDP报文段中的全部字符数。</p>
-<p><strong>UDP检验和提供了差错检测功能</strong>。发送方对报文段中的所有16比特字的<strong>和</strong>进行<strong>取反运算</strong>，求和时采用<strong>循环进位</strong>，得到的结果放在UDP报文段中的检验和字段。虽然UDP提供差错检测，但其无法进行差错恢复。</p>
-<h3 id="3-4-可靠数据传输原理"><a href="#3-4-可靠数据传输原理" class="headerlink" title="3.4 可靠数据传输原理"></a>3.4 可靠数据传输原理</h3><p>记<strong>经完全可靠信道的可靠数据传输协议为rdt1.0</strong>。rdt的发送端只通过rdt_send(data)接收来自较高层的数据，通过make_pkt(data)产生一个包含数据的分组，并将分组发送到信道中。在接收端，rdt通过rdt_rcv(packet)事件从底层信道接收一个分组，从分组中通过extract(packet,data)取出数据，并将数据通过deliver_data(data)传输给较高层。</p>
-<p>记<strong>经具有比特差错信道的可靠数据传输协议为rdt2.0</strong>。在计算机网络中，<strong>基于肯定确认与否定确认的重传机制的可靠数据传输协议称为自动重传协议(ARQ)<strong>。ARQ中需要</strong>差错检测，接收方反馈和重传</strong>三种协议功能处理比特差错的情况。rdt2.0的发送端由两个状态。当rdt_send(data)出现时，发送方产生一个包含待发送数据的分组，带有校验和，通过udt_send(sndpkt)发送，而后转入等待ACK或NAK的状态。若收到ACK，说明最近发送的分组已被正确接收，因此协议返回到等待上层调用的状态，若收到NAK分组，该协议重传上一个分组并继续等待ACK或NAK。当发送方处于<strong>等待ACK或NAK状态时，它不能从上层获得更多数据</strong>，因此rdt2.0被称为<strong>停等协议</strong>。rdt2.0的接收方的FSM(有限状态机)只有一个状态，即分组到达时回答ACK或NAK。</p>
-<p>rdt2.0没有考虑ACK或NAK分组受损的可能。若采取<strong>冗余分组</strong>的方法，其根本困难在于接收方不知道它上次所发送的的ACK或NAK是否被发送方正确接收，故无法知道收到的分组是新的还是重传的。在数据分组中添加新字段，即让发送方对其数据分组编号，将发送分组的序号放在该字段，即可解决该问题。发送方接收到对同一个分组的两个ACK后，就知道接收方没有正确接收到跟在被确认两次分组后所发送的分组。</p>
-<p>记<strong>经具有比特差错的丢包信道的可靠数据传输协议为rdt3.0</strong>。rdt3.0中，为了实现基于时间的重传机制，需要一个<strong>倒计时计数器</strong>，在一个给定的时间量过期后，可中断发送方。因为rdt3.0中分组序号在0和1之间交替，故rdt3.0也被称为<strong>比特交替协议</strong>。</p>
-<p>rdt3.0功能正确，但因为其是停等协议，性能不佳。定义<strong>发送方的利用率</strong>为发送方实际忙于将发送比特送进信道的那部分时间与发送时间之比，停等协议有很低的利用率。可采用流水线技术改进可靠数据传输协议，引入流水线则需要1.<strong>增加序号范围</strong>2.<strong>协议的发送方和接收方两端需要缓存多个分组</strong>3.<strong>所需序号范围和对缓冲的要求取决于协议如何处理丢失，损坏和延时过大的分组</strong>。解决流水线的差错恢复的两种基本方法是**回退N步(GBN)<strong>和</strong>选择重传(SR)**。</p>
-<p>在回退N步(GBN)协议中，<strong>允许发送方发送多个分组而不需要等待确认</strong>，但它也受限于在流水线中<strong>未确认的分组数不能超过某个最大允许数N</strong>。我们将<strong>基序号定义为最早未确认分组的序号</strong>，将<strong>下一个序号定义为最小未使用序号</strong>。N<strong>常被称为窗口长度，GBN协议常被称为滑动窗口协议</strong>。在GBN协议中，发送方必须响应三种事件，即1.<strong>上层调用</strong>：发送方首先检查发送窗口是否已满，即是否有N个已发送但未被确认的分组。如果窗口未满，则发送一个分组并相应更新变量；2.<strong>收到一个ACK</strong>：GBN中对分组确认采用累计确认的方式，即表明接收方已正确接收序号n的以前包括n在内的所有分组；3.<strong>超时事件</strong>：若出现超时，发送方重传所有已发送但未被确认的分组。若收到一个ACK，但仍有已发送未确认的分组，则定时器被重启，若无这种分组，则停止计时器。对于接收方，如果一个序号为n的分组被正确且按序收到（即上一个交付给上层的分组序号为n-1），则接收方为分组n发送一个ACK，并交付数据到上层。在其它任何情况下，接收方都丢弃该分组，并按最近按序接收的分组重新发送ACK，即接收方<strong>丢弃所有失序分组</strong>。</p>
-<p>选择重传（SR）协议通过让发送方<strong>仅重传那些它怀疑丢失或受损的分组</strong>而避免了不必要的重传。此时接收方将确认正确接收的分组而不管其是否按序，失序的分组将被<strong>缓存</strong>。对于发送方，现在每个分组都需要有自己的逻辑定时器。当发送方收到ACK时，若该分组序号在窗口内，则发送方将被确认的分组标记为已接收，若分组序号等于基序号，则基序号向前移动到具有最小序号的未确认分组处，若窗口移动了并且有序号落在窗口内的未发送分组，则发送这些分组。对于接收方，若正确接收到接收窗口内的分组，缓存未收过的分组，若分组序号为基序号，则向上交付。若正确接收基序号前一个窗口长度中的分组，则产生一个ACK。在其他情况下，接收方都忽略分组。窗口长度必须<strong>小于或等于序号空间的一半</strong>。由于序号可被重新使用，实际中的做法是在发送方确信任何先前发送的序号为x的分组都不会在网络中前，确保一个序号不被重复使用。这通过假定一个分组在网络中的存活时间不会超过某个固定值来实现。</p>
-<h3 id="3-5-面向连接的传输-TCP"><a href="#3-5-面向连接的传输-TCP" class="headerlink" title="3.5 面向连接的传输: TCP"></a>3.5 面向连接的传输: TCP</h3><p>TCP提供的是<strong>面向连接的，全双工服务</strong>，即如果一台主机上的进程A与另一台主机上的进程B存在一条TCP连接，那么应用层数据就可以在进程B到A的同时也从A流向B。TCP链接是点对点的。建立TCP连接时，前两个报文段不承载有效载荷，即不包含应用层数据，<strong>第三个报文段可包含有效载荷</strong>。连接过程的建立被称为<strong>三次握手</strong>。数据通过套接字后，TCP将其引导到连接的发送缓存中。TCP从缓存中取出并放入报文段中的数据数量受限于<strong>最大报文段长度（MSS）</strong>，MSS通常需要根据由本地发送主机发送的最大链路层帧长度（最大传输单元MTU）来设置。MSS的典型值为1460字节。注意<strong>MSS指的是报文段中应用层数据的最大长度</strong>。</p>
-<p>TCP报文段由首部字段和一个数据字段构成。与UDP一样，首部字段包括了源端口号和目的端口号以及检验和字段。首部字段中包含下列字段：1.<strong>32比特的序号字段和32比特的确认号字段</strong>。2.<strong>16比特的接收窗口字段</strong>，该字段用于流量控制，指示接收方愿意接受的字节数量。3.<strong>4比特的首部长度字段</strong>，指示以32比特为单位的TCP首部长度。4.<strong>可选与变长的选项字段</strong>，用于协商MSS或作为窗口调节因子时使用。5.<strong>6比特的标志字段</strong>，其中ACK比特用于指示确认字段中的值是有效的，即该报文段中包含一个对先前报文段的确认，RST，SYN，FIN比特用于连接的建立和断开。明确拥塞通告中使用了CWR和ECE比特。PSH比特指示接收方立即将数据交给上层，URG比特指示报文段里存在着被发送端的上层标志为紧急的数据。</p>
-<p>TCP报文段首部中最重要的两个字段是<strong>序号字段和确认号字段</strong>。一个报文段的序号是该报文段<strong>首字节的字节流编号</strong>。接收方主机填入报文段的确认号是接收方主机<strong>期望接收到的下一字节的序号</strong>。因为TCP只确认该流中至第一个丢失字节为止的字节，故称TCP为提供<strong>累积确认</strong>。Telent是一个用于远程登录的流行应用层协议。Telnet中对客户到服务器的数据的确认被装载到一个承载服务器到客户数据的报文段中，这种确认被称为是<strong>捎带</strong>在服务器到客户的数据报文段中的。</p>
-<p>报文段的<strong>样本RTT</strong>（即SampleRTT）就是从某报文段被发出到对该报文段的确认被收到之间的时间量。<strong>预测的RTT值</strong>为以前的预测RTT与SampleRTT加权组合而成，即：</p>
-<p>[latex display=’true’]EstimatedRTT=(1-\alpha)\cdot EstimatedRTT + \alpha \cdot SampleRTT[/latex]</p>
-<p>RFC 6298中给出α的推荐值为0.125，该加权平均对最近的样本赋予更多的权值，因为越近的样本能越好的反应当前网络的拥塞状况，这种平均被称为<strong>指数加权移动平均（EWMA）</strong>。此外计算RTT的偏移量，即<strong>DevRTT</strong>也可对网络状态评估有所帮助，DevRTT是一个SampleRTT和EstimatedRTT之间差值的EWMA，即：</p>
-<p>[latex display=’true’]DevRTT=(1-\beta )\cdot DevRTT + \beta \cdot \left SampleRTT-EstimatedRTT\right [/latex]</p>
-<p>其中β的参考值为0.25。一般将超时间隔设为EstimatedRTT加上一定余量。当DevRTT较大时，余量较大。一般初始的重传时间为1s。</p>
-<p>TCP的可靠数据传输服务确保了一个进程从其接收缓存中读取出的数据流是无损坏，无间隙，非冗余和按序的数据流，即该字节流和连接的另一方端系统发出的字节流是完全相同的。推荐的定时器管理过程仅使用<strong>单一的重传定时器</strong>。<strong>每次TCP重传都会将下一次的超时间隔设为先前值的两倍，这提供了一定程度的拥塞控制</strong>。发送方可在超时事件发生之前通过接收冗余ACK来检测到丢包情况。冗余ACK是指再次确认某个报文段的ACK，而发送方先前已经收到对该报文段的确认。<strong>如果TCP发送方接收到对相同数据的3个冗余ACK，它把作为对跟在该报文段后的分组已经丢失的指示</strong>。一旦收到3个冗余ACK，TCP就执行<strong>快速重传</strong>，即在该报文段的定时器过期之前重传丢失的报文段。TCP的差错恢复机制类似于GBN协议与SR协议的混合。一种对TCP的修改意见是选择确认，即允许TCP接收方有选择地确认失序报文段，而不是累计确认最后一个正确接收的报文段。</p>
-<p>TCP为应用程序提供了<strong>流量控制服务</strong>，以<strong>消除发送方使得接收方缓存溢出的</strong>可能。流量控制是一个<strong>速度匹配服务</strong>，即发送方的接收速率和接收方应用程序的读取速率向匹配。因为IP网络的拥塞对发送方速率的遏制叫做<strong>拥塞控制</strong>。TCP通过让发送方维护一个称为<strong>接收窗口</strong>的变量实现流量控制。通过<strong>将未确认数据量控制在rwnd（接收窗口大小）内</strong>，就可以保证发送方不会使接收方的接收缓存溢出。TCP规范中要求，当接收窗口为0时，发送方继续发送只有一个字节数据的报文段。</p>
-<p>客户与服务器中的TCP建立连接需要<strong>三个步骤</strong>：1.客户端的TCP首先向服务器端TCP发送一个特定的TCP报文段，该报文段不包含应用层数据。在该报文段首部中SYN比特被置位，因此称为该报文段为<strong>SYN报文段</strong>。客户随机选择一个初始序号，将其放置于SYN报文段的序号字段中。2.服务器提取出SYN报文段，为其分配TCP缓存和变量，并向该客户TCP发送允许连接的报文段。该报文段的SYN比特被置位，确认号字段为客户所选择的初始序号+1。服务器随机选择自己的初始序号，将其放到首部的序号字段中。该允许连接的报文段被称为<strong>SYNACK报文段</strong>。3.客户向主机发送<strong>对服务器允许连接的报文段进行确认的报文段</strong>，这里通过将服务器所选序号+1放在首部确认字段来完成。此时SYN比特置为0，该阶段的报文段可承载有效载荷。建立连接之后每一个报文段SYN字段都为0，这种创建连接的过程称为<strong>三次握手</strong>。</p>
-<p>关闭TCP连接时，客户TCP向服务器进程发送一个特殊的TCP报文段。这个特殊的报文段让其首部的一个标志位即<strong>FIN比特</strong>被置位。服务器收到该报文段后，发送一个确认报文段。然后服务器发送自己的终止报文段，FIN比特被置位，随后客户对该终止报文段进行确认。断开连接过程称为四次挥手。</p>
-<p>在一个TCP连接的生命周期里，运行在每台主机上的TCP协议在各种TCP状态之间变化。假如一台主机接受了具有目的端口号80的一个TCP SYN分组，但该主机在80端口不接受连接，则该主机发送一个重置报文段，该报文段将<strong>RST标志位</strong>置为1。</p>
-<h3 id="3-7-TCP拥塞控制"><a href="#3-7-TCP拥塞控制" class="headerlink" title="3.7 TCP拥塞控制"></a>3.7 TCP拥塞控制</h3><p>运行在发送方的TCP拥塞控制机制维护拥塞窗口变量。<strong>拥塞窗口表示为cwnd</strong>，它对一个TCP发送方能向网络中发送流量的速率进行了限制，即在一个发送方中未确认的数据量<strong>不会超过cwnd和rwnd的最小值</strong>。通过调节cwnd的值，发送方能调整它向连接发送数据的速率。因为TCP采用确认来触发增大它的拥塞窗口长度，所以TCP被称为<strong>自计时的</strong>。TCP使用以下原则指导拥塞控制：1.一个丢失的报文段意味着拥塞，因此当丢失报文段时应当降低TCP发送方的速率。2.一个确认报文段指示网络正在向接收方交付发送方的报文段，因此当先前未确认报文段到达时，能增加发送方的速率。3.带宽探测。</p>
-<p>在TCP拥塞控制原则的指导下，给出了TCP拥塞控制算法。该算法主要包括三个部分：1.<strong>慢启动</strong>2.<strong>拥塞避免</strong>3.<strong>快速恢复</strong>。其中慢启动和拥塞避免是TCP的强制部分，快速恢复是推荐部分。</p>
-<p>在<strong>慢启动</strong>状态，cwnd以一个MSS开始并且每当传输的报文段首次被确认就增加一个MSS。TCP的初始发送速率慢，但在慢启动阶段以指数增长。如果存在一个由超时指示的丢包事件，TCP发送方将cwnd设置为1并重新开始慢启动过程，还将ssthresh（慢启动阈值）设置为cwnd/2。当cwnd的值到达或超过ssthresh时，结束慢启动阶段并且将TCP转移到拥塞避免模式。当检测到3个冗余ACK时，TCP执行快速重传，进入快速恢复状态。</p>
-<p><strong>拥塞避免</strong>阶段cwnd增长速度较慢。该阶段中，每个RTT只将cwnd的值增长一个MSS。一种方法是无论何时到达一个新的确认，就将cwnd增加一个MSS*(MSS/cwnd)。当出现超时时，cwnd被设为1个MSS，ssthresh被更新为cwnd的一半。当发生3个冗余ACK指示的丢包时，将ssthresh设为cwnd的一半，将cwnd设为ssthresh加上3倍MSS的值，进入快速恢复阶段。</p>
-<p>在<strong>快速恢复</strong>阶段中，对每个收到的冗余ACK，cwnd的值增加一个MSS。在对丢失报文段的的一个确认ACK到达后，TCP将cwnd的值降低为ssthresh，进入拥塞避免状态。若出现超时事件，TCP同样将ssthresh设为cwnd的一半，再将cwnd设为1，进入慢启动状态。</p>
-<p>TCP的拥塞控制常常被称为<strong>加性增，乘性减（AIMD）</strong>的拥塞控制方式。TCP vegas算法试图在维持较好的吞吐量的同时避免拥塞，其基本思想为：1.在分组丢失发生之前，在源与目的之间检测路由器中的拥塞2.当检测出即将发生的丢包时，线性的降低发送速率。即将发生的分组丢失是通过RTT检测。假设连接期间RTT和W几乎不变，则传输速率在W/(2RTT)到W/RTT之间变化。</p>
-<p>瓶颈链路是指对于每条连接，沿着该连接路径上的所有其它端链路都不拥塞，而且与该瓶颈链路的传输容量相比，它们都有充足的容量。若每条连接的都得到相同的链路带宽，则认为该拥塞控制机制是公平的。TCP趋于在竞争的多条TCP连接之间<strong>提供对一段瓶颈链路带宽的平等分享</strong>。UDP有可能压制TCP流量。明确拥塞通告（ECN）是一种网络辅助拥塞控制，该方案允许网络明确向TCP发送方和接收方发送拥塞信号。数据报拥塞控制协议（DCCP）是一种提供了低开销，控制拥塞的类似UDP的不可靠协议。</p>
-
-      
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/" data-id="cksrngqtz000oq4w0hm4oam4x" data-title="《计算机网络-自顶向下方法》学习笔记-第3章" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-《计算机网络-自顶向下方法》学习笔记-第2章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/" class="article-date">
-  <time class="dt-published" datetime="2020-01-18T15:06:13.000Z" itemprop="datePublished">2020-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/WriteUp in platform">
+                  <b>「 </b>WRITEUP IN PLATFORM<b> 」</b>
+                </a>
+            
+            March 02, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" title="《计算机网络-自顶向下方法》学习笔记-第4章" class="posttitle">《计算机网络-自顶向下方法》学习笔记-第4章</a></h3>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记--第2章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="第2章-《应用层》"><a href="#第2章-《应用层》" class="headerlink" title="第2章 《应用层》"></a>第2章 《应用层》</h2><h3 id="2-1-应用层协议原理"><a href="#2-1-应用层协议原理" class="headerlink" title="2.1 应用层协议原理"></a>2.1 应用层协议原理</h3><p>现代网络应用程序有两种主流体系结构，即<strong>客户-服务器（CS）体系结构</strong>或<strong>对等（P2P）结构</strong>。在CS体系结构中，有一个总是打开的主机，称为服务器，它服务来自于其它许多称为客户的主机的请求。<strong>客户之间不直接通信</strong>，<strong>服务器具有固定的，周知的地址</strong>，称为IP地址。在P2P体系结构中，对位于数据中心的专用服务器依赖很小，主机之间直接通信，被称为对等方。其最显著的特征为<strong>自扩展性</strong>，即每个对等方在产生工作负载的同时，也为系统增加服务能力。</p>
-<p>进行通信的实际上是进程而不是程序。对每对通信进程，我们通常将其中一个标记为客户，另一个标记为服务器，<strong>通常把发起通信的进程称为客户，在会话开始时等待联系的进程称为服务器</strong>。进程通过一个称为<strong>套接字</strong>的软件接口向网络发送报文和从网络中接收报文，套接字也被称为应用程序和网络之间的应用程序编程接口（API）。</p>
-<p>传输层协议为应用程序提供的服务大致可以分为四种：<strong>可靠数据传输，吞吐量，定时和安全性</strong>。如果一个协议提供了确保数据交付服务，就认为提供了<strong>可靠数据传输</strong>。<strong>可用吞吐量</strong>是指发送进程能够向接收进程交付比特的速率。具有吞吐量要求的应用称为带宽敏感的应用。<strong>定时</strong>指为了有效性二要求数据交付有严格的时间限制。<strong>安全性</strong>指在发送和接收进程之间提供机密性，以防数据以某种方式在两个进程之间被观察到。</p>
-<p>因特网主要提供两种传输层服务，即<strong>TCP与UDP</strong>。TCP提供<strong>面向连接的服务</strong>和<strong>可靠的数据传输服务</strong>。面向连接指在应用层数据报文开始流动之前，TCP让客户与服务器互相交换传输层控制信息。握手后，一个TCP连接就在两个进程的套接字之间建立了，该连接是<strong>全双工</strong>的。可靠数据传输指能够依靠TCP无差错，按适当顺序交付所发送的数据。此外，TCP还具有<strong>拥塞控制机制</strong>。UDP是一种<strong>不提供不必要服务</strong>的轻量级传输协议，仅提供最小服务。UDP是<strong>无连接</strong>的，<strong>提供不可靠数据传送服务</strong>，不保证报文到达接收进程，到达报文也可能是乱序的，也<strong>没有拥塞控制机制</strong>。</p>
-<p>应用层协议定义了运行在不同端系统上的应用程序进程<strong>如何相互传递报文</strong>。如交换报文的类型，各种报文类型的语法，字段的语义，确定一个进程何时以及如何发送报文，对报文进行响应的规则。</p>
-<h3 id="2-2-Web和HTTP"><a href="#2-2-Web和HTTP" class="headerlink" title="2.2 Web和HTTP"></a>2.2 Web和HTTP</h3><p>Web的应用层协议是<strong>超文本传输协议（HTTP）</strong>，是Web的核心。HTTP定义了Web客户向Web服务器请求Web页面的方式，以及服务器向客户传送Web页面的方式。HTTP使用<strong>TCP作为其支撑运输协议</strong>。HTTP是一个<strong>无状态协议</strong>，服务器向客户发送被请求的文件，而不存储如何关于该客户的状态信息。</p>
-<p>每个请求/响应对经由一个单独的TCP连接发送地应用程序称为使用<strong>非持续连接</strong>，所有请求/响应对使用相同的TCP连接发送称为使用<strong>持续连接</strong>。<strong>往返时间</strong>（RTT）指一个短分组从客户到服务器然后在返回客户所花费的时间。采用非持续连接，发送/接收一个短分组总的响应时间为<strong>两个RTT加上服务器传输HTML文件的时间</strong>。这种情况下，必须为每一个请求的对象建立和维护一个全新的连接，每个对象还需经受两倍的RTT的交付时延。HTTP的默认模式为使用<strong>带流水线的持续连接</strong>。</p>
-<p>HTTP请求报文的第一行称为<strong>请求行</strong>，后继的行称为<strong>首部行</strong>。请求行有三个字段：<strong>方法字段</strong>，<strong>URL字段</strong>和<strong>HTTP版本字段</strong>。首部行中，Host字段指明了对象所在的主机，Connection字段指示是否采用持续连接，User-agent用来指定用户代理，即向服务器发送请求的浏览器类型，Accept-language知名用户希望得到的语言版本。在首部行之后为实体体，使用GET方法时为空，使用POST方法时实体体为上传的数据。</p>
-<p>HTTP响应报文分为三个部分，<strong>状态行</strong>，<strong>首部行</strong>和<strong>实体体</strong>。状态行有三个字段，<strong>协议版本字段，状态码和相应状态本身</strong>。首部行中，Connection字段指示服务器发送完该报文后，是否会关闭TCP连接，Date指示服务器产生并发送响应报文的日期和时间，Server指示产生该报文的服务器类型，类似请求报文中的User-agent，Last-Modified指示对象创建或最后修改的时间，Content-Length指示被发送对象的字节数，Content-type指示实体体中对象的类型。</p>
-<p>一些常见的状态码有：<strong>200 OK</strong>，表示请求成功；<strong>301 Moved Permanently</strong>，表示请求得对象已经被永久转移，新的URL在响应报文中的Location字段中；<strong>400 Bad Request</strong>，表示服务器无法理解请求；<strong>404 Not Found</strong>，表示被请求的文档不再服务器上。</p>
-<p>cookie技术有四个组件：1.HTTP<strong>响应报文中的cookie首部行</strong>2.HTTP<strong>请求报文中的cookie首部行</strong>3.<strong>用户端系统中有一个cookie文件</strong>，并由浏览器管理4.位于web站点的一个<strong>后端数据库</strong>。cookie可以用于标识一个客户。</p>
-<p><strong>Web缓存器</strong>又叫<strong>代理服务器</strong>。当浏览器请求一个对象时，浏览器<strong>首先创建一个到Web缓存器的TCP连接</strong>，并向其发送一个HTTP请求，随后Web缓存器<strong>进行检查</strong>，查看本地是否存储了该对象副本。若Web缓存器中没有该对象，它就打开一个与该对象的初始服务器的TCP连接，<strong>向初始服务器请求该对象</strong>，<strong>初始服务器返回对象</strong>。Web缓存器<strong>接收该对象时，它在本地存储空间存储一个副本</strong>，并向客户的浏览器<strong>返回该副本</strong>。Web缓存器可以大大<strong>减少对客户请求的响应时间</strong>，大大<strong>减少通信量</strong>，在整体上大大<strong>减小因特网上的流量</strong>。HTTP协议有一种机制能使混存期证实其副本是最新的，即使用<strong>条件GET方法</strong>。条件GET方法指包含<strong>If-Modified-Since首部行</strong>的GET方法，条件GET方法告诉服务器，仅当指定日期之后对象被修改过，才发送该对象。</p>
-<h3 id="2-3-因特网中的电子邮件"><a href="#2-3-因特网中的电子邮件" class="headerlink" title="2.3 因特网中的电子邮件"></a>2.3 因特网中的电子邮件</h3><p>因特网电子邮件系统由三个主要部分组成：<strong>用户代理，邮件服务器和简单邮件传输协议</strong>。<strong>SMTP是因特网电子邮件的核心</strong>，其基本操作如下：1.发送者调用邮件代理程序并提供接收者的邮件地址，完成报文后指示用户代理将邮件发送报文。2.发送者的用户代理把报文发给邮件服务器，报文被放在报文队列中。3.邮件服务器上的SMTP客户端发现该报文后，创建一个到接收者的邮件服务器上的SMTP服务器端的TCP连接。4.SMTP客户发送报文。5.SMTP服务器端接收报文，放入接收者的邮箱中。6.接收者在任意时间都能调用用户代理阅读报文。SMTP一般不使用中间邮件服务器发送邮件。</p>
-<p>SMTP中，有HELO，MAIL FROM，RCPT TO，DATA和QUIT等命令，客户通过发送一个只包含一个句点的行指示该报文结束。服务器对每条命令作出回答，每个回答含有一个回答，啊和一些英文解释。SMTP使用<strong>持续连接</strong>。HTTP是一种<strong>拉协议</strong>，即用户使用HTTP协议从服务器拉取信息，TCP连接也是由想接受信息的机器发起。SMTP则是一个<strong>推协议</strong>，即发送邮件服务器将文件推向接收邮件服务器，TCP连接由发送文件的机器发起。SMTP要求每个报文必须采用7bitASCII码形式。HTTP把每个对象封装到他自己的HTTP响应报文中，SMTP把所有报文对象放在一个报文中。</p>
-<p>SMTP无法完成取报文这种拉操作，一般采用<strong>第三版邮局协议（POP3）</strong>或<strong>因特网邮件访问协议（IMAP）</strong>和<strong>HTTP</strong>。在因特网电子邮件应用中，一般使用SMTP将邮件从发送方的邮件服务器传输到接收方的邮件服务器，也将邮件从发送方的用户代理传送到发送方的邮件服务器，使用邮件访问协议将邮件从接收方的邮件服务器传送到接收方的用户代理。</p>
-<p>POP3是一个非常<strong>简单，功能有限</strong>的协议，其按照三个阶段进行工作：<strong>特许，事务处理以及更新</strong>。在<strong>特许阶段</strong>中，用户代理以明文形式发送用户名和口令以鉴别用户。<strong>事务处理阶段</strong>中，用户代理取回报文，同时也可对报文做或取消删除标记和获取邮件统计信息等。<strong>更新阶段</strong>出现在用户发出quit命令后，目的是结束本次POP3会话这时邮件服务器删除被标记为删除的报文。事务处理阶段中，服务器对每个用户代理发出的命令作出回答，可能为+OK与-ERR，分别表示命令正常和可能出现差错。特许阶段的两个主要命令为user <user name>和pass <password>。POP3的用户代理通常被配置为“下载并删除”或者“下载并保留”方式。特许阶段后用户代理只使用list，retr，dele，quit四个命令。POP3服务器<strong>不在会话中携带状态信息</strong>。POP3协议没有给用户提供创建远程文件夹并为报文指派文件夹的方法。IMAP比POP3复杂，IMAP服务器将每一个报文与一个文件夹关联起来，当报文第一次到达服务器时，它与收件人的INBOX文件夹关联起来，为用户提供了创建文件夹，将报文在文件夹之间移动，在远程文件夹中查询邮件，按指定条件查询匹配的邮件的命令。<strong>IMAP服务器维护了会话用户的状态信息</strong>，还具有<strong>让用户代理获取报文的某些部分的命令</strong>。在基于Web的电子邮件中，<strong>用户代理就是普通的浏览器</strong>，用户和他的远程邮箱之间的通信通过HTTP进行。</p>
-<h3 id="2-4-DNS：因特网的目录服务"><a href="#2-4-DNS：因特网的目录服务" class="headerlink" title="2.4 DNS：因特网的目录服务"></a>2.4 DNS：因特网的目录服务</h3><p>主机可以通过<strong>主机名或IP地址</strong>进行标记，所以需要一种能进行<strong>主机名到IP地址转换</strong>的目录服务，即<strong>域名系统（DNS）</strong>。DNS是1.一个由分层的的DNS服务器实现的<strong>分布式数据库</strong>2.一个使得主机能够查询分布式数据库的<strong>应用层协议</strong>。DNS运行在<strong>UDP</strong>上，使用<strong>53端口</strong>。用户主机向某主机发送HTTP报文，需要：1.用户主机上运行着DNS的客户端2.浏览器将主机名传送到DNS的客户端3.DNS客户向DNS服务器发送一个包含主机名的请求4.DNS客户收到回答报文，其中包含对应主机名的IP地址5.浏览器向目的IP地址发起连接。DNS也可以<strong>获取规范主机名</strong>，<strong>解析邮件服务器别名</strong>以<strong>获取规范主机名和IP地址</strong>，也可用于在冗余服务器之间进行<strong>负载分配</strong>。由于有冗余Web服务器，一个IP地址集合同一个规范主机名相联系。</p>
-<p>DNS的一种简单设计方案是在因特网上只包括一个DNS服务器，该服务器包含有所有的映射。这种设计会带来单点故障，通信容量，远距离的集中数据库和维护等问题。分布式的设计方案中，大致有3中DNS服务器，即<strong>根DNS服务器</strong>，<strong>顶级域（TLD）DNS服务器</strong>和<strong>权威DNS服务器</strong>。<strong>根DNS服务器</strong>有400多个，遍及全世界，由13个不同的组织管理，根DNS提供TLD服务器的IP地址。每个顶级域（如com，edu，org，gov等）和国家顶级域（uk，fr，cn等）都有对应的TLD服务器。<strong>TLD服务器</strong>提供了权威DNS服务器的IP地址。<strong>权威DNS服务器</strong>收藏着DNS记录。此外，还有<strong>本地DNS服务器</strong>，每个ISP都有一台本地DNS服务器，主机具有一台或多台其本地DNS服务器的IP地址（通常通过DHCP，动态地址分配协议）。当主机发出DNS请求时，该请求被发往本地DNS服务器，它起着代理的作用，并将请求转发到DNS服务器层次结构中。<strong>递归查询</strong>指查询都以自己的名义发出，<strong>迭代查询</strong>指发出的查询由源查询服务器发出，一般为本地DNS服务器。通常从请求主机到本地DNS服务器的查询是递归的，其余的查询是迭代的。</p>
-<p>为了改善时延性能并减少在因特网上到处传输的DNS报文数量，DNS广泛使用了<strong>缓存技术</strong>。在某一个请求链中，当某DNS接收到一个DNS回答，它能将映射缓存在本地服务器中。如果DNS服务器中缓存了一个映射，在对该映射进行查询的DNS报文到达时，该服务器就能提供所要求的IP地址，即使它不是权威DNS服务器。DNS服务器在一段时间后（通常为两天）丢弃缓存的信息。事实上，因为缓存，大部分DNS查询都绕过了根服务器。</p>
-<p>所有DNS服务器都存储了<strong>资源记录（RR）</strong>，RR提供了主机名到IP地址的映射。每个DNS回答报文包含了一条或多条资源记录。资源记录是<strong>包含（Name，Value，Type，TTL）的四元组</strong>。<strong>TTL为该记录的生存时间</strong>，它决定了RR应当从缓存中删除的时间。Name和Value取决于Type。若<strong>Type=A</strong>，则<strong>Name是主机名</strong>，<strong>Value是对应的IP地址</strong>。如果<strong>Type=NS</strong>，则<strong>Name是个域</strong>，<strong>Value是个知道如何获取该域中主机IP地址的权威DNS服务器的主机名</strong>。若<strong>Type=CNAME</strong>，则<strong>Value是别名为Name的主机名对应的规范主机名</strong>。若<strong>Type=MX</strong>，则<strong>Value是个别名为Name的邮件服务器的规范主机名</strong>。通过MX记录，一个公司的邮件服务器和其他服务器可以使用相同的别名。如果一台DNS服务器是某特定主机名的权威DNS服务器，那么该DNS服务器有一条包含用于该主机名的A型RR。否则，该服务器包含一条NS型RR，该记录对应包含主机名的域，还有一条A记录提供该域的IP地址。</p>
-<p>DNS只有<strong>查询和回答两种报文</strong>，查询和回答报文具有<strong>相同的格式</strong>。报文中前12个字节为<strong>首部区域</strong>。第一个字段为标识符，长16bit，用于标识该查询。标识符会被复制到对应的回答报文中，以便用户进行匹配。标志字段中有1bit的<strong>“查询/回答”</strong>标志位指示是查询报文还是回答报文，1bit的“权威的”标志位用于指示其是否是所请求的权威DNS服务器，1bit的<strong>“希望递归”</strong>标志位指示用户希望在无记录时只需递归查询，1bit的<strong>“递归可用”</strong>标志位指示该DNS服务器支持递归查询，此外还有<strong>4个数量相关</strong>的字段。<strong>问题区域</strong>包含正在进行的查询信息。包括名字字段，即被查询的主机名字；类型字段，即该主机名正在被询问的问题类型。<strong>回答区域</strong>包含了对最初请求名字的RR，该区域中可以包含多条RR，因此一个主机能有多个IP地址。<strong>权威区域</strong>则包含了其它权威服务器的记录，<strong>附加区域</strong>包含了其它有帮助的记录。<strong>nslookup</strong>可以直接向某些DNS服务器发送一个DNS查询报文。<strong>DDoS，中间人攻击，DNS缓存投毒</strong>都是针对DNS的攻击。</p>
-<h3 id="2-5-P2P文件分发"><a href="#2-5-P2P文件分发" class="headerlink" title="2.5 P2P文件分发"></a>2.5 P2P文件分发</h3><p>在P2P体系结构中，分发时间是所有N个对等方得到该文件的副本所需要的时间。设[latex]u_{s}[/latex]为服务器接入链路的上载速率，[latex]u_{i}[/latex]表示第i个对等方接入链路的上载速率，[latex]d_i[/latex]表示第i对等方接入链路的下载速率，F表示被分发的文件长度。对于CS架构，服务器必须向N个对等方传送副本，即知道需要传输NFbit，分发时间至少为[latex]NF/u_{s}[/latex]，[latex]d_{min}[/latex]为具有最小下载速率的对等方的下载速率，则最小分发时间为[latex]F/d_{min}[/latex]，即得</p>
-<p>[latex display=’true’]D_{cs} \geq max（ {\frac{NF}{u_{s}},\frac{F}{d_{min}}} ）[/latex]</p>
-<p>对于P2P体系结构，服务器至少需要将整个文件发送一次，故最小发放时间为 [latex]F/u_{s}[/latex] ，分发时间同样不能小于 [latex]F/d_{min}[/latex] ，由于系统的整体上传能力对于服务器的上传速率加上每个对等方的上传速率，因此最小分发时间至少为 [latex]NF/u_{s}+u_{1}+u_{2}+…+u_{N}[/latex] ，故此时有</p>
-<p>[latex display=’true’]D_{P2P} \geq max（ {\frac{F}{u_{s}},\frac{F}{d_{min}}},\frac{NF}{u_{s}+\sum_{i=1}^{N}u_{i}} ）[/latex]</p>
-<p>对比两者的最小分发时间，可以看到P2P体系结构的最小分发时间总是小于客户-服务器体系结构。由于P2P结构是<strong>自扩展</strong>的，即对等方除了是比特的消费者外也是他们的重新分发者。</p>
-<p><strong>BitTorrent</strong>是一个用于<strong>文件分发</strong>的流行的<strong>P2P协议</strong>。参加一个特定文件分发的所有对等方的集合被称为一个<strong>洪流（torrent）</strong>，在一个洪流中的对等方彼此下载等长的文件<strong>块</strong>，典型块长度为256KB。当一个对等方首次加入某个洪流时，它没有块，而随着时间流逝它将会记类越来越多的块。当他下载文件时，也为其它对等方上传了块。一旦某对等方获取了整个文件，它可以离开洪流或留在其中继续上传块。对等方也可在只获得某些块时离开洪流，而在后来重新加入。每个洪流有一个基础设施节点，称为<strong>追踪器（tracker）</strong>。当一个对等方加入洪流时，它向追踪器注册自己，并周期性通知追踪器自己仍在洪流中。创建了TCP连接的对等方称为<strong>邻近对等方</strong>。对等方周期性询问邻近对等方所有的块列表，并请求没有的块。决定请求那些块采取<strong>最稀缺优先</strong>的技术，即请求那些在其邻居中副本数量最少的块，其目的为大致均衡每个块的副本数量。对于响应哪个请求，BitTorrent使用称为<strong>“一报还一报”（tit-for-tat）</strong>的交换激励机制，即确定当前以最高速率向其提供数据的四个邻居和随机选择的一个邻居，对这五个对等方进行响应。</p>
-<h3 id="2-6-视频流和内容分发网"><a href="#2-6-视频流和内容分发网" class="headerlink" title="2.6 视频流和内容分发网"></a>2.6 视频流和内容分发网</h3><p>流式视频应用接收到视频就进行播放，同时缓存该视频后面部分的帧。在<strong>DASH</strong>（经HTTP的动态适应性流）中，视频编码为几个不同的版本，其中每个版本具有不同的比特率，对应不同的质量水平。使用DASH时，HTTP服务器有一个<strong>告示文件</strong>，为每个版本提供了一个URL及其比特率。客户首先请求告示文件并且得知各种版本，如何客户通过在HTTP GET报文中对每块指定一个URL和一个字节范围，一次选择一块。在下载块的同时，客户测量接受带宽并运行一个速率决定算法以选择下次请求的块。</p>
-<p>几乎所有视频流公司都使用<strong>内容分发网络（CDN）</strong>。CDN管理分布在多个地理位置上的服务器，在它的服务器中<strong>存储视频的副本</strong>，且将每个用户请求定向到一个将提供最好用户体验的CDN位置。CDN可以为专用CDN或第三方CDN。CDN可采用<strong>深入</strong>和<strong>邀请做客</strong>两种不同的服务器安置原则。深入的原则为将服务器集群深入到ISP的接入网中，其目标时靠近端用户，通过减少端用户和CDN集群之间链路和路由器的数量以改善时延和吞吐量。这种高度分布式设计导致维护与管理集群较为困难。邀请做客则通过在少量的关键位置建造大集群来邀请到ISP做客，这些CDN通常将集群放置在IXP处。该原则通常产生较低的维护和管理开销，但产生了较高的时延和较低吞吐量。</p>
-<p>当用户通过URL检索一个特定的视频时，CDN必须截获该请求，以便能够确定此时适合用于该客户的CDN集群和将请求重定向到该集群的某个服务器。在请求过程中，某个权威DNS服务器返回相关CDN域的主机名，查询该主机名对应的CDN服务器创建TCP连接进行传输。任何CDN部署的<strong>核心都是集群选择策略</strong>，即动态的将客户定向到CDN的某个服务器集群的机制。一种简单的策略是指派到地理上最为邻近的集群。</p>
-<p><strong>Netflix</strong>的视频分发主要使用亚马逊云和它自己的专用CDN基础设施。亚马逊云主要负责内容摄取，内容处理和向CDN上传版本等功能。Netflix不适用拉高速缓存以在IXP和ISP中扩充CDN服务器，而在非高峰时段通过推将这些视频分发给其CDN服务器，而不是在缓存未命中时动态推入。Netflix使用自己专用的CDN分发视频，其不使用DNS重定向，而告知客户直接使用一台特定的CDN服务器。<strong>Youtube</strong>使用拉高速缓存和DNS重定向，集群选择策略将客户定向到某个集群，使得客户和集群之间的RTT最低。<strong>Youtube</strong>使用HTTP流而没有DASH。看看类似于BitTorrent文件下载，但是其请求被优先给予那些即将播放的块，以确保连续播放。</p>
-<h3 id="2-7-套接字编程：生成网络应用"><a href="#2-7-套接字编程：生成网络应用" class="headerlink" title="2.7 套接字编程：生成网络应用"></a>2.7 套接字编程：生成网络应用</h3><p>网络应用程序有两类。一类是由协议标准（如RFC和其它标准文档等）定义的操作实现，这样的应用称为“开放”的，因为定义其操作的这些规则为人们所共知。另一类则是专门的网络应用程序。当客户或服务器程序实现一个由某RFC定义的协议是，它应当使用与该协议关联的公认端口号，反之，专用应用程序就需要避免使用公认端口号。</p>
-<p>import socket<br>server_name = ‘hostname’<br>server_port = 12000<br>clientSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # AF_INET means using IPv4, SOCK_DGRAM means using UDP<br>message = input(‘Input sentence’)<br>clientSocket.sendto(message.encode(), (server_name, server_port)) # send massage to target socket<br>modified_message, server_address = clientSocket.recvfrom(2048) # 2048 is length of cache. Receiving message from web<br>print(modified_message.decode())<br>clientSocket.close()  # clsoe the connection</p>
-<p>上述为使用UDP的客户端代码。</p>
-<p>import socket<br>server_port = 12000<br>server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Same as client program<br>server_socket.bind((‘’, server_port)) # assign port to socket<br>print(“The server is ready to receive”)<br>while True:<br>    message, client_address = server_socket.recvfrom(2048)<br>    modified_message = message.decode().upper() # convert sentence to upper<br>    server_socket.sendto(modified_message.encode(), client_address) # send message to client</p>
-<p>上述为使用UDP的服务器端代码。其作用为接收客户端的数据并将其转化为大写。</p>
-<p>import socket<br>server_name = ‘127.0.0.1’<br>server_port = 12000<br>client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # SOCK_STREAM means TCP<br>client_socket.connect((server_name, server_port)) # connect to welcome socket<br>sentence = input(“Input sentence”)<br>client_socket.send(sentence.encode())<br>modified_sentence = client_socket.recv(1024)<br>print(modified_sentence.decode())<br>client_socket.close()</p>
-<p>上述为使用TCP的客户端代码。</p>
-<p>import socket<br>server_port = 12000<br>server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>server_socket.bind((‘’, server_port))<br>server_socket.listen(1) # maximum connection is 1<br>print(‘Server is ready’)<br>while True:<br>    connection_socket, address = server_socket.accept()<br>    sentence = connection_socket.recv(1024).decode()<br>    modified_sentence = sentence.upper() # convert to upper<br>    connection_socket.send(modified_sentence.encode())<br>    connection_socket.close()</p>
-<p>上述为使用TCP的服务器端代码。源文件如下：</p>
-<p><a href="blob:http://106.54.80.67/644da6af-abb4-4406-9822-21f62a8bc895">TCPClient.py</a><a href="blob:http://106.54.80.67/644da6af-abb4-4406-9822-21f62a8bc895">下载</a></p>
-<p><a href="blob:http://106.54.80.67/066a7080-b712-4611-91d3-2fa8e51e1808">TCPServer.py</a><a href="blob:http://106.54.80.67/066a7080-b712-4611-91d3-2fa8e51e1808">下载</a></p>
-<p><a href="blob:http://106.54.80.67/326f1b9e-7c12-4733-b429-0851ba9f05ce">UDPClient.py</a><a href="blob:http://106.54.80.67/326f1b9e-7c12-4733-b429-0851ba9f05ce">下载</a></p>
-<p><a href="blob:http://106.54.80.67/30cc48f7-dc0c-4331-90ed-eadbb357bab4">UDPServer.py</a><a href="blob:http://106.54.80.67/30cc48f7-dc0c-4331-90ed-eadbb357bab4">下载</a></p>
-
-      
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        8.3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        8 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="第4章-《网络层：数据平面》"><a href="#第4章-《网络层：数据平面》" class="headerlink" title="第4章 《网络层：数据平面》"></a>第4章 《网络层：数据平面》</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><p>网络中的每一台主机和路由器都有一个网络层部分。<strong>数据平面</strong>功能指的是网络层中每台路由器的功能，<strong>控制平面</strong>功能指的是网络范围的逻辑。路由器的协议栈没有网络层以上的部分。</p>
+<p>网络层需要两种重要功能：1.当一个分组到达某路由器的一个输入链路时，该路由器必须将该分组移动到适当的输出链路，即<strong>转发</strong>的功能。这是<strong>数据平面</strong>中实现的唯一功能。2.网络层需要决定分组采用的路径，即<strong>路由选择</strong>的功能。计算这些路径的算法称为<strong>路由选择算法</strong>。路由选择在<strong>控制平面</strong>实现。转发一般指的是将一个分组从...</p>
+            
+            <span class="read-more"><a href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/" data-id="cksrngqtz000nq4w05443fbht" data-title="《计算机网络-自顶向下方法》学习笔记--第2章" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-    <article id="post-《计算机网络-自顶向下方法》学习笔记-第1章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/01/14/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC1%E7%AB%A0/" class="article-date">
-  <time class="dt-published" datetime="2020-01-14T02:04:21.000Z" itemprop="datePublished">2020-01-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/01/14/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC1%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记--第1章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="第1章-《计算机网络与因特网》"><a href="#第1章-《计算机网络与因特网》" class="headerlink" title="第1章 《计算机网络与因特网》"></a>第1章 《计算机网络与因特网》</h2><h3 id="1-1-什么是因特网"><a href="#1-1-什么是因特网" class="headerlink" title="1.1 什么是因特网"></a>1.1 什么是因特网</h3><p>因特网中所有连接的设备被称作<strong>主机</strong>或<strong>端系统</strong>。其中端系统通过<strong>通信链路</strong>和<strong>分组交换机</strong>相连。通信链路由许多不同的物理媒介构成，如<strong>同轴电缆，铜缆，光纤与无线电频谱</strong>等。分组交换机中最著名的是<strong>路由器</strong>与<strong>链路层交换机</strong>。链路层交换机通常用于接入网中（接入网见1.2节），而路由器通常用于网络核心中。端系统通过<strong>因特网服务提供商</strong>（ISP，见1.3节）接入因特网，ISP同样进行互联。</p>
-<p><strong>协议</strong>控制着因特网中信息的接收和发送，<strong>TCP</strong>（传输控制协议）与<strong>IP</strong>（网际协议）是因特网中最重要的两个协议。因特网标准由<strong>IETF</strong>（因特网工程任务组）负责研发，IETF的标准文档被称为<strong>RFC</strong>（Request For Comment，请求评论）。<strong>协议定义了在两个或多个通信实体之间交换报文的格式和顺序，以及报文发送和接收的一条报文或其他时间所采取的动作。</strong></p>
-<h3 id="1-2-网络边缘"><a href="#1-2-网络边缘" class="headerlink" title="1.2 网络边缘"></a>1.2 网络边缘</h3><p>主机和端系统经常被划分成两部分：客户和服务器。</p>
-<p><strong>接入网指将端系统物理连接到其边缘路由器的网络</strong>。<strong>边缘路由器是指端系统到任何其它远程端系统的路径上的第一台路由器</strong>。家庭接入网有两种最常见的形式：<strong>DSL（数字用户线）和电缆</strong>。</p>
-<p>DSL利用电话公司<strong>现有的本地电话基础设施</strong>。住户通常从本地电话公司获得DSL因特网接入，<strong>本地电话公司是ISP</strong>。其中每个用户的<strong>DSL调制解调器</strong>使用现有的电话线与位于电话公司的<strong>本地中心局（CO）</strong>中的<strong>数字电话线接入复用器（DSLAM）</strong>交换数据。调制解调器将数字数据转换为高频音传输给本地中心局，来自家庭的模拟信号在DSLAM转换回数字形式。家庭电话线使用<strong>频分复用</strong>技术分隔数据与电话信号。</p>
-<p>电缆互联网接入利用有线电视公司现有的电视基础设施。在该系统中应用了光纤和同轴电缆，因此常被称为<strong>混合光纤铜缆（HFC）系统</strong>，因为其使用光缆将电缆头端连接到地区枢纽，再从这里使用传统同轴电缆到达住宅。电缆因特网接入需要使用电缆调制解调器。在电缆头端的<strong>电缆调制解调器端接系统（CMTS）</strong>与DSL网络中的DSLAM具有类似的功能。与DSL类似，电缆接入网的速率是不对称的，下行信道的传输速率通常比上行的信道高。电缆因特网接入是<strong>共享广播媒体</strong>的，即上下行信道总带宽都是共享的。</p>
-<p><strong>光纤到户（FTTH）</strong>是一种能提供更高速率的新兴技术。光纤分布有几种方案，最简单的一种称为<strong>直接光纤</strong>，即从本地中心局到每户设置一根光纤。进行这种分配有两种有光纤分布体系结构，即<strong>主动光纤网络（AON）</strong>与<strong>被动光纤网路（PON）</strong>。其中AON的本质为交换因特网，而使用PON网络的结构中，每个家庭具有一个<strong>光纤网络端接器（ONT）</strong>，其使用专门的光纤连接到邻接的<strong>分配器</strong>，分配器把一些家庭集中到一根共享的光纤，再连接到本地电话公司和公司中心局的<strong>光纤线路端接器（OLT）</strong>，OLT提供了光信号与电信号之间的转换，再经由本地电话公司路由器与因特网相连。家庭中与ONT相连的通常是无线路由器。所有从OLT发送到分配器的分组由分配器复制。</p>
-<p>物理媒体分为<strong>导引型媒体</strong>与<strong>非导引型媒体</strong>。对于导引型媒体，电波沿着固体媒介前行，如光缆，铜缆，双绞电缆等；对于非导引型媒体，电波在空气或外层空间传播，如无线广域网或数字卫星频道。</p>
-<p><strong>双绞铜线</strong>为最便宜和最常用的导引型传输媒体。其中两根铜线被绞起来以减少电磁干扰。无屏蔽双绞线常用在建筑物内的计算机网络中，即局域网。其传输速率取决于线的粗细和传输方和接收方之间的距离。<strong>同轴电缆</strong>由两个同心铜导体组成，能被用于导引型共享媒体，在电缆电视中相当普遍。<strong>光纤</strong>是一种细而柔软的，能够引导光脉冲的媒体，不受电磁干扰且很难窃听，常作为长途导引型传输媒体。<strong>无线电信道</strong>存在电磁频谱中的信号，极大依赖于传播环境和信号传输的距离。<strong>卫星无线电频道通信</strong>常用同步卫星与近地轨道卫星两种。</p>
-<h3 id="1-3-网络核心"><a href="#1-3-网络核心" class="headerlink" title="1.3 网络核心"></a>1.3 网络核心</h3><p>通过网络链路和交换机移动数据有两种基本方法：<strong>电路交换</strong>与<strong>分组交换</strong>。</p>
-<h4 id="1-3-1分组交换"><a href="#1-3-1分组交换" class="headerlink" title="1.3.1分组交换"></a>1.3.1分组交换</h4><p>在分组交换中，源将长报文划分为较小的数据块，即<strong>分组</strong>。在源与目的之间，分组通过通信链路和分组交换机（分组交换机包括<strong>路由器</strong>与<strong>链路层交换机</strong>）进行传送，分组以该链路的最大传输速率通过通信链路。多数分组交换机使用<strong>存储转发传输机制</strong>（store-and-forward transmission），即在交换机能够向输出链路参数该分组的第一个比特前，<strong>必须接收到分组的全部内容</strong>。忽略传播时延，可得到通过N条速率为R的链路组成的路径（即路径中有N-1个路由器），从源向目的地发送一个分组，可得到端到端时延为</p>
-<p>[latex display=’true’]d_{端到端}=N\frac{L}{R}[/latex]</p>
-<p>对于每一个相连的链路，分组交换机都具有一个<strong>输出缓存</strong>，也即<strong>输出队列</strong>，用于存储路由器准备发往该链路的分组。这就造成了分组的<strong>排队时延</strong>，排队时延取决于<strong>网络的拥塞程度</strong>。由于输出缓存的容量是有限的，一个到达的分组可能发现缓存已经被占满，这样就可能出现<strong>丢包</strong>现象，即到达的分组被丢弃。</p>
-<p>每个路由器具有一个<strong>转发表</strong>，用于<strong>将目的地址映射为输出链路</strong>。当一个分组到达一台路由器时，路由器检查分组目的地址，并用该地址搜索转发表，以找到对应的转发链路，随后将分组发向该链路。</p>
-<h4 id="1-3-2-电路交换"><a href="#1-3-2-电路交换" class="headerlink" title="1.3.2 电路交换"></a>1.3.2 电路交换</h4><p>在电路交换网络中，端系统间通信会话期间<strong>预留了端系统间沿路径通信所需要的资源</strong>，如缓存和传输速率等。而相对应的，分组交换网络则不进行预留，会话按需使用资源。当两台主机需要通信时，网络在两台主机间建立专用的端到端连接，在该链路上预留了<strong>恒定的传输速率</strong>。</p>
-<p>链路中的电路是通过<strong>频分复用（FDM）</strong>或<strong>时分复用（TDM）</strong>技术实现的。对于FDM，链路的频谱由所有链接共享，在连接期间链路为<strong>每个连接专用一个频段</strong>，频段的宽度称为<strong>带宽</strong>。而对于TDM，<strong>时间被划分为固定长度的帧</strong>，而<strong>每个帧又被划分为固定数量的时隙</strong>，网络为每个连接指定一个时隙，这些<strong>时隙由这个连接单独使用</strong>，该时隙可用于传递该连接的数据。对于TDM，<strong>一条电路的传输速率等于帧速率乘以一个时隙中传输的的比特速率</strong>。</p>
-<p>分组交换网络相对于电路交换网络，它提供了<strong>更好的带宽共享</strong>，比电路交换<strong>更简单，更有效，实现成本更低</strong>。</p>
-<h4 id="1-3-3-网络的网络"><a href="#1-3-3-网络的网络" class="headerlink" title="1.3.3 网络的网络"></a>1.3.3 网络的网络</h4><p>ISP中同样存在大量互联。第一层ISP为最高层的ISP，区域ISP与第一层ISP相连，如谷歌这样的内容提供商网络也作为与第一层ISP同层次的网络。接入ISP与区域ISP相连，相同层的临近ISP是对等的。</p>
-<h3 id="1-4-分组交换网中的时延，丢包和吞吐量"><a href="#1-4-分组交换网中的时延，丢包和吞吐量" class="headerlink" title="1.4 分组交换网中的时延，丢包和吞吐量"></a>1.4 分组交换网中的时延，丢包和吞吐量</h3><p>在所有时延中最为重要的有四个：<strong>节点处理时延，排队时延，传输时延和传播时延</strong>，这些时延之和为<strong>节点总时延</strong>。检查分组首部和决定将该分组往哪条链路发送时<strong>处理时延</strong>的一部分，此外还有检查比特级差错所需的时间等。<strong>排队时延</strong>为分组在队列中等待传输的时间，一个特定分组的排队时延取决于先期到达的正在排队等待向链路传输的分组数量。<strong>传输时延</strong>是将分组的所有比特推向链路所需的时间，若分组长度为L比特，路由器A到路由器B的传输速率为R bps，则传输时延为L/R。<strong>传播时延</strong>指从该链路的起点传播到下一个路由器所需的时间，该速率取决于链路的物理媒介。</p>
-<p>需要注意的是，传输时延是路由器推出分组所需的时间，它是<strong>分组长度与链路传输速率的函数</strong>，与两台路由器之间的距离无关。传播时延是一个比特从一台路由器到另一台路由器所需的时间，是<strong>两台路由器之间距离的函数</strong>，与分组长度和链路传输速率无关。</p>
-<p>设a为分组到达队列的平均速率，单位为pkt/s（分组每秒），R为传输速率，分组长度为L比特，则<strong>La/R被称作流量强度</strong>，若流量强度大于1，则比特到达队列的平均速率超过发送的速率，使得队列无限延长，排队时延趋于无穷大，因此<strong>设计时流量强度不能大于1</strong>。同样，分组丢失的比例也随着流量强度的增加而增加。</p>
-<p>接收方主机在瞬间接收到文件的速率称为<strong>瞬时吞吐量</strong>。假设某文件由F比特组成，接受该文件使用了T秒，则传输的<strong>平均吞吐量</strong>为F/T bps。吞吐量是瓶颈链路的传输速率，即所有链路中<strong>传输速率的最小值</strong>。在现代因特网中对吞吐量的主要限制因素通常为接入网。当没有其它干扰流量时，吞吐量近似为沿着源和目的之间路径的最小传输速率。一般的，吞吐量不止取决于沿着链路的传输速率，还取决于干扰流量。</p>
-<h3 id="1-5-协议层次及其服务模型"><a href="#1-5-协议层次及其服务模型" class="headerlink" title="1.5 协议层次及其服务模型"></a>1.5 协议层次及其服务模型</h3><p>网络设计者以<strong>分层</strong>的方式组织协议以及实现这些协议的网络硬件和软件。各层的所有协议被称为<strong>协议栈</strong>。因特网协议栈分为五层：<strong>应用层，传输层，网络层，链路层，物理层</strong>。<strong>应用层</strong>是网络应用程序及他们的应用层协议存留的地方，如HTTP，SMTP，FTP，位于该层的分组被称为<strong>报文（message）</strong>。<strong>传输层</strong>在应用程序端点之间传送应用层报文，由<strong>TCP与UDP</strong>两种传输协议提供。TCP提供了<strong>面向连接</strong>的服务，包括报文向目的的确保传递和流量控制，也将长报文划分为短报文，提供拥塞控制机制。UDP则提供<strong>无连接</strong>服务，它不提供不必要的服务，没有可靠性，流量控制与拥塞控制。传输层的分组称为<strong>段（segment）</strong>。<strong>网络层</strong>负责将分组从一台主机移动到另一台主机。网络层的分组称为<strong>数据报（datagram）</strong>。网络层包括IP，IP是唯一的，所有具有网络层的组件必须运行IP。此外还包括决定路由的路由选择协议，根据路由将数据包从源传输到目的地。<strong>链路层</strong>将分组从一个节点移动到路径上的下一个节点，链路层协议包括以太网，WiFi和电缆接入网的DOCSIS协议等。一个数据报可能被沿途不同链路上的不同协议所处理。链路层上的分组称为<strong>帧（frame）</strong>。<strong>物理层</strong>负责将帧中的一个个比特从上一个节点移动到下一个节点。</p>
-<p>开放互联（OSI）模型分为七层：<strong>应用层，表示层，会话层，传输层，网络层，数据链路层，物理层</strong>。其中五层的功能与因特网协议栈大致相同。<strong>表示层</strong>的作用是使通信的应用程序能够解释交换数据的含义。<strong>会话层</strong>则提供了数据交换的定界与同步功能，包括建立检查点和恢复方案的方法。</p>
-<p>链路层交换机实现了因特网协议栈中的第一层和第二层，路由器实现了第一层到第三层。在每一层，分组具有两种类型的字段：<strong>首部字段</strong>与<strong>有效载荷字段</strong>，有效载荷字段通常是来自上一层的分组。</p>
-<h3 id="1-6-面向攻击的网络"><a href="#1-6-面向攻击的网络" class="headerlink" title="1.6 面向攻击的网络"></a>1.6 面向攻击的网络</h3><p><strong>病毒</strong>是一种需要某种形式的用户交互来感染用户设备的恶意文件。<strong>蠕虫</strong>是一种无需任何明显的用户交互就能进入设备的恶意软件。<strong>拒绝服务攻击（DoS）</strong>使得网络，主机或其它设施不能由合法用户使用。DoS大致分为以下几类：<strong>弱点攻击</strong>，指向目标发送精心组织的报文，如HTTP请求走私，HTTP参数毒化等；<strong>带宽泛洪</strong>，指向目标主机发送大量分组；<strong>连接泛洪</strong>，指向目标主机创建大量TCP连接。<strong>分布式DoS（DDoS）</strong>中，攻击者控制多个源并且让每个源都想目标发送大量流量。记录每个流经的分组副本的被动接收器被称为分组嗅探器，最好的防御嗅探的方法基本上都与密码学有关。将具有虚假源地址的分组注入因特网被称为IP欺骗，类似的还有ARP欺骗。</p>
-
-      
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/01/14/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC1%E7%AB%A0/" data-id="cksrngqto000dq4w02ln7b2ew" data-title="《计算机网络-自顶向下方法》学习笔记--第1章" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-渗透常用工具整理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/11/06/%E6%B8%97%E9%80%8F%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2019-11-06T10:45:13.000Z" itemprop="datePublished">2019-11-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Notes/">Notes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/WriteUp in platform">
+                  <b>「 </b>WRITEUP IN PLATFORM<b> 」</b>
+                </a>
+            
+            February 03, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/" title="《计算机网络-自顶向下方法》学习笔记-第3章" class="posttitle">《计算机网络-自顶向下方法》学习笔记-第3章</a></h3>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/11/06/%E6%B8%97%E9%80%8F%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/">渗透常用工具整理</a>
-    </h1>
-  
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        10k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        9 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="第3章-《传输层》"><a href="#第3章-《传输层》" class="headerlink" title="第3章 《传输层》"></a>第3章 《传输层》</h2><h3 id="3-1-概述和传输层服务"><a href="#3-1-概述和传输层服务" class="headerlink" title="3.1 概述和传输层服务"></a>3.1 概述和传输层服务</h3><p>传输层协议为运行在不同主机上的应用提供了<strong>逻辑通信</strong>。通过逻辑通信，运行不同进程的主机好像直接相连一样。传输层中的分组称为<strong>传输层报文段（segment）</strong>。传输层讲这些报文段传递给网络层，网络层将其封装称为网络层分组，即数据报并向目的地发送。网络路由器仅作用于该数据报的网络层字段，即它们不检查封装在该数据报的传输层报文段的字段。传输层<strong>只工作在端系统</strong>中，传输协议能提供的服务常常受制于网络层协议的服务模型。UDP（用户数据报协议）为应用程序提供了一种<strong>不可靠，无连接...</strong></p>
+            
+            <span class="read-more"><a href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>本文整理了一些常用的渗透测试工具的用法，将会持续更新。</p>
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/WriteUp in platform">
+                  <b>「 </b>WRITEUP IN PLATFORM<b> 」</b>
+                </a>
+            
+            January 18, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/" title="《计算机网络-自顶向下方法》学习笔记--第2章" class="posttitle">《计算机网络-自顶向下方法》学习笔记--第2章</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        14k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        13 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="第2章-《应用层》"><a href="#第2章-《应用层》" class="headerlink" title="第2章 《应用层》"></a>第2章 《应用层》</h2><h3 id="2-1-应用层协议原理"><a href="#2-1-应用层协议原理" class="headerlink" title="2.1 应用层协议原理"></a>2.1 应用层协议原理</h3><p>现代网络应用程序有两种主流体系结构，即<strong>客户-服务器（CS）体系结构</strong>或<strong>对等（P2P）结构</strong>。在CS体系结构中，有一个总是打开的主机，称为服务器，它服务来自于其它许多称为客户的主机的请求。<strong>客户之间不直接通信</strong>，<strong>服务器具有固定的，周知的地址</strong>，称为IP地址。在P2P体系结构中，对位于数据中心的专用服务器依赖很小，主机之间直接通信，被称为对等方。其最显著的特征为<strong>自扩展性</strong>，即每个对等方在产生工作负载的同时，也为系统增加服务能力。</p>
+<p>进行通信的实际上是进程而不是程序。对每对通...</p>
+            
+            <span class="read-more"><a href="/2020/01/18/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC2%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/WriteUp in platform">
+                  <b>「 </b>WRITEUP IN PLATFORM<b> 」</b>
+                </a>
+            
+            January 14, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/01/14/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC1%E7%AB%A0/" title="《计算机网络-自顶向下方法》学习笔记--第1章" class="posttitle">《计算机网络-自顶向下方法》学习笔记--第1章</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        7.3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        7 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="第1章-《计算机网络与因特网》"><a href="#第1章-《计算机网络与因特网》" class="headerlink" title="第1章 《计算机网络与因特网》"></a>第1章 《计算机网络与因特网》</h2><h3 id="1-1-什么是因特网"><a href="#1-1-什么是因特网" class="headerlink" title="1.1 什么是因特网"></a>1.1 什么是因特网</h3><p>因特网中所有连接的设备被称作<strong>主机</strong>或<strong>端系统</strong>。其中端系统通过<strong>通信链路</strong>和<strong>分组交换机</strong>相连。通信链路由许多不同的物理媒介构成，如<strong>同轴电缆，铜缆，光纤与无线电频谱</strong>等。分组交换机中最著名的是<strong>路由器</strong>与<strong>链路层交换机</strong>。链路层交换机通常用于接入网中（接入网见1.2节），而路由器通常用于网络核心中。端系统通过<strong>因特网服务提供商</strong>（ISP，见1.3节）接入因特网，ISP同样进行互联。</p>
+<p><strong>协议</strong>控制着因特网中信息的接收和发送，<strong>TCP</strong>（传输控制协议）与<strong>IP</strong>（网际协议）是因特网中最重要...</p>
+            
+            <span class="read-more"><a href="/2020/01/14/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC1%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/Notes">
+                  <b>「 </b>NOTES<b> 」</b>
+                </a>
+            
+            November 06, 2019
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2019/11/06/%E6%B8%97%E9%80%8F%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" title="渗透常用工具整理" class="posttitle">渗透常用工具整理</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        2.9k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        3 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>本文整理了一些常用的渗透测试工具的用法，将会持续更新。</p>
 <h2 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h2><h3 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h3><p>nmap是一种端口扫描工具，通过扫描目的主机，可以得到目的主机上端口开放状态以及端口上运行的协议类型等信息，常用于渗透测试前期对目的主机进行信息搜集。</p>
 <h3 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A -v target_ip </span><br></pre></td></tr></table></figure>
 
@@ -586,142 +485,227 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O -v target_ip</span><br></pre></td></tr></table></figure>
 
 <p>-O：操作系统扫描</p>
-<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><h3 id="用处-1"><a href="#用处-1" class="headerlink" title="用处"></a>用处</h3><p>sqlmap是一种自动化的sql注入漏洞扫描工具，支持显错注入，布尔盲注，延时注入，堆注入和联合查询注入物种查询方式</p>
-<h3 id="常用语法-1"><a href="#常用语法-1" class="headerlink" title="常用语法"></a>常用语法</h3><p>sqlmap的相关参数很多，这里只列出几个常用的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;target_url&quot;</span><br></pre></td></tr></table></figure>
-
-<p>扫描目标url中可能注入的参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;target_url&quot; --dbs</span><br></pre></td></tr></table></figure>
-
-<p>注出数据库名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;target_url&quot; -D database_name --tables</span><br></pre></td></tr></table></figure>
-
-<p>注出给定库中表名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;target_url&quot; -D database_name -T table_name --columns</span><br></pre></td></tr></table></figure>
-
-<p>注出给定表中列名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;target_url&quot; -D database_name -T table_name -C column_name --dump</span><br></pre></td></tr></table></figure>
-
-<p>注出该字段</p>
-
-      
+<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><h3 id="用处-1"><a href="#用处-1" class="headerlink" title="用处"></a>用处</h3><p>sqlmap是一种自动化的sql...</p>
+            
+            <span class="read-more"><a href="/2019/11/06/%E6%B8%97%E9%80%8F%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/11/06/%E6%B8%97%E9%80%8F%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" data-id="cksrnxy2n000i7sw0blcue88d" data-title="渗透常用工具整理" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cybersecurity/">Cybersecurity</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WriteUp-in-platform/">WriteUp in platform</a></li></ul>
     </div>
-  </div>
-
-
-  
     
+</div>
+<div id="preview"></div>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            John Doe
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
         
-          <li>
-            <a href="/2021/05/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%89%E5%85%A8%E6%BC%94%E7%BB%83%E4%B8%AD%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">记一次安全演练中的渗透测试</a>
-          </li>
         
-          <li>
-            <a href="/2020/11/02/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">关于反序列化漏洞的一点思考</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/09/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC5%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记-第5章</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/02/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC4%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记-第4章</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/03/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC3%E7%AB%A0/">《计算机网络-自顶向下方法》学习笔记-第3章</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+    </p>
 </footer>
 
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
     </div>
-    <nav id="mobile-nav">
+</div>
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
 
 
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
 
 
 
 
 
-  </div>
-</body>
 </html>
